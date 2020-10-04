@@ -14,17 +14,17 @@ const Register = () => {
                 title="Customer Login"
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
             >
-                <ul className="breadcrumb__list">
-                    <li>
-                        <Link to="/">
-                            Home
-                        </Link>
-                    </li>
+                {/*<ul className="breadcrumb__list">*/}
+                {/*    <li>*/}
+                {/*        <Link to="/">*/}
+                {/*            Home*/}
+                {/*        </Link>*/}
+                {/*    </li>*/}
 
-                    <li>
-                        Customer Register
-                    </li>
-                </ul>
+                {/*    <li>*/}
+                {/*        Customer Register*/}
+                {/*    </li>*/}
+                {/*</ul>*/}
             </BreadCrumb>
             <div className="login-area space-mt--r130 space-mb--r130">
                 <Container>

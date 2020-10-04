@@ -8,119 +8,119 @@ const Navigation = () => {
             <ul>
                 <li>
                     <Link
-                        to="/"
+                        to="/new"
                     >
                         NEW
                     </Link>
-                    <IoIosArrowDown />
-                    <ul className="sub-menu sub-menu--mega sub-menu--mega--column-5">
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                OUTER
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        LONG COAT
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        SHOT COAT
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        JACKET
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
+                    {/*<IoIosArrowDown />*/}
+                    {/*<ul className="sub-menu sub-menu--mega sub-menu--mega--column-5">*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            OUTER*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    LONG COAT*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    SHOT COAT*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    JACKET*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
 
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                TOP
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        SHIRT
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to=''>
-                                        SWEATSHIRT
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        KNIT
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            TOP*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    SHIRT*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to=''>*/}
+                    {/*                    SWEATSHIRT*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    KNIT*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
 
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                BOTTOM
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        SLACKS
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        COTTON PANTS
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        DENIM
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                ACC
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        HAT
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        TIE
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div className="sub-menu--mega__image">
-                                <img/>
-                            </div>
-                        </li>
-                    </ul>
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            BOTTOM*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    SLACKS*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    COTTON PANTS*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    DENIM*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            ACC*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    HAT*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    TIE*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li>*/}
+                    {/*        <div className="sub-menu--mega__image">*/}
+                    {/*            <img/>*/}
+                    {/*        </div>*/}
+                    {/*    </li>*/}
+                    {/*</ul>*/}
                 </li>
 
                 <li>
                     <Link
-                        to="/"
+                        to="/shop/all"
                     >
                         SHOP
                     </Link>
