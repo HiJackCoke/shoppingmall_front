@@ -3,10 +3,12 @@ import {Link} from 'react-router-dom';
 import { Container, Row, Col} from 'react-bootstrap';
 
 
+
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
 import ShopHeader from "../../components/Shop/ShopHeader";
 import ShopProducts from "../../components/Shop/ShopProducts";
+
 
 const ShopAll = ({product}) => {
 
@@ -34,6 +36,7 @@ const ShopAll = ({product}) => {
                 {/*    </li>*/}
                 {/*</ul>*/}
             </BreadCrumb>
+
             <div className="shop-page-content">
                 <ShopHeader/>
 

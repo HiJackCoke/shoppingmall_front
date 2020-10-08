@@ -26,14 +26,14 @@ const ProductGridList = ({
                             className="image-wrap"
                         >
                             <img
-                                src={product.image}
+                                src={product.images[0].url}
                                 className="img-fluid"
                                 alt={product.name}
                             />
-                            {product.image.length > 1 ? (
+                            {product.images.length > 1 ? (
                                 <img
                                     className="img-fluid"
-                                    src={product.image[1]}
+                                    src={product.images[1].url}
                                     alt={product.name}
                                 />
                             ) : (

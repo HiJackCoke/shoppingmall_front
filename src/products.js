@@ -12,7 +12,11 @@ const products = [
         countInStock: 3,
         rating: 4.5,
         numReviews: 4,
-        new: 1
+        new: 1,
+        variation : {
+            color: "red",
+            size: "ML"
+        }
     },
     {
         _id: '2',
@@ -26,6 +30,7 @@ const products = [
         countInStock: 10,
         rating: 4.0,
         numReviews: 4,
+        stock: 0
     },
     {
         _id: '3',
