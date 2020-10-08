@@ -22,7 +22,7 @@ const ProductGridList = ({
                     {/*Product Image*/}
                     <div className="product-grid__image">
                         <Link
-                            to={`/shop/${product._id}`}
+                            to={`/shop/${product.id}`}
                             className="image-wrap"
                         >
                             <img

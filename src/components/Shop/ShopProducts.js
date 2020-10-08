@@ -30,7 +30,6 @@ const ShopProducts = ({layout}) => {
     return (
         <div className="shop-products">
             <Row className={layout}>
-                {products.length}
                 {products.map((product) => (
                     <ProductGridWrapper key={product._id} product={product}/>
                 ))}

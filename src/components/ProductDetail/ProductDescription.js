@@ -13,11 +13,11 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                         <span>${discountedPrice}</span>
                     </Fragment>
                 ) : (
-                    <span className="main-price">{product.price}</span>
+                    <span className="main-price"> $ {product.price}</span>
                 )}
             </div>
             <div className="product-content__description space-mb--30">
-                <p>{product.shortDescription}</p>
+                <p>{product.description}</p>
             </div>
 
             <div className="product-content__size-color">
@@ -37,19 +37,19 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                         {/*        )})*/}
                         {/*    : ""*/}
                         {/*})}*/}
-                        {product.variation &&
-                            product.variation.color === "red"
-                            ? <Fragment>
+                        {/*{product.variation &&*/}
+                        {/*    product.variation.color === "red"*/}
+                        {/*    ? <Fragment>*/}
                                 <input
                                     type="radio"
-                                    value={product.variation.size}
+                                    value={product.size}
                                 />
-                                <label htmlFor={product.variation.size}>
-                                    {product.variation.size}
+                                <label htmlFor={product.size}>
+                                    {product.size}
                                 </label>
-                            </Fragment>
-                            : ""
-                        }
+                        {/*    </Fragment>*/}
+                        {/*    : ""*/}
+                        {/*}*/}
                     </div>
                 </div>
 

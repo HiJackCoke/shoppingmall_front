@@ -56,29 +56,30 @@ const ImageGalleryBottomThumb = ({
 
                 <LightgalleryProvider>
                     <Swiper>
-                        {/*{product.image && product.image.map((image, i) => {*/}
-                        {/*    return (*/}
-                        {/*        <div key={i}>*/}
-                        {/*            <LightgalleryItem*/}
-                        {/*                group="any"*/}
-                        {/*                src={product.image}*/}
-                        {/*            >*/}
-                        {/*                <IoMdExpand/>*/}
-                        {/*            </LightgalleryItem>*/}
-                        {/*            <div className="single-image">*/}
-                        {/*                <img*/}
-                        {/*                    src={product.image}*/}
-                        {/*                    className="img-fluid"*/}
-                        {/*                    alt=""*/}
-                        {/*                />*/}
-                        {/*            </div>*/}
-                        {/*        </div>*/}
-                        {/*    )*/}
-                        {/*})}*/}
+                        {product.images && product.images.map((image, i) => {
+                            console.log("++++++++++++++++++++", product.images)
+                            return (
+                                <div key={i}>
+                                    <LightgalleryItem
+                                        group="any"
+                                        src={image.url}
+                                    >
+                                        <IoMdExpand/>
+                                    </LightgalleryItem>
+                                    <div className="single-image">
+                                        <img
+                                            src={image.url}
+                                            className="img-fluid"
+                                            alt=""
+                                        />
+                                    </div>
+                                </div>
+                            )
+                        })}
                         <div>
                             <LightgalleryItem
                                 group="any"
-                                src={product.image}
+                                src={product.url}
                             >
                                 <Tooltip
                                     title="Click to enlarge"
@@ -95,7 +96,7 @@ const ImageGalleryBottomThumb = ({
                             </LightgalleryItem>
                             <div className="single-image">
                                 <img
-                                    src={product.image}
+                                    src={product.url}
                                     className="img-fluid"
                                     alt=""
                                 />
@@ -106,19 +107,19 @@ const ImageGalleryBottomThumb = ({
             </div>
 
             {/*//imagesperview*/}
-            {/*<div className="product-small-image-wrapper">*/}
-            {/*    <Swiper>*/}
-            {/*        <div>*/}
-            {/*            <div className="single-image">*/}
-            {/*                <img*/}
-            {/*                    src={product.image}*/}
-            {/*                    className="img-fluid"*/}
-            {/*                    alt=""*/}
-            {/*                />*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </Swiper>*/}
-            {/*</div>*/}
+            <div className="product-small-image-wrapper">
+                <Swiper>
+                    <div>
+                        <div className="single-image">
+                            <img
+                                src={product.images}
+                                className="img-fluid"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                </Swiper>
+            </div>
         </Fragment>
     );
 };
