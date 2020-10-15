@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { Container, Row, Col} from 'react-bootstrap';
 
+import Swiper from 'react-id-swiper'
+
 
 
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
@@ -47,7 +49,6 @@ const ShopAll = ({product}) => {
                                 <ShopProducts
                                     product={product}
                                     layout={layout}
-
                                 />
                             </Col>
                         </Row>

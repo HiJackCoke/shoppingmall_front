@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import { Tab, Nav, Container, Row, Col } from 'react-bootstrap';
 import {IoIosAdd} from 'react-icons/io';
+import ShopProducts from "../Shop/ShopProducts";
 
 
 const ProductTab = () => {
@@ -30,30 +31,31 @@ const ProductTab = () => {
                         </Tab.Pane>
                         <Tab.Pane eventKey="popular">
                             <Row className="space-mb--rm50">
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
+                                <ShopProducts/>
+                                <img src={require('../../assets/images/product/fashion/6.jpg')}
                                      className="space-mb--r50 col-lg-4 col-md-6"
                                 />
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
-                                <img src={require('../../assets/images/product/decor/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
+                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
+                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
+                                {/*/>*/}
+                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
+                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
+                                {/*/>*/}
+                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
+                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
+                                {/*/>*/}
+                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
+                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
+                                {/*/>*/}
+                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
+                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
+                                {/*/>*/}
+                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
+                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
+                                {/*/>*/}
+                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
+                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
+                                {/*/>*/}
                             </Row>
                         </Tab.Pane>
                         <Tab.Pane eventKey="sale">

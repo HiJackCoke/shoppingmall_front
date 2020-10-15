@@ -22,7 +22,7 @@ const ProductPage = ({
 
     const getData = async () => {
         const {data} = await axios.get(`/products/${id}`)
-        console.log("---------------------", `http://localhost:1337${data.images[0].url}`)
+        console.log("---------------------", `http://localhost:1337${data.images.url}`)
         setProduct(data)
     //
     //     console.log(data)
@@ -32,7 +32,7 @@ const ProductPage = ({
 
     useEffect(() => {
         getData()
-    }, {})
+    }, [])
 
 
     // const product = products.find((p) => p._id === match.params.id)
@@ -43,7 +43,7 @@ const ProductPage = ({
             <BreadCrumb
 
                 title={product.name}
-                backgroundImage={product.images}
+                backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
 
             />
 
@@ -52,7 +52,6 @@ const ProductPage = ({
                 <Container>
                     <Row>
                         <Col lg={6} className="space-mb-mobile-only--50">
-                            {}
                             <ImageGalleryBottomThumb
                                 product={product}
                                 wishlistItem={wishlistItem}

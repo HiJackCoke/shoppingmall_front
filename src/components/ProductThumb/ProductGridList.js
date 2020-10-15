@@ -79,7 +79,7 @@ const ProductGridList = ({
                     <div className="product-grid__content">
                         <div className="title">
                             <h3>
-                                <Link to={`/shop/${product._id}`}>
+                                <Link to={`/shop/${product.id}`}>
                                     {product.name}
                                 </Link>
                             </h3>

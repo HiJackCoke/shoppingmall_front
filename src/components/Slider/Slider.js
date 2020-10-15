@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Swiper from "react-id-swiper";
 import { Container, Row, Col } from 'react-bootstrap';
-import bgImage from '../../assets/images/backgrounds/404-bg.jpg';
+import bgImage from '../../assets/images/slide/DSC08242n.jpg';
 
 const Slider = ({sliderData}) => {
 

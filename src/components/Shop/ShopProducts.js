@@ -5,7 +5,7 @@ import {Row} from 'react-bootstrap';
 
 import axios from 'axios'
 
-import ProductGridWrapper from "../ProductThumb/ProductGridListWrapper";
+import {ProductGridWrapper} from "../ProductThumb/ProductGridListWrapper";
 
 
 const ShopProducts = ({layout}) => {
@@ -31,7 +31,7 @@ const ShopProducts = ({layout}) => {
         <div className="shop-products">
             <Row className={layout}>
                 {products.map((product) => (
-                    <ProductGridWrapper key={product._id} product={product}/>
+                    <ProductGridWrapper key={product.id} product={product}/>
                 ))}
             </Row>
         </div>

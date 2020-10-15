@@ -65,7 +65,7 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
                                     alt=""
                                 />
                                 <img
-                                    src={require("../../assets/images/logo-alt.png")}
+                                    src={require("../../assets/images/logo-white.png")}
                                     className="img-fluid white-logo"
                                     alt=""
                                 />

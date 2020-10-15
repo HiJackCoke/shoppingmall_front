@@ -4,6 +4,7 @@ import Swiper from "react-id-swiper";
 import {IoIosHeartEmpty, IoMdExpand} from 'react-icons/io'
 import {Tooltip} from 'react-tippy';
 
+
 const ImageGalleryBottomThumb = ({
  product,
  wishlistItem,
@@ -11,6 +12,45 @@ const ImageGalleryBottomThumb = ({
  addToWishlist,
  addToast
 }) => {
+
+    const [gallerySwiper, getGallerySwiper] = useState(null)
+    const [thumbnailSwiper, getThumbnailSwiper] = useState(null)
+
+    useEffect(() => {
+        if (
+            gallerySwiper !== null &&
+            gallerySwiper.controller &&
+            thumbnailSwiper !== null &&
+            thumbnailSwiper.controller
+        ) {
+            gallerySwiper.controller.control = thumbnailSwiper;
+            thumbnailSwiper.controller.control = gallerySwiper;
+        }
+    }, [gallerySwiper, thumbnailSwiper]);
+
+    const gallerySwiperParams = {
+        getSwiper: getGallerySwiper,
+        spaceBetween: 10,
+        loopedSlides: 4,
+        loop: true,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+        },
+    };
+
+    const thumbnailSwiperParams = {
+        getSwiper: getThumbnailSwiper,
+        slidesPerView: 4,
+        loopedSlides: 4,
+        touchRatio: 0.2,
+        freeMode: true,
+        loop: true,
+        slideToClickedSlide: true,
+        centeredSlides: true,
+    }
 
     return (
         <Fragment>
@@ -55,7 +95,7 @@ const ImageGalleryBottomThumb = ({
                 </div>
 
                 <LightgalleryProvider>
-                    <Swiper>
+                    <Swiper {...gallerySwiperParams}>
                         {product.images && product.images.map((image, i) => {
                             console.log("++++++++++++++++++++", product.images)
                             return (
@@ -64,7 +104,18 @@ const ImageGalleryBottomThumb = ({
                                         group="any"
                                         src={image.url}
                                     >
-                                        <IoMdExpand/>
+                                        <Tooltip
+                                            title="Click to enlarge"
+                                            position="left"
+                                            trigger="mouseenter"
+                                            animation="shift"
+                                            arrow={true}
+                                            duration={200}
+                                        >
+                                            <button className="enlarge-icon">
+                                                <IoMdExpand/>
+                                            </button>
+                                        </Tooltip>
                                     </LightgalleryItem>
                                     <div className="single-image">
                                         <img
@@ -76,48 +127,26 @@ const ImageGalleryBottomThumb = ({
                                 </div>
                             )
                         })}
-                        <div>
-                            <LightgalleryItem
-                                group="any"
-                                src={product.url}
-                            >
-                                <Tooltip
-                                    title="Click to enlarge"
-                                    position="left"
-                                    trigger="mouseenter"
-                                    animation="shift"
-                                    arrow={true}
-                                    duration={200}
-                                >
-                                    <button className="enlarge-icon">
-                                        <IoMdExpand/>
-                                    </button>
-                                </Tooltip>
-                            </LightgalleryItem>
-                            <div className="single-image">
-                                <img
-                                    src={product.url}
-                                    className="img-fluid"
-                                    alt=""
-                                />
-                            </div>
-                        </div>
                     </Swiper>
                 </LightgalleryProvider>
             </div>
 
-            {/*//imagesperview*/}
+            {/*//Small Image*/}
             <div className="product-small-image-wrapper">
-                <Swiper>
-                    <div>
-                        <div className="single-image">
-                            <img
-                                src={product.images}
-                                className="img-fluid"
-                                alt=""
-                            />
-                        </div>
-                    </div>
+                <Swiper {...thumbnailSwiperParams}>
+                    {product.images && product.images.map((image, i) => {
+                        return (
+                            <div key={i}>
+                                <div className="single-image">
+                                    <img
+                                        src={image.url}
+                                        className="img-fluid"
+                                        alt=""
+                                    />
+                                </div>
+                            </div>
+                        )
+                    })}
                 </Swiper>
             </div>
         </Fragment>
