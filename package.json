@@ -28,7 +28,7 @@
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "swiper": "5.3.6"
+    "swiper": "^6.3.3"
   },
   "scripts": {
     "start": "react-scripts start",

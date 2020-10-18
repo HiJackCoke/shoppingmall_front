@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { Col } from "react-bootstrap";
 import {Link} from 'react-router-dom'
-import { IoIosHeartEmpty, IoIosShuffle, IoIosSearch } from "react-icons/io";
+import { IoIosHeartEmpty, IoIosCart, IoIosSearch } from "react-icons/io";
 import { Tooltip } from "react-tippy";
 import ProductModal from "./ProductModal";
 
@@ -35,7 +35,7 @@ const HomeGrid = ({
                     {/*=======  single product image  =======*/}
                     <div className="product-grid__image">
                         <Link
-                            to="/"
+                            to={`/shop/${product.id}`}
                             className="image-wrap"
                         >
                             <img
@@ -69,71 +69,52 @@ const HomeGrid = ({
                         </div>
                         <div className="product-grid__floating-icons">
                             {/* add to wishlist */}
-                            {/*<Tooltip*/}
-                            {/*    title={*/}
-                            {/*        wishlistItem !== undefined*/}
-                            {/*            ? "Added to wishlist"*/}
-                            {/*            : "Add to wishlist"*/}
-                            {/*    }*/}
-                            {/*    position="left"*/}
-                            {/*    trigger="mouseenter"*/}
-                            {/*    animation="shift"*/}
-                            {/*    arrow={true}*/}
-                            {/*    duration={200}*/}
-                            {/*>*/}
-                            {/*    <button*/}
-                            {/*        onClick={*/}
-                            {/*            wishlistItem !== undefined*/}
-                            {/*                ? () => deleteFromWishlist(product, addToast)*/}
-                            {/*                : () => addToWishlist(product, addToast)*/}
-                            {/*        }*/}
-                            {/*        className={wishlistItem !== undefined ? "active" : ""}*/}
-                            {/*    >*/}
+                            <Tooltip
+                                title={
+                                    wishlistItem !== undefined
+                                        ? "Added to wishlist"
+                                        : "Add to wishlist"
+                                }
+                                position="left"
+                                trigger="mouseenter"
+                                animation="shift"
+                                arrow={true}
+                                duration={200}
+                            >
+                                <button
+                                    onClick={
+                                        wishlistItem !== undefined
+                                            ? () => deleteFromWishlist(product, addToast)
+                                            : () => addToWishlist(product, addToast)
+                                    }
+                                    className={wishlistItem !== undefined ? "active" : ""}
+                                >
                                     <IoIosHeartEmpty />
-                            {/*    </button>*/}
-                            {/*</Tooltip>*/}
-
-                            {/* add to compare */}
-                            {/*<Tooltip*/}
-                            {/*    title={*/}
-                            {/*        compareItem !== undefined*/}
-                            {/*            ? "Added to compare"*/}
-                            {/*            : "Add to compare"*/}
-                            {/*    }*/}
-                            {/*    position="left"*/}
-                            {/*    trigger="mouseenter"*/}
-                            {/*    animation="shift"*/}
-                            {/*    arrow={true}*/}
-                            {/*    duration={200}*/}
-                            {/*>*/}
-                            {/*    <button*/}
-                            {/*        onClick={*/}
-                            {/*            compareItem !== undefined*/}
-                            {/*                ? () => deleteFromCompare(product, addToast)*/}
-                            {/*                : () => addToCompare(product, addToast)*/}
-                            {/*        }*/}
-                            {/*        className={compareItem !== undefined ? "active" : ""}*/}
-                            {/*    >*/}
-                                    <IoIosShuffle />
-                            {/*    </button>*/}
-                            {/*</Tooltip>*/}
+                                </button>
+                            </Tooltip>
 
                             {/* quick view */}
-                            {/*<Tooltip*/}
-                            {/*    title="Quick view"*/}
-                            {/*    position="left"*/}
-                            {/*    trigger="mouseenter"*/}
-                            {/*    animation="shift"*/}
-                            {/*    arrow={true}*/}
-                            {/*    duration={200}*/}
-                            {/*>*/}
-                            {/*    <button*/}
-                            {/*        onClick={() => setModalShow(true)}*/}
-                            {/*        className="d-none d-lg-block"*/}
-                            {/*    >*/}
+                            <Tooltip
+                                title="Quick view"
+                                position="left"
+                                trigger="mouseenter"
+                                animation="shift"
+                                arrow={true}
+                                duration={200}
+                            >
+                                <button
+                                    onClick={() => setModalShow(true)}
+                                    className="d-none d-lg-block"
+                                >
                                     <IoIosSearch />
-                            {/*    </button>*/}
-                            {/*</Tooltip>*/}
+                                </button>
+                            </Tooltip>
+
+                            {/* add to cart */}
+                            <button className="d-none d-lg-block">
+                                <IoIosCart/>
+                            </button>
+
                         </div>
                     </div>
 
@@ -147,30 +128,10 @@ const HomeGrid = ({
                                     {product.name}
                                 </Link>
                             </h3>
-                            {/* add to cart */}
-                            {/*{product.affiliateLink ? (*/}
-                            {/*    <Link to="/" target="_blank">*/}
-                            {/*        Buy now*/}
-                            {/*    </Link>*/}
-                            {/*) : product.variation && product.variation.length >= 1 ? (*/}
-                            {/*    <Link*/}
-                            {/*        to="/"*/}
-                            {/*    >*/}
-                            {/*        Select Option*/}
-                            {/*    </Link>*/}
-                            {/*) : product.stock && product.stock > 0 ? (*/}
-                            {/*    <button*/}
-                            {/*        onClick={() => addToCart(product, addToast)}*/}
-                            {/*        disabled={*/}
-                            {/*            cartItem !== undefined &&*/}
-                            {/*            cartItem.quantity >= cartItem.stock*/}
-                            {/*        }*/}
-                            {/*    >*/}
-                            {/*        {cartItem !== undefined ? "Added to cart" : "Add to cart"}*/}
-                            {/*    </button>*/}
-                            {/*) : (*/}
-                            {/*    <button disabled>Out of Stock</button>*/}
-                            {/*)}*/}
+
+
+
+
                         </div>
                         <div className="price">
                             {product.discount > 0 ? (

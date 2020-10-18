@@ -15,12 +15,12 @@ const SliderTwo = ({ sliderData, spaceBottomClass }) => {
             prevEl: ".swiper-button-prev"
         },
 
-        // renderPrevButton: () => (
-        //     <button className="swiper-button-prev ht-swiper-button-nav">Prev</button>
-        // ),
-        // renderNextButton: () => (
-        //     <button className="swiper-button-next ht-swiper-button-nav">Next</button>
-        // )
+        renderPrevButton: () => (
+            <button className="swiper-button-prev ht-swiper-button-nav">Prev</button>
+        ),
+        renderNextButton: () => (
+            <button className="swiper-button-next ht-swiper-button-nav">Next</button>
+        )
     };
     return (
         <div

@@ -41,47 +41,5 @@ const HomeGridWrapper = ({
         </Fragment>
     );
 };
-//
-// const mapStateToProps = (state) => {
-//     return {
-//         cartItems: state.cartData,
-//         wishlistItems: state.wishlistData,
-//         compareItems: state.compareData
-//     };
-// };
-//
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         addToCart: (
-//             item,
-//             addToast,
-//             quantityCount,
-//             selectedProductColor,
-//             selectedProductSize
-//         ) => {
-//             dispatch(
-//                 addToCart(
-//                     item,
-//                     addToast,
-//                     quantityCount,
-//                     selectedProductColor,
-//                     selectedProductSize
-//                 )
-//             );
-//         },
-//         addToWishlist: (item, addToast) => {
-//             dispatch(addToWishlist(item, addToast));
-//         },
-//         deleteFromWishlist: (item, addToast) => {
-//             dispatch(deleteFromWishlist(item, addToast));
-//         },
-//         addToCompare: (item, addToast) => {
-//             dispatch(addToCompare(item, addToast));
-//         },
-//         deleteFromCompare: (item, addToast) => {
-//             dispatch(deleteFromCompare(item, addToast));
-//         }
-//     };
-// };
 
 export default HomeGridWrapper
