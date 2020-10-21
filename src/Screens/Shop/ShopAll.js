@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import { Container, Row, Col} from 'react-bootstrap';
 
@@ -10,15 +10,29 @@ import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
 import ShopHeader from "../../components/Shop/ShopHeader";
 import ShopProducts from "../../components/Shop/ShopProducts";
+import axios from "axios";
 
 
-const ShopAll = ({product}) => {
+const ShopAll = () => {
 
     const [layout, setLayout] = useState("grid four-column");
+    const [products, setProducts] = useState([])
 
-    const getLayout = (layout) => {
-        setLayout(layout)
+    const getData = async () => {
+        const {data} = await axios.get('/products')
+        setProducts(data)
+
+        console.log(data)
     }
+
+
+    useEffect(() => {
+
+        getData()
+
+
+    }, [])
+
 
     return (
         <LayoutTwo>
@@ -47,7 +61,7 @@ const ShopAll = ({product}) => {
                         <Row>
                             <Col>
                                 <ShopProducts
-                                    product={product}
+                                    products={products}
                                     layout={layout}
                                 />
                             </Col>

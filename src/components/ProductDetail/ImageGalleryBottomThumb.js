@@ -67,32 +67,32 @@ const ImageGalleryBottomThumb = ({
                 </div>
 
                 {/*wishlist button*/}
-                <div className="product-details-button-wrapper">
-                    <Tooltip
-                        title={
-                            wishlistItem !== undefined
-                            ? "Added to wishlist"
-                            : "Add to wishlist"
-                        }
-                        position="left"
-                        trigget="mouseenter"
-                        animation="shift"
-                        arrow={true}
-                        duration={200}
-                    >
-                        <button
-                            className={`wishlist-icon ${wishlistItem !== undefined
-                                ? "active"
-                                : ""}`}
-                            onClick={wishlistItem !== undefined
-                                ? () => deleteFromWishlist(product, addToast)
-                                : () => addToWishlist(product, addToast)
-                            }
-                        >
-                            <IoIosHeartEmpty/>
-                        </button>
-                    </Tooltip>
-                </div>
+                {/*<div className="product-details-button-wrapper">*/}
+                {/*    <Tooltip*/}
+                {/*        title={*/}
+                {/*            wishlistItem !== undefined*/}
+                {/*            ? "Added to wishlist"*/}
+                {/*            : "Add to wishlist"*/}
+                {/*        }*/}
+                {/*        position="left"*/}
+                {/*        trigget="mouseenter"*/}
+                {/*        animation="shift"*/}
+                {/*        arrow={true}*/}
+                {/*        duration={200}*/}
+                {/*    >*/}
+                {/*        <button*/}
+                {/*            className={`wishlist-icon ${wishlistItem !== undefined*/}
+                {/*                ? "active"*/}
+                {/*                : ""}`}*/}
+                {/*            onClick={wishlistItem !== undefined*/}
+                {/*                ? () => deleteFromWishlist(product, addToast)*/}
+                {/*                : () => addToWishlist(product, addToast)*/}
+                {/*            }*/}
+                {/*        >*/}
+                {/*            <IoIosHeartEmpty/>*/}
+                {/*        </button>*/}
+                {/*    </Tooltip>*/}
+                {/*</div>*/}
 
                 <LightgalleryProvider>
                     <Swiper {...gallerySwiperParams}>

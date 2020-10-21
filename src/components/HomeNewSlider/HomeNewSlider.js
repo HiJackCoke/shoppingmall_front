@@ -1,64 +1,55 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import Swiper from "react-id-swiper";
-import axios from 'axios';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+
 import { Container, Row, Col } from "react-bootstrap";
-import 'swiper/components/pagination/pagination.scss'
 
 import HomeGridWrapper from "../ProductThumb/HomeGridWrapper";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
 
-const HomeNewSlider = ({spaceBottomClass, slider}) => {
-
-    const [products, setProducts] = useState([])
-
-    const getData = async () => {
-        const {data} = await axios.get('/products')
-        setProducts(data)
-        console.log(data)
-    }
-
-    useEffect(() => {
-        getData()
-    }, [])
+const HomeNewSlider = ({spaceBottomClass, products}) => {
 
     const params = {
         slidesPerView: 5,
         spaceBetween: 30,
-        grabCursor: true,
-        // autoplay: {
-        //   delay: 5000,
-        //   disableOnInteraction: false,
-        // },
+        transform: {
+            duration: 0
+        },
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
         pagination: {
             el: ".swiper-pagination",
             clickable: true
         },
-        // breakpoints: {
-        //     1024: {
-        //         slidesPerView: 5
-        //     },
-        //     768: {
-        //         slidesPerView: 3
-        //     },
-        //     640: {
-        //         slidesPerView: 2
-        //     },
-        //     320: {
-        //         slidesPerView: 1
-        //     }
-        // }
+        breakpoints: {
+            1024: {
+                slidesPerView: 5
+            },
+            768: {
+                slidesPerView: 3
+            },
+            640: {
+                slidesPerView: 2
+            },
+            320: {
+                slidesPerView: 1
+            }
+        }
     };
 
 
     return (
-        <div className="product-slider-wrapper space-mb--r100">
-            <Container>
-                <SectionTitle
-                    title="New Items"
-                />
-            </Container>
-            <div className="product-slider-container product-slider-container--style2">
+    <div className="product-slider-wrapper space-mb--r100">
+        <Container>
+            <SectionTitle
+                title="New Itemssss"
+            />
+        </Container>
+        <div className="product-slider-container product-slider-container--style2">
+            {products.length > 0 ?
                 <Swiper{...params}>
                     {products.map((product) => (
                         <HomeGridWrapper
@@ -69,9 +60,29 @@ const HomeNewSlider = ({spaceBottomClass, slider}) => {
                         />
                     ))}
 
-                </Swiper>
-            </div>
+                </Swiper> : false
+            }
+
         </div>
+    </div>
+
+
+
+    // <div
+    //     className="swiper-container swiper-container-horizontal swiper-container-free-mode"
+    // >
+    //     <Swiper{...params}>
+    //         <div
+    //             className="swiper-wrapper"
+    //         >
+    //             {products.map((product) => (
+    //                 <ProductGridWrapper key={product.id} product={product}/>
+    //             ))}
+    //         </div>
+    //     </Swiper>
+    // </div>
     )
 }
+
+
 export default HomeNewSlider;

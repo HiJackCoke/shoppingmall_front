@@ -36,7 +36,6 @@ const HomeGrid = ({
                     <div className="product-grid__image">
                         <Link
                             to={`/shop/${product.id}`}
-                            className="image-wrap"
                         >
                             <img
                                 src={product.images[0].url}

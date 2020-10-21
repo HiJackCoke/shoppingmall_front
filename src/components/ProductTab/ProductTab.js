@@ -5,7 +5,7 @@ import {IoIosAdd} from 'react-icons/io';
 import ShopProducts from "../Shop/ShopProducts";
 
 
-const ProductTab = () => {
+const ProductTab = ({products}) => {
     return (
         <div className="product-tab space-mb--r100">
             <Container className="wide">
@@ -31,31 +31,7 @@ const ProductTab = () => {
                         </Tab.Pane>
                         <Tab.Pane eventKey="popular">
                             <Row className="space-mb--rm50">
-                                <ShopProducts/>
-                                <img src={require('../../assets/images/product/fashion/6.jpg')}
-                                     className="space-mb--r50 col-lg-4 col-md-6"
-                                />
-                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
-                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
-                                {/*/>*/}
-                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
-                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
-                                {/*/>*/}
-                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
-                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
-                                {/*/>*/}
-                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
-                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
-                                {/*/>*/}
-                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
-                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
-                                {/*/>*/}
-                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
-                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
-                                {/*/>*/}
-                                {/*<img src={require('../../assets/images/product/fashion/6.jpg')}*/}
-                                {/*     className="space-mb--r50 col-lg-4 col-md-6"*/}
-                                {/*/>*/}
+                                <ShopProducts products={products}/>
                             </Row>
                         </Tab.Pane>
                         <Tab.Pane eventKey="sale">
@@ -68,7 +44,7 @@ const ProductTab = () => {
                 <Row>
                     <Col lg={12} className="mt-5 text-center">
                         <Link
-                            to="/"
+                            to="/shop/all"
                             className="lezada-button lezada-button--medium lezada-button--icon--left"
                         >
                             <IoIosAdd />

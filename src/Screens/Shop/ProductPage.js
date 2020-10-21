@@ -1,11 +1,12 @@
 import React, {useState,useEffect} from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
 
+
 import {LayoutTwo} from '../../components/Layout/Layout'
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
-// import products from "../../products";
+
 import {ImageGalleryBottomThumb, ProductDescription} from "../../components/ProductDetail";
 
 
@@ -28,12 +29,17 @@ const ProductPage = ({
     //     console.log(data)
     }
 
-
-
     useEffect(() => {
         getData()
     }, [])
 
+    const [activeTab, setActiveTab] = useState(1)
+
+    const toggle = (tab) => {
+        if(activeTab !== tab) {
+            setActiveTab(tab)
+        }
+    }
 
     // const product = products.find((p) => p._id === match.params.id)
 
@@ -41,7 +47,6 @@ const ProductPage = ({
         <LayoutTwo>
 
             <BreadCrumb
-
                 title={product.name}
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
 
@@ -66,9 +71,11 @@ const ProductPage = ({
                                 product={product}
                             />
                         </Col>
+
                     </Row>
                 </Container>
             </div>
+
         </LayoutTwo>
     );
 };

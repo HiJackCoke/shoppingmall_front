@@ -1,10 +1,45 @@
 import React, {Fragment, useState} from 'react';
+import {Link} from 'react-router-dom';
+import {IoIosHeartEmpty} from 'react-icons/io'
+import {IoIosCart} from "react-icons/io/index";
+
 
 const ProductDescription = ({product, productPrice, discountedPrice, color}) => {
 
     const [selectedProductColor, setSelectedProductColor] = useState(
-        product.variation ? product.variation[0].color : ""
+        product ? product.color : ""
     )
+
+    const [selectedProductSize, setSelectedProductSize] = useState(
+        product ? product.size : ""
+    )
+
+    const [productStock, setProductStock] = useState(
+        product ? product.stock : "stock"
+    )
+
+
+
+
+    const [quantityCount, setQuantityCount] = useState(1)
+
+    const orderMinusCount = (number) => {
+        if(quantityCount >= 1) {
+            setQuantityCount(quantityCount - 1)
+        }
+
+    }
+
+    const orderPlusCount = (number, stockCount) => {
+        if(quantityCount >= stockCount) {
+            setQuantityCount(stockCount)
+        }
+        else {
+            setQuantityCount(quantityCount + 1)
+        }
+    }
+
+    console.log(product)
 
     return (
         <div className="product-content">
@@ -50,11 +85,22 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                             <input
                                 type="radio"
                                 value={product.color}
+                                name="product-color"
+                                id={product.color}
+                                checked={
+                                    product.color === selectedProductColor ? "checked" : ""
+                                }
+                                onChange={() => {
+                                    setSelectedProductColor(product.color)
+                                    setSelectedProductSize(product.size)
+                                    setProductStock(product.stock)
+                                    setQuantityCount(1)
+                                }}
                             />
                             <label
                                 htmlFor={product}
                             >
-                                {product.color}
+
                             </label>
                         </Fragment>
                     </div>
@@ -85,6 +131,17 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                             <input
                                 type="radio"
                                 value={product.size}
+                                checked={
+                                    product.size === selectedProductSize
+                                        ? "checked"
+                                        : ""
+                                }
+                                id={product.size}
+                                onChange={() => {
+                                    setSelectedProductSize(product.size)
+                                    setProductStock(product.stock)
+                                    setQuantityCount(1)
+                                }}
                             />
                             <label htmlFor={product}>
                                 {product.size}
@@ -94,6 +151,93 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                     </div>
                 </div>
             </div>
+
+            <Fragment>
+                <div className="product-content__quantity space-mb--40">
+                    <div className="product-content__quantity__title">Quantity</div>
+                    <div className="cart-plus-minus">
+                        <button
+                            className="qtybutton"
+                            onClick={() => orderMinusCount(setQuantityCount)}
+                            // onClick={() => {
+                            //     setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
+                            // }}
+                        >
+                            -
+                        </button>
+                        <input
+                            className="cart-plus-minus-box"
+                            type="text"
+                            value={quantityCount}
+                            readOnly
+                        />
+                        <button
+                            className="qtybutton"
+                            onClick={() => orderPlusCount(setQuantityCount, product.stock)}
+
+
+                                // setQuantityCount(
+                                //     quantityCount + 1
+                                //     quanti      onClick={() => orderCount(setQuantityCount)}tyCount < productStock
+                                //         ? quantityCount + 1
+                                //         : quantityCount
+                                // )
+                        >
+                            +
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <table
+                        style={{
+                            borderTop: "groove",
+                            backgroundColor: "whitesmoke",
+                            color: "black",
+                            letterSpacing: "1px",
+                            margin: "20px 0px 30px",
+                            width: "100%",
+                            textAlign: "center",
+                            lineHeight: "2.5"
+                        }}
+                    >
+                        <thead
+                            style={{
+                                backgroundColor:"white",
+                                display: "table-header-group",
+                            }}
+                        >
+                            <tr>
+                                <td>Product Info</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>{product.name} / {product.size}</td>
+                                <td>1</td>
+                                <td>{product.price}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div className="product-content__button-wrapper d-flex align-items-center">
+                    <button
+                        className="lezada-button lezada-button--medium product-content__cart space-mr--10"
+                    >
+                        Buy Now
+                    </button>
+                    <button className="product-content__wishlist space-mr--10">
+                        <IoIosHeartEmpty />
+                    </button>
+                    <button className="product-content__wishlist space-mr--10">
+                        <IoIosCart/>
+                    </button>
+                </div>
+            </Fragment>
         </div>
     );
 };
