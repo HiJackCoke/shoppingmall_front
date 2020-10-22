@@ -12,10 +12,7 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
 
     const params = {
         slidesPerView: 5,
-        spaceBetween: 30,
-        transform: {
-            duration: 0
-        },
+        spaceBetween: 20,
         autoplay: {
           delay: 5000,
           disableOnInteraction: false,
@@ -59,7 +56,6 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
                             bottomSpace="space-mb--50"
                         />
                     ))}
-
                 </Swiper> : false
             }
 
