@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import PropTypes from 'prop-types';
 
 
-const SliderTwo = ({ sliderData, spaceBottomClass }) => {
+const SliderMain = ({ sliderData, spaceBottomClass }) => {
 
     console.log("222223232323232",sliderData)
     const params = {
@@ -72,10 +72,10 @@ const SliderTwo = ({ sliderData, spaceBottomClass }) => {
 };
 
 
-SliderTwo.propTypes = {
+SliderMain.propTypes = {
     sliderData: PropTypes.array
 }
 
 
 
-export default SliderTwo;
+export default SliderMain

@@ -42,7 +42,7 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
     <div className="product-slider-wrapper space-mb--r100">
         <Container>
             <SectionTitle
-                title="New Itemssss"
+                title="New Items"
             />
         </Container>
         <div className="product-slider-container product-slider-container--style2">

@@ -7,11 +7,11 @@ import {IoIosCart} from "react-icons/io/index";
 const ProductDescription = ({product, productPrice, discountedPrice, color}) => {
 
     const [selectedProductColor, setSelectedProductColor] = useState(
-        product ? product.color : ""
+        product.attribute ? product.attribute[0].color : ""
     )
 
     const [selectedProductSize, setSelectedProductSize] = useState(
-        product ? product.size : ""
+        product.attribute ? product.attribute[0].size[0].name : ""
     )
 
     const [productStock, setProductStock] = useState(
@@ -60,94 +60,66 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
 
 
             <div className="product-content__size-color">
-
                 <div className="product-content__color space-mb--20">
                     <div className="product-content__color__title">Color</div>
                     <div className="product-content__color__content">
-                        {/*{product.variation && product.variation.map((single, i) => {*/}
-                        {/*    return (*/}
-                        {/*        <Fragment key={i}>*/}
-                        {/*            <input*/}
-                        {/*                type="radio"*/}
-                        {/*                value={single.color}*/}
-                        {/*                name="product-color"*/}
-                        {/*                id={single.color}*/}
-                        {/*            />*/}
-                        {/*            <label*/}
-                        {/*                htmlFor={single.color}*/}
-                        {/*                style={{backGroundColor: single.color}}*/}
-                        {/*            />*/}
-                        {/*        </Fragment>*/}
-                        {/*    )*/}
-                        {/*})}*/}
-
-                        <Fragment>
-                            <input
-                                type="radio"
-                                value={product.color}
-                                name="product-color"
-                                id={product.color}
-                                checked={
-                                    product.color === selectedProductColor ? "checked" : ""
-                                }
-                                onChange={() => {
-                                    setSelectedProductColor(product.color)
-                                    setSelectedProductSize(product.size)
-                                    setProductStock(product.stock)
-                                    setQuantityCount(1)
-                                }}
-                            />
-                            <label
-                                htmlFor={product}
-                            >
-
-                            </label>
-                        </Fragment>
+                        {product.attribute && product.attribute.map((product, i) => {
+                            return (
+                                <Fragment key={i}>
+                                    <input
+                                        type="radio"
+                                        value={product.color}
+                                        name="product-color"
+                                        id={product.color}
+                                        checked={
+                                            product.color === selectedProductColor ? "checked" : ""
+                                        }
+                                        onChange={() => {
+                                            setSelectedProductColor(product.color);
+                                        }}
+                                    />
+                                    <label
+                                        htmlFor={product.color}
+                                        style={{backgroundColor: product.colorCode}}
+                                    />
+                                </Fragment>
+                            )
+                        })}
                     </div>
                 </div>
 
                 <div className="product-content__size space-mb--20">
                     <div className="product-content__size__title">Size</div>
                     <div className="product-content__size__content">
-                        {/*{product.variation && product.variation.map((single) => {*/}
-                        {/*    return single.color === selectedProductColor*/}
-                        {/*    ? single.size.map((singleSize, i) => {*/}
-                        {/*        return (*/}
-                        {/*            <Fragment key={i}>*/}
-                        {/*                <input*/}
-                        {/*                    type="radio"*/}
-                        {/*                    value={singleSize.name}*/}
-                        {/*                />*/}
-                        {/*                <label htmlFor={singleSize}>*/}
-                        {/*                    {singleSize.name}*/}
-                        {/*                </label>*/}
-                        {/*            </Fragment>*/}
-                        {/*        )})*/}
-                        {/*    : ""*/}
-                        {/*})}*/}
 
-
-                        <Fragment>
-                            <input
-                                type="radio"
-                                value={product.size}
-                                checked={
-                                    product.size === selectedProductSize
-                                        ? "checked"
-                                        : ""
-                                }
-                                id={product.size}
-                                onChange={() => {
-                                    setSelectedProductSize(product.size)
-                                    setProductStock(product.stock)
-                                    setQuantityCount(1)
-                                }}
-                            />
-                            <label htmlFor={product}>
-                                {product.size}
-                            </label>
-                        </Fragment>
-
+                        {product.attribute && product.attribute.map((product) => {
+                            return product.color === selectedProductColor
+                            ? product.size.map((productSize, i) => {
+                                    return (
+                                        <Fragment key={i}>
+                                            <input
+                                                type="radio"
+                                                value={productSize.name}
+                                                checked={
+                                                    productSize.name === selectedProductSize
+                                                        ? "checked"
+                                                        : ""
+                                                }
+                                                id={productSize.name}
+                                                onChange={() => {
+                                                    setSelectedProductSize(productSize.name)
+                                                    setProductStock(productSize.stock)
+                                                    setQuantityCount(1)
+                                                }}
+                                            />
+                                            <label htmlFor={productSize.name}>
+                                                {productSize.name}
+                                            </label>
+                                        </Fragment>
+                                    )
+                                })
+                            : ""
+                        })}
                     </div>
                 </div>
             </div>
