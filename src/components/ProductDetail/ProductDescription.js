@@ -15,7 +15,7 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
     )
 
     const [productStock, setProductStock] = useState(
-        product ? product.stock : "stock"
+        product.attribute ? product.attribute[0].size[0].stock : product.stock
     )
 
 
@@ -23,21 +23,6 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
 
     const [quantityCount, setQuantityCount] = useState(1)
 
-    const orderMinusCount = (number) => {
-        if(quantityCount >= 1) {
-            setQuantityCount(quantityCount - 1)
-        }
-
-    }
-
-    const orderPlusCount = (number, stockCount) => {
-        if(quantityCount >= stockCount) {
-            setQuantityCount(stockCount)
-        }
-        else {
-            setQuantityCount(quantityCount + 1)
-        }
-    }
 
     console.log(product)
 
@@ -130,10 +115,9 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                     <div className="cart-plus-minus">
                         <button
                             className="qtybutton"
-                            onClick={() => orderMinusCount(setQuantityCount)}
-                            // onClick={() => {
-                            //     setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
-                            // }}
+                            onClick={() => {
+                                setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
+                            }}
                         >
                             -
                         </button>
@@ -145,15 +129,13 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                         />
                         <button
                             className="qtybutton"
-                            onClick={() => orderPlusCount(setQuantityCount, product.stock)}
-
-
-                                // setQuantityCount(
-                                //     quantityCount + 1
-                                //     quanti      onClick={() => orderCount(setQuantityCount)}tyCount < productStock
-                                //         ? quantityCount + 1
-                                //         : quantityCount
-                                // )
+                            onClick={() => {
+                                setQuantityCount(
+                                    quantityCount < productStock
+                                    ? quantityCount + 1
+                                    : quantityCount
+                                )
+                            }}
                         >
                             +
                         </button>
