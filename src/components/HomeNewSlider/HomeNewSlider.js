@@ -1,6 +1,6 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import Swiper from "react-id-swiper";
-import 'pure-react-carousel/dist/react-carousel.es.css';
+import IdSwiper from "react-id-swiper/lib/ReactIdSwiper.custom";
+import { Swiper, Navigation, Pagination} from 'swiper'
 
 import { Container, Row, Col } from "react-bootstrap";
 
@@ -11,6 +11,8 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 const HomeNewSlider = ({spaceBottomClass, products}) => {
 
     const params = {
+        Swiper,
+        modules: [Pagination],
         slidesPerView: 5,
         spaceBetween: 20,
         autoplay: {
@@ -19,7 +21,6 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
         },
         pagination: {
             el: ".swiper-pagination",
-            clickable: true
         },
         breakpoints: {
             1024: {
@@ -47,7 +48,7 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
         </Container>
         <div className="product-slider-container product-slider-container--style2">
             {products.length > 0 ?
-                <Swiper{...params}>
+                <IdSwiper{...params}>
                     {products.map((product) => (
                         <HomeGridWrapper
                             key={product.id}
@@ -56,7 +57,7 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
                             bottomSpace="space-mb--50"
                         />
                     ))}
-                </Swiper> : false
+                </IdSwiper> : false
             }
 
         </div>

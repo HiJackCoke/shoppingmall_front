@@ -1,6 +1,5 @@
 
 import React, {useEffect, useState} from 'react';
-import Swiper from 'react-id-swiper';
 import axios from 'axios'
 import {LayoutTwo} from "../../components/Layout/Layout";
 import SliderMain from "../../components/Slider/SliderMain";

@@ -1,8 +1,10 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {Fragment, useState, useEffect, useRef} from 'react';
 import { LightgalleryItem, LightgalleryProvider } from 'react-lightgallery';
-import Swiper from "react-id-swiper";
+import IdSwiper from "react-id-swiper/lib/ReactIdSwiper.custom";
+import { Swiper, Navigation, Pagination} from 'swiper'
 import {IoIosHeartEmpty, IoMdExpand} from 'react-icons/io'
 import {Tooltip} from 'react-tippy';
+
 
 
 const ImageGalleryBottomThumb = ({
@@ -12,6 +14,7 @@ const ImageGalleryBottomThumb = ({
  addToWishlist,
  addToast
 }) => {
+
 
     const [gallerySwiper, getGallerySwiper] = useState(null)
     const [thumbnailSwiper, getThumbnailSwiper] = useState(null)
@@ -29,20 +32,25 @@ const ImageGalleryBottomThumb = ({
     }, [gallerySwiper, thumbnailSwiper]);
 
     const gallerySwiperParams = {
+        Swiper,
+        modules: [ Navigation, Pagination],
         getSwiper: getGallerySwiper,
+        pagination: {
+            el: ".swiper-pagination",
+            type: "bullets",
+            clickable: true
+        },
         spaceBetween: 10,
         loopedSlides: 4,
         loop: true,
         effect: 'fade',
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true
-        },
-    };
+    }
 
     const thumbnailSwiperParams = {
+        Swiper,
+        modules: [Navigation, Pagination],
         getSwiper: getThumbnailSwiper,
+        spaceBetween: 10,
         slidesPerView: 4,
         loopedSlides: 4,
         touchRatio: 0.2,
@@ -50,54 +58,59 @@ const ImageGalleryBottomThumb = ({
         loop: true,
         slideToClickedSlide: true,
         centeredSlides: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev"
+        },
     }
+
+    // const gallerySwiperParams = {
+    //     getSwiper: getGallerySwiper,
+    //     spaceBetween: 10,
+    //     loopedSlides: 4,
+    //     loop: true,
+    //     effect: 'fade',
+    //     pagination: {
+    //         el: '.swiper-pagination',
+    //         clickable: true
+    //     },
+    // };
+    //
+    // const thumbnailSwiperParams = {
+    //     getSwiper: getThumbnailSwiper,
+    //     spaceBetween: 10,
+    //     slidesPerView: 4,
+    //     loopedSlides: 4,
+    //     touchRatio: 0.2,
+    //     freeMode: true,
+    //     loop: true,
+    //     slideToClickedSlide: true,
+    //     centeredSlides: true,
+    //     navigation: {
+    //         nextEl: ".swiper-button-next",
+    //         prevEl: ".swiper-button-prev"
+    //     },
+    // };
+
+
 
     return (
         <Fragment>
             <div className="product-large-image-wrapper space-mb--30">
                 {/*floating*/}
                 <div className="product-large-image-wrapper__floating-badges">
-                    {/*{product.discount && product.discount > 0 ? (*/}
-                    {/*    <span className="onsale">-{product.discount}%</span>*/}
-                    {/*) : (*/}
-                    {/*    ""*/}
-                    {/*)}*/}
+                    {product.discount && product.discount > 0 ? (
+                        <span className="onsale">-{product.discount}%</span>
+                    ) : (
+                        ""
+                    )}
                     {product.new ? <span className="hot">New</span> : ""}
                     {product.stock === 0 ? <span className="out-of-stock">out</span> : ""}
                 </div>
 
-                {/*wishlist button*/}
-                {/*<div className="product-details-button-wrapper">*/}
-                {/*    <Tooltip*/}
-                {/*        title={*/}
-                {/*            wishlistItem !== undefined*/}
-                {/*            ? "Added to wishlist"*/}
-                {/*            : "Add to wishlist"*/}
-                {/*        }*/}
-                {/*        position="left"*/}
-                {/*        trigget="mouseenter"*/}
-                {/*        animation="shift"*/}
-                {/*        arrow={true}*/}
-                {/*        duration={200}*/}
-                {/*    >*/}
-                {/*        <button*/}
-                {/*            className={`wishlist-icon ${wishlistItem !== undefined*/}
-                {/*                ? "active"*/}
-                {/*                : ""}`}*/}
-                {/*            onClick={wishlistItem !== undefined*/}
-                {/*                ? () => deleteFromWishlist(product, addToast)*/}
-                {/*                : () => addToWishlist(product, addToast)*/}
-                {/*            }*/}
-                {/*        >*/}
-                {/*            <IoIosHeartEmpty/>*/}
-                {/*        </button>*/}
-                {/*    </Tooltip>*/}
-                {/*</div>*/}
-
                 <LightgalleryProvider>
-                    <Swiper {...gallerySwiperParams}>
+                    <IdSwiper {...gallerySwiperParams}>
                         {product.images && product.images.map((image, i) => {
-                            console.log("++++++++++++++++++++", product.images)
                             return (
                                 <div key={i}>
                                     <LightgalleryItem
@@ -127,13 +140,13 @@ const ImageGalleryBottomThumb = ({
                                 </div>
                             )
                         })}
-                    </Swiper>
+                    </IdSwiper>
                 </LightgalleryProvider>
             </div>
 
             {/*//Small Image*/}
             <div className="product-small-image-wrapper">
-                <Swiper {...thumbnailSwiperParams}>
+                <IdSwiper {...thumbnailSwiperParams}>
                     {product.images && product.images.map((image, i) => {
                         return (
                             <div key={i}>
@@ -147,7 +160,7 @@ const ImageGalleryBottomThumb = ({
                             </div>
                         )
                     })}
-                </Swiper>
+                </IdSwiper>
             </div>
         </Fragment>
     );
