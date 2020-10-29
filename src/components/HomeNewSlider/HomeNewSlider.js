@@ -12,7 +12,7 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
 
     const params = {
         Swiper,
-        modules: [Pagination],
+        modules: [Pagination, Navigation],
         slidesPerView: 5,
         spaceBetween: 20,
         autoplay: {

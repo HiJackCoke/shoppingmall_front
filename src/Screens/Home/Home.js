@@ -11,6 +11,7 @@ import HomeNewSlider from "../../components/HomeNewSlider/HomeNewSlider";
 
 
 
+
 const Home = ({product}) => {
 
     const [products, setProducts] = useState([])

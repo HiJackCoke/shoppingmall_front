@@ -1,6 +1,7 @@
 import React, {useState, useEffect, Fragment} from 'react';
 import {Container} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {connect} from'react-redux'
 import {
     IoIosSearch,
     IoMdPerson,
@@ -103,6 +104,13 @@ const HeaderTwo = ({ aboutOverlay, cartItems, wishlistItems}) => {
                                         }}
                                     >
                                         <IoIosHeartEmpty />
+                                        {wishlistItems.length >=1 ? (
+                                            <span className="count">
+                                                {wishlistItems.length ? wishlistItems.length : ""}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
                                     </button>
                                 </li>
                                 <li>
@@ -123,7 +131,8 @@ const HeaderTwo = ({ aboutOverlay, cartItems, wishlistItems}) => {
                             <ul className="d-block d-lg-none">
                                 <li>
                                     <Link
-                                        to="/"
+                                        to="/order/wishlist"
+                                        as={'/order/wishlist'}
                                     >
                                         <IoIosHeartEmpty />
                                     </Link>
@@ -175,4 +184,8 @@ const HeaderTwo = ({ aboutOverlay, cartItems, wishlistItems}) => {
     );
 };
 
-export default HeaderTwo;
+const mapStateToProps = (state) =>({
+    wishlistItems: state.wishlistItems
+})
+
+export default connect(mapStateToProps)(HeaderTwo);

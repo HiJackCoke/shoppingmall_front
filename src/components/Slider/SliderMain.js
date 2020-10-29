@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import Swiper from "react-id-swiper";
 import { Container, Row, Col } from "react-bootstrap";
+import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io'
 
 import PropTypes from 'prop-types';
 
@@ -19,10 +20,20 @@ const SliderMain = ({ sliderData, spaceBottomClass }) => {
         },
 
         renderPrevButton: () => (
-            <button className="swiper-button-prev ht-swiper-button-nav">Prev</button>
+            <button
+                className="swiper-button-prev ht-swiper-button-nav"
+                style={{color: "red", fontSize: "50px"}}
+            >
+                <IoIosArrowBack/>
+            </button>
         ),
         renderNextButton: () => (
-            <button className="swiper-button-next ht-swiper-button-nav">Next</button>
+            <button
+                className="swiper-button-next ht-swiper-button-nav"
+                style={{color: "red", fontSize:"50px"}}
+            >
+                <IoIosArrowForward/>
+            </button>
         )
     };
     return (
@@ -46,6 +57,7 @@ const SliderMain = ({ sliderData, spaceBottomClass }) => {
                                                     <div className="hero-slider-five__content">
                                                         <h1
                                                             className="title"
+                                                            style={{fontWeight: "inherit", color:"white"}}
                                                             dangerouslySetInnerHTML={{ __html: single.name }}
                                                         />
                                                         <div className="slider-link">

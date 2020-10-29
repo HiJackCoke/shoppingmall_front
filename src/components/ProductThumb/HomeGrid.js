@@ -17,7 +17,7 @@ const HomeGrid = ({
                              addToWishlist,
                              deleteFromWishlist,
                              addToCompare,
-                             deleteFromCompare,
+                            deleteFromCart,
                              addToast,
                              cartItems,
                              sliderClass
@@ -83,8 +83,8 @@ const HomeGrid = ({
                                 <button
                                     onClick={
                                         wishlistItem !== undefined
-                                            ? () => deleteFromWishlist(product, addToast)
-                                            : () => addToWishlist(product, addToast)
+                                            ? () => deleteFromWishlist(product)
+                                            : () => addToWishlist(product)
                                     }
                                     className={wishlistItem !== undefined ? "active" : ""}
                                 >
@@ -110,7 +110,14 @@ const HomeGrid = ({
                             </Tooltip>
 
                             {/* add to cart */}
-                            <button className="d-none d-lg-block">
+                            <button
+                                // className="d-none d-lg-block"
+                                // onClick={
+                                //     cartItem !== undefined
+                                //         ? () => deleteFromCart(product)
+                                //         : () => addToCart(product)
+                                // }
+                            >
                                 <IoIosCart/>
                             </button>
 

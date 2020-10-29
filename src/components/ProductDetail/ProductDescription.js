@@ -18,7 +18,49 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
         product.attribute ? product.attribute[0].size[0].stock : product.stock
     )
 
+    const [openOrderBox, setOpenOrderBox] = useState(false)
 
+    const orderBox = (
+
+        <>
+            <div>
+                <table
+                    style={{
+                        borderTop: "groove",
+                        backgroundColor: "whitesmoke",
+                        color: "black",
+                        letterSpacing: "1px",
+                        margin: "20px 0px 30px",
+                        width: "100%",
+                        textAlign: "center",
+                        lineHeight: "2.5"
+                    }}
+                >
+                    <thead
+                        style={{
+                            backgroundColor:"white",
+                            display: "table-header-group",
+                        }}
+                    >
+                    <tr>
+                        <td>Product Info</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>{product.name} / {product.size}</td>
+                        <td>1</td>
+                        <td>{product.price}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </>
+
+    )
 
 
     const [quantityCount, setQuantityCount] = useState(1)
@@ -95,6 +137,7 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                                                     setSelectedProductSize(productSize.name)
                                                     setProductStock(productSize.stock)
                                                     setQuantityCount(1)
+                                                    setOpenOrderBox(true)
                                                 }}
                                             />
                                             <label htmlFor={productSize.name}>
@@ -142,41 +185,9 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                     </div>
                 </div>
 
-                <div>
-                    <table
-                        style={{
-                            borderTop: "groove",
-                            backgroundColor: "whitesmoke",
-                            color: "black",
-                            letterSpacing: "1px",
-                            margin: "20px 0px 30px",
-                            width: "100%",
-                            textAlign: "center",
-                            lineHeight: "2.5"
-                        }}
-                    >
-                        <thead
-                            style={{
-                                backgroundColor:"white",
-                                display: "table-header-group",
-                            }}
-                        >
-                            <tr>
-                                <td>Product Info</td>
-                                <td>Quantity</td>
-                                <td>Price</td>
-                            </tr>
-                        </thead>
+                {openOrderBox === true ? orderBox : null}
 
-                        <tbody>
-                            <tr>
-                                <td>{product.name} / {product.size}</td>
-                                <td>1</td>
-                                <td>{product.price}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
 
                 <div className="product-content__button-wrapper d-flex align-items-center">
                     <button
