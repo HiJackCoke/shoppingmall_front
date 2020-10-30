@@ -5,12 +5,12 @@ import {IoIosCart} from "react-icons/io/index";
 
 
 const ProductDescription = ({
-                                product,
-                                productPrice,
-                                discountedPrice,
-                                color,
-                                wishlistItem,
-                                deleteFromWishlist,
+    product,
+    productPrice,
+    discountedPrice,
+    color,
+    wishlistItem,
+    deleteFromWishlist,
     addToWishlist
 }) => {
 
@@ -27,6 +27,9 @@ const ProductDescription = ({
     )
 
     const [openOrderBox, setOpenOrderBox] = useState(false)
+
+
+    const [quantityCount, setQuantityCount] = useState(1)
 
 
     const orderBox = (
@@ -60,8 +63,10 @@ const ProductDescription = ({
 
                     <tbody>
                     <tr>
-                        <td>{product.name} / {product.size}</td>
-                        <td>1</td>
+                        <td>{selectedProductColor} / {selectedProductSize}</td>
+                        <td>
+                            {quantityCount}
+                        </td>
                         <td>{product.price}</td>
                     </tr>
                     </tbody>
@@ -71,8 +76,6 @@ const ProductDescription = ({
 
     )
 
-
-    const [quantityCount, setQuantityCount] = useState(1)
 
 
     console.log(product)
@@ -91,7 +94,7 @@ const ProductDescription = ({
                 )}
             </div>
             <div className="product-content__description space-mb--30">
-                <p>{product.description}</p>
+                <p>{product.shortDescription}</p>
             </div>
 
 

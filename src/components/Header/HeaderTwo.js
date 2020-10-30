@@ -104,7 +104,7 @@ const HeaderTwo = ({ aboutOverlay, cartItems, wishlistItems}) => {
                                         }}
                                     >
                                         <IoIosHeartEmpty />
-                                        {wishlistItems.length >=1 ? (
+                                        {wishlistItems.length >= 1 ? (
                                             <span className="count">
                                                 {wishlistItems.length ? wishlistItems.length : ""}
                                             </span>

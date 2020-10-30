@@ -1,28 +1,21 @@
 import React, { Fragment, useState } from "react";
 import { Col } from "react-bootstrap";
 import {Link} from 'react-router-dom'
-import { IoIosHeartEmpty, IoIosCart, IoIosSearch } from "react-icons/io";
+import { IoIosHeartEmpty, IoIosHeart, IoIosSearch } from "react-icons/io";
 import { Tooltip } from "react-tippy";
 import ProductModal from "./ProductModal";
-import {IoIosHeart} from "react-icons/io/index";
 
 const HomeGrid = ({
-                             product,
-                             discountedPrice,
-                             productPrice,
-                             cartItem,
-                             wishlistItem,
-                             compareItem,
-                             bottomSpace,
-                             addToCart,
-                             addToWishlist,
-                             deleteFromWishlist,
-                             addToCompare,
-                            deleteFromCart,
-                             addToast,
-                             cartItems,
-                             sliderClass
-                         }) => {
+    product,
+    discountedPrice,
+    productPrice,
+    wishlistItem,
+    bottomSpace,
+    addToWishlist,
+    deleteFromWishlist,
+    sliderClass
+}) => {
+
     const [modalShow, setModalShow] = useState(false);
 
     return (
@@ -117,16 +110,16 @@ const HomeGrid = ({
                             </Tooltip>
 
                             {/* add to cart */}
-                            <button
-                                // className="d-none d-lg-block"
-                                // onClick={
-                                //     cartItem !== undefined
-                                //         ? () => deleteFromCart(product)
-                                //         : () => addToCart(product)
-                                // }
-                            >
-                                <IoIosCart/>
-                            </button>
+                            {/*<button*/}
+                            {/*    className="d-none d-lg-block"*/}
+                            {/*    onClick={*/}
+                            {/*        cartItem !== undefined*/}
+                            {/*            ? () => deleteFromCart(product)*/}
+                            {/*            : () => addToCart(product)*/}
+                            {/*    }*/}
+                            {/*>*/}
+                            {/*    <IoIosCart/>*/}
+                            {/*</button>*/}
 
                         </div>
                     </div>
@@ -164,18 +157,9 @@ const HomeGrid = ({
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 product={product}
-                // discountedprice={discountedPrice}
-                // productprice={productPrice}
-                // cartitems={cartItems}
-                // cartitem={cartItem}
-                // wishlistitem={wishlistItem}
-                // compareitem={compareItem}
-                // addtocart={addToCart}
-                // addtowishlist={addToWishlist}
-                // deletefromwishlist={deleteFromWishlist}
-                // addtocompare={addToCompare}
-                // deletefromcompare={deleteFromCompare}
-                // addtoast={addToast}
+                wishlistItem={wishlistItem}
+                addToWishlist={addToWishlist}
+                deleteFromWishlist={deleteFromWishlist}
             />
         </Fragment>
     );

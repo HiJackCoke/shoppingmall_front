@@ -4,12 +4,16 @@ import {Link} from 'react-router-dom';
 import { IoIosHeartEmpty, IoIosHeart, IoIosCart, IoIosSearch } from 'react-icons/io';
 
 import ProductModal from "./ProductModal";
+import {Tooltip} from "react-tippy";
 
 const ProductGridList = ({
     product,
     wishlistItem,
     deleteFromWishlist,
-    addToWishlist
+    addToWishlist,
+    cartItem,
+    deleteFromCart,
+    addToCart
 }) => {
 
     const [modalShow, setModalShow] = useState(false);
@@ -51,32 +55,59 @@ const ProductGridList = ({
 
                         <div className="product-grid__floating-icons">
                             {/*wishlist*/}
-                            <button
-                                onClick={
+                            <Tooltip
+                                title={
                                     wishlistItem !== undefined
-                                        ? () => deleteFromWishlist(product)
-                                        : () => addToWishlist(product)
+                                        ? "Added to wishlist"
+                                        : "Add to wishlist"
+                                }
+                                position="left"
+                                trigger="mouseenter"
+                                animation="shift"
+                                arrow={true}
+                                duration={200}
+                            >
+                                <button
+                                    onClick={
+                                        wishlistItem !== undefined
+                                            ? () => deleteFromWishlist(product)
+                                            : () => addToWishlist(product)
+                                    }
+                                >
+                                    {wishlistItem !== undefined
+                                        ? (
+                                            <IoIosHeart/>
+                                        )
+                                        : (
+                                            <IoIosHeartEmpty/>
+                                        )}
+                                </button>
+                            </Tooltip>
+                            {/*Add to cart*/}
+                            <button
+                                onClick={cartItem !== undefined
+                                ? () => deleteFromCart(product)
+                                : () => addToCart(product)
                                 }
                             >
-                                {wishlistItem !== undefined
-                                    ? (
-                                        <IoIosHeart/>
-                                    )
-                                    : (
-                                        <IoIosHeartEmpty/>
-                                    )}
-                            </button>
-                            {/*Add to cart*/}
-                            <button>
                                 <IoIosCart />
                             </button>
                             {/*quick view*/}
-                            <button
-                                onClick={() => setModalShow(true)}
-                                className="d-none d-lg-block"
+                            <Tooltip
+                                title="Quick view"
+                                position="left"
+                                trigger="mouseenter"
+                                animation="shift"
+                                arrow={true}
+                                duration={200}
                             >
-                                <IoIosSearch/>
-                            </button>
+                                <button
+                                    onClick={() => setModalShow(true)}
+                                    className="d-none d-lg-block"
+                                >
+                                    <IoIosSearch/>
+                                </button>
+                            </Tooltip>
                         </div>
                     </div>
 
@@ -96,6 +127,9 @@ const ProductGridList = ({
                 show={modalShow}
                 onHide={() => setModalShow(false)}
                 product={product}
+                wishlistItem={wishlistItem}
+                addToWishlist={addToWishlist}
+                deleteFromWishlist={deleteFromWishlist}
             />
         </Fragment>
     );

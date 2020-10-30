@@ -10,7 +10,10 @@ const ProductGridWrapper = ({
     product,
     wishlistItems,
     addToWishlist,
-    deleteFromWishlist
+    deleteFromWishlist,
+    cartItem,
+    deleteFromCart,
+    addToCart
 }) => {
     const wishlistItem = wishlistItems.filter(
         (wishlistItems) => wishlistItems.id === product.id
@@ -24,6 +27,9 @@ const ProductGridWrapper = ({
                 wishlistItem={wishlistItem}
                 addToWishlist={addToWishlist}
                 deleteFromWishlist={deleteFromWishlist}
+                cartItem={cartItem}
+                addToCart={addToCart}
+                deleteFromCart={deleteFromCart}
             />
         </Fragment>
     );

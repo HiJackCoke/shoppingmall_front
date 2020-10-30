@@ -8,15 +8,16 @@ import HomeGrid from "./HomeGrid";
 const HomeGridWrapper = ({
     product,
     bottomSpace,
-    addToCart,
     addToWishlist,
     deleteFromWishlist,
     addToCompare,
     deleteFromCompare,
-    cartItems,
     wishlistItems,
     compareItems,
-    sliderClass
+    sliderClass,
+    cartItem,
+    deleteFromCart,
+    addToCart
 }) => {
     const wishlistItem = wishlistItems.filter(
         (wishlistItems) => wishlistItems.id === product.id
@@ -29,17 +30,13 @@ const HomeGridWrapper = ({
                 product={product}
                 // discountedPrice={discountedPrice}
                 // productPrice={productPrice}
-                // cartItem={cartItem}
+                cartItem={cartItem}
                 wishlistItem={wishlistItem}
                 // compareItem={compareItem}
                 bottomSpace={bottomSpace}
                 // addToCart={addToCart}
                 addToWishlist={addToWishlist}
                 deleteFromWishlist={deleteFromWishlist}
-                // addToCompare={addToCompare}
-                // deleteFromCompare={deleteFromCompare}
-                // addToast={addToast}
-                // cartItems={cartItems}
                 sliderClass={sliderClass}
             />
         </Fragment>
