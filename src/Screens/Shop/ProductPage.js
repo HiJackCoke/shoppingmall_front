@@ -2,16 +2,17 @@ import React, {useState,useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 
 import {LayoutTwo} from '../../components/Layout/Layout'
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
-
 import {ImageGalleryBottomThumb, ProductDescription} from "../../components/ProductDetail";
+import {addToWishlist, deleteFromWishlist} from '../../actions/wishlistActions';
 
 
 const ProductPage = ({
-                         wishlistItem,
+                         wishlistItems,
                          addToWishlist,
                          deleteFromWishlist,
                          addToast
@@ -41,6 +42,9 @@ const ProductPage = ({
         }
     }
 
+    const wishlistItem = wishlistItems.filter(
+        (wishlistItems) => wishlistItems.id === product.id)[0]
+
     // const product = products.find((p) => p._id === match.params.id)
 
     return (
@@ -59,16 +63,15 @@ const ProductPage = ({
                         <Col lg={6} className="space-mb-mobile-only--50">
                             <ImageGalleryBottomThumb
                                 product={product}
-                                wishlistItem={wishlistItem}
-                                addToWishlist={addToWishlist}
-                                deleteFromWishlist={deleteFromWishlist}
-                                addToast={addToast}
                             />
                         </Col>
 
                         <Col lg={6}>
                             <ProductDescription
                                 product={product}
+                                wishlistItem={wishlistItem}
+                                addToWishlist={addToWishlist}
+                                deleteFromWishlist={deleteFromWishlist}
                             />
                         </Col>
 
@@ -80,4 +83,17 @@ const ProductPage = ({
     );
 };
 
-export default ProductPage;
+const mapStateToProps = (state) => ({
+    wishlistItems: state.wishlistItems
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    addToWishlist: (item) => {
+        dispatch(addToWishlist(item))
+    },
+    deleteFromWishlist: (item) => {
+        dispatch(deleteFromWishlist(item))
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage)

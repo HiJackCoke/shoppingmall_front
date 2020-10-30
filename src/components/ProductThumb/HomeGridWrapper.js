@@ -6,18 +6,18 @@ import {addToWishlist, deleteFromWishlist} from '../../actions/wishlistActions'
 import HomeGrid from "./HomeGrid";
 
 const HomeGridWrapper = ({
-                                    product,
-                                    bottomSpace,
-                                    addToCart,
-                                    addToWishlist,
-                                    deleteFromWishlist,
-                                    addToCompare,
-                                    deleteFromCompare,
-                                    cartItems,
-                                    wishlistItems,
-                                    compareItems,
-                                    sliderClass
-                                }) => {
+    product,
+    bottomSpace,
+    addToCart,
+    addToWishlist,
+    deleteFromWishlist,
+    addToCompare,
+    deleteFromCompare,
+    cartItems,
+    wishlistItems,
+    compareItems,
+    sliderClass
+}) => {
     const wishlistItem = wishlistItems.filter(
         (wishlistItems) => wishlistItems.id === product.id
     )[0];

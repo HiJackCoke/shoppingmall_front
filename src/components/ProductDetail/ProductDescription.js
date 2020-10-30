@@ -4,7 +4,15 @@ import {IoIosHeartEmpty} from 'react-icons/io'
 import {IoIosCart} from "react-icons/io/index";
 
 
-const ProductDescription = ({product, productPrice, discountedPrice, color}) => {
+const ProductDescription = ({
+                                product,
+                                productPrice,
+                                discountedPrice,
+                                color,
+                                wishlistItem,
+                                deleteFromWishlist,
+    addToWishlist
+}) => {
 
     const [selectedProductColor, setSelectedProductColor] = useState(
         product.attribute ? product.attribute[0].color : ""
@@ -19,6 +27,7 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
     )
 
     const [openOrderBox, setOpenOrderBox] = useState(false)
+
 
     const orderBox = (
 
@@ -195,7 +204,17 @@ const ProductDescription = ({product, productPrice, discountedPrice, color}) => 
                     >
                         Buy Now
                     </button>
-                    <button className="product-content__wishlist space-mr--10">
+
+                    <button
+                        className={`product-content__wishlist space-mr--10 ${
+                            wishlistItem !== undefined ? "active" : ""
+                        }`}
+                        onClick={
+                            wishlistItem !== undefined
+                            ? () => deleteFromWishlist(product)
+                            : () => addToWishlist(product)
+                        }
+                    >
                         <IoIosHeartEmpty />
                     </button>
                     <button className="product-content__wishlist space-mr--10">

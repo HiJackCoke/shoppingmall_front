@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import { IoIosHeartEmpty, IoIosCart, IoIosSearch } from "react-icons/io";
 import { Tooltip } from "react-tippy";
 import ProductModal from "./ProductModal";
+import {IoIosHeart} from "react-icons/io/index";
 
 const HomeGrid = ({
                              product,
@@ -88,7 +89,13 @@ const HomeGrid = ({
                                     }
                                     className={wishlistItem !== undefined ? "active" : ""}
                                 >
-                                    <IoIosHeartEmpty />
+                                    {wishlistItem !== undefined
+                                        ? (
+                                            <IoIosHeart/>
+                                        )
+                                        : (
+                                            <IoIosHeartEmpty/>
+                                        )}
                                 </button>
                             </Tooltip>
 

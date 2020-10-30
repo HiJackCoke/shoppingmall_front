@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import { Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import { IoIosHeartEmpty, IoIosCart, IoIosSearch } from 'react-icons/io';
+import { IoIosHeartEmpty, IoIosHeart, IoIosCart, IoIosSearch } from 'react-icons/io';
 
 import ProductModal from "./ProductModal";
 
@@ -52,14 +52,19 @@ const ProductGridList = ({
                         <div className="product-grid__floating-icons">
                             {/*wishlist*/}
                             <button
-                                className={wishlistItem !== undefined ? "active" : ""}
                                 onClick={
                                     wishlistItem !== undefined
                                         ? () => deleteFromWishlist(product)
                                         : () => addToWishlist(product)
                                 }
                             >
-                                <IoIosHeartEmpty/>
+                                {wishlistItem !== undefined
+                                    ? (
+                                        <IoIosHeart/>
+                                    )
+                                    : (
+                                        <IoIosHeartEmpty/>
+                                    )}
                             </button>
                             {/*Add to cart*/}
                             <button>
