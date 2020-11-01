@@ -15,12 +15,12 @@ import {Provider} from 'react-redux';
 import { PersistGate } from "redux-persist/integration/react";
 import store from './store'
 
-const persistor = persistStore(store)
+const persist = persistStore(store)
 
 
 ReactDOM.render(
     <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
+        <PersistGate loading={null} persistor={persist}>
             <BrowserRouter>
                 <Switch>
                     <Route path='/' exact render={props => <App {...props}/> } />

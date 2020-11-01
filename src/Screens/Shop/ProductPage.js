@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, {useState, useEffect, useLayoutEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
@@ -17,10 +17,18 @@ const ProductPage = ({
                          deleteFromWishlist,
                          addToast
 }) => {
+    useEffect(() => {
+        document.querySelector('body').classList.remove("overflow-hidden")
+    })
 
     const {id} = useParams();
 
     const [product, setProduct] = useState({})
+
+
+    const wishlistItem = wishlistItems.filter(
+        (wishlistItems) => wishlistItems.id === product.id)[0]
+
 
     const getData = async () => {
         const {data} = await axios.get(`/products/${id}`)
@@ -34,16 +42,8 @@ const ProductPage = ({
         getData()
     }, [])
 
-    const [activeTab, setActiveTab] = useState(1)
 
-    const toggle = (tab) => {
-        if(activeTab !== tab) {
-            setActiveTab(tab)
-        }
-    }
 
-    const wishlistItem = wishlistItems.filter(
-        (wishlistItems) => wishlistItems.id === product.id)[0]
 
     // const product = products.find((p) => p._id === match.params.id)
 

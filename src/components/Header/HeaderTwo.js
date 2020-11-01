@@ -94,6 +94,8 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
                                     </Link>
                                 </li>
                                 <li>
+
+                                    {/*버튼을 클릭하고 켄버스가 열렷을때 메인 페이지는 스크롤이 안되게 설정*/}
                                     <button
                                         onClick={() => {
                                             setOffCanvasWishlistActive(true);
