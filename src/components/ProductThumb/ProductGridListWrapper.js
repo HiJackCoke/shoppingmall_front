@@ -7,7 +7,7 @@ import {addToWishlist, deleteFromWishlist} from '../../actions/wishlistActions'
 
 
 const ProductGridWrapper = ({
-    product,
+    products,
     wishlistItems,
     addToWishlist,
     deleteFromWishlist,
@@ -15,29 +15,51 @@ const ProductGridWrapper = ({
     deleteFromCart,
     addToCart
 }) => {
-    const wishlistItem = wishlistItems.filter(
-        (wishlistItems) => wishlistItems.id === product.id
-    )[0];
+    // const wishlistItem = wishlistItems.filter(
+    //     (wishlistItem) => wishlistItem.id === product.id
+    // )[0];
 
     return (
         <Fragment>
-            <ProductGridList
-                key={product.id}
-                product={product}
-                wishlistItem={wishlistItem}
-                addToWishlist={addToWishlist}
-                deleteFromWishlist={deleteFromWishlist}
-                cartItem={cartItem}
-                addToCart={addToCart}
-                deleteFromCart={deleteFromCart}
-            />
+            {products && products.map((product) => {
+                const wishlistItem = wishlistItems.filter(
+                    (wishlistItem) => wishlistItem.id === product.id
+                )[0];
+                return (
+                    <ProductGridList
+                        key={product.id}
+                        product={product}
+                        wishlistItem={wishlistItem}
+                        addToWishlist={addToWishlist}
+                        deleteFromWishlist={deleteFromWishlist}
+                        cartItem={cartItem}
+                        addToCart={addToCart}
+                        deleteFromCart={deleteFromCart}
+                    />
+                )
+            })}
         </Fragment>
+
+
+
+        // <Fragment>
+        //     <ProductGridList
+        //         key={product.id}
+        //         product={product}
+        //         wishlistItem={wishlistItem}
+        //         addToWishlist={addToWishlist}
+        //         deleteFromWishlist={deleteFromWishlist}
+        //         cartItem={cartItem}
+        //         addToCart={addToCart}
+        //         deleteFromCart={deleteFromCart}
+        //     />
+        // </Fragment>
     );
 };
 
 
 const mapStateToProps = (state) => ({
-    wishlistItems: state.wishlistItems
+    wishlistItems: state.wishlistData
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -15,9 +15,7 @@ const ShopProducts = ({layout, products}) => {
     return (
         <div className="shop-products">
             <Row className={layout}>
-                {products.map((product) => (
-                    <ProductGridWrapper key={product.id} product={product}/>
-                ))}
+                <ProductGridWrapper key={products.id} products={products}/>
             </Row>
         </div>
     );

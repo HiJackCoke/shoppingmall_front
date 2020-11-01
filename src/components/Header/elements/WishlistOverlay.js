@@ -52,7 +52,8 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
                                                     </span>
                                                     <div className="image">
                                                         <Link
-                                                            to={`/shop/${product.id}`}
+                                                            // to={`/shop/${product.id}`}
+                                                            to="/shop/all"
                                                         >
                                                             <img
                                                                 src={product.images[0].url}
@@ -64,7 +65,8 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
                                                     <div className="content">
                                                         <h5>
                                                             <Link
-                                                                to={`/shop/${product.id}`}
+                                                                // to={`/shop/${product.id}`}
+                                                                to="/shop/all"
                                                             >
                                                                 {product.name}
                                                             </Link>
@@ -75,6 +77,8 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
                                         })}
                                     </CustomScroll>
                                 </div>
+
+
                                 <div className="wishlist-buttons">
                                     <Link
                                         to="/other/wishlist"
@@ -92,7 +96,7 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
 };
 
 const mapStateToProps = (state) => ({
-    wishlistItems : state.wishlistItems
+    wishlistItems : state.wishlistData
 })
 
 const mapDispatchToProps = (dispatch) => ({

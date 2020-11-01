@@ -17,7 +17,7 @@ import MobileMenu from "./elements/MobileMenu";
 
 
 
-const HeaderTwo = ({ aboutOverlay, cartItems, wishlistItems}) => {
+const HeaderTwo = ({ cartItems, wishlistItems }) => {
 
 
     const [scroll, setScroll] = useState();
@@ -28,23 +28,22 @@ const HeaderTwo = ({ aboutOverlay, cartItems, wishlistItems}) => {
     const [offCanvasCartActive, setOffCanvasCartActive] = useState(false);
     const [offCanvasMobileMenuActive, setOffCanvasMobileMenuActive] = useState(false);
 
-    useEffect( () => {
+    useEffect(() => {
         const header = document.querySelector("header");
         setHeaderTop(header.offsetTop);
         setHeaderHeight(header.offsetHeight);
         window.addEventListener("scroll", handleScroll);
         scroll > headerTop
             ? (document.body.style.paddingTop = `${headerHeight}px`)
-            : (document.body.style.padding = 0);
-
+            : (document.body.style.paddingTop = 0);
         return () => {
-            window.removeEventListener("scroll", handleScroll)
-        }
+            window.removeEventListener("scroll", handleScroll);
+        };
     }, []);
 
     const handleScroll = () => {
-        setScroll(window.scrollY)
-    }
+        setScroll(window.scrollY);
+    };
 
     return (
         <Fragment>
@@ -185,7 +184,7 @@ const HeaderTwo = ({ aboutOverlay, cartItems, wishlistItems}) => {
 };
 
 const mapStateToProps = (state) =>({
-    wishlistItems: state.wishlistItems
+    wishlistItems: state.wishlistData
 })
 
 export default connect(mapStateToProps)(HeaderTwo);

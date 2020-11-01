@@ -49,14 +49,15 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
         <div className="product-slider-container product-slider-container--style2">
             {products.length > 0 ?
                 <IdSwiper{...params}>
-                    {products.map((product) => (
-                        <HomeGridWrapper
-                            key={product.id}
-                            product={product}
-                            sliderClass="swiper-slide"
-                            bottomSpace="space-mb--50"
-                        />
-                    ))}
+                    {/*{products.map((product) => (*/}
+                    {/*    */}
+                    {/*))}*/}
+                    <HomeGridWrapper
+                        key={products.id}
+                        products={products}
+                        sliderClass="swiper-slide"
+                        bottomSpace="space-mb--50"
+                    />
                 </IdSwiper> : false
             }
 

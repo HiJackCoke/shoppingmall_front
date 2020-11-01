@@ -3,5 +3,5 @@ import wishlistReducer from './wishlistReducer'
 
 
 export default combineReducers({
-    wishlistItems: wishlistReducer
+    wishlistData: wishlistReducer
 })

@@ -84,7 +84,7 @@ const ProductPage = ({
 };
 
 const mapStateToProps = (state) => ({
-    wishlistItems: state.wishlistItems
+    wishlistItems: state.wishlistData
 })
 
 const mapDispatchToProps = (dispatch) => ({

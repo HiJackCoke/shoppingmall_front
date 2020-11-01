@@ -27,7 +27,7 @@ const Home = ({product}) => {
     },[])
 
     return (
-        <LayoutTwo>
+        <LayoutTwo >
 
             <SliderMain
                 sliderData={products}
