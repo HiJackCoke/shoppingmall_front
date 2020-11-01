@@ -187,4 +187,5 @@ const mapStateToProps = (state) =>({
     wishlistItems: state.wishlistData
 })
 
+
 export default connect(mapStateToProps)(HeaderTwo);

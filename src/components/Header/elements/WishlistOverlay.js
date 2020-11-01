@@ -52,8 +52,7 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
                                                     </span>
                                                     <div className="image">
                                                         <Link
-                                                            // to={`/shop/${product.id}`}
-                                                            to="/shop/all"
+                                                            to={`/shop/${product.id}`}
                                                         >
                                                             <img
                                                                 src={product.images[0].url}
@@ -65,8 +64,7 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
                                                     <div className="content">
                                                         <h5>
                                                             <Link
-                                                                // to={`/shop/${product.id}`}
-                                                                to="/shop/all"
+                                                                to={`/shop/${product.id}`}
                                                             >
                                                                 {product.name}
                                                             </Link>
