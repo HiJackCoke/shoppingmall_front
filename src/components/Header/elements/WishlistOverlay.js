@@ -79,7 +79,7 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
 
                                 <div className="wishlist-buttons">
                                     <Link
-                                        to="/other/wishlist"
+                                        to="/order/wishlist"
                                     >
                                         view wishlist
                                     </Link>

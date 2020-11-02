@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {IoIosHeartEmpty} from 'react-icons/io'
 import {IoIosCart} from "react-icons/io/index";
@@ -9,6 +9,7 @@ const ProductDescription = ({
     productPrice,
     discountedPrice,
     color,
+    selectItem,
     wishlistItem,
     deleteFromWishlist,
     addToWishlist
@@ -76,10 +77,6 @@ const ProductDescription = ({
 
     )
 
-
-
-    console.log(product)
-
     return (
         <div className="product-content">
             <h2 className="product-content__title space-mb--20">{product.name}</h2>
@@ -115,6 +112,7 @@ const ProductDescription = ({
                                         }
                                         onChange={() => {
                                             setSelectedProductColor(product.color);
+                                            setQuantityCount(1)
                                         }}
                                     />
                                     <label
@@ -128,7 +126,7 @@ const ProductDescription = ({
                 </div>
 
                 <div className="product-content__size space-mb--20">
-                    <div className="product-content__size__title">Size</div>
+                    <div className="product-content__size__title mt-1 mb-1">Size</div>
                     <div className="product-content__size__content">
 
                         {product.attribute && product.attribute.map((product) => {
@@ -198,8 +196,6 @@ const ProductDescription = ({
                 </div>
 
                 {openOrderBox === true ? orderBox : null}
-
-
 
                 <div className="product-content__button-wrapper d-flex align-items-center">
                     <button
