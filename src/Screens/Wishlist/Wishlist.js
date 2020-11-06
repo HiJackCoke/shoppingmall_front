@@ -7,7 +7,7 @@ import Swiper from 'react-id-swiper'
 
 
 import {LayoutTwo} from "../../components/Layout/Layout";
-import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import ImageGalleryBottomThumb from "../../components/ProductDetail/ImageGalleryBottomThumb";
 import ProductDescription from "../../components/ProductDetail/ProductDescription";
 
@@ -32,11 +32,11 @@ const Wishlist = ({wishlistItems, deleteFromWishlist, deleteAllFromWishlist}) =>
 
     return (
         <LayoutTwo>
-            <BreadCrumb
+            <Breadcrumb
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
                 title="Wishlist"
             >
-            </BreadCrumb>
+            </Breadcrumb>
 
             <div className="wishlist-content space-mt--r130 space-mb--r130">
                 <Container>

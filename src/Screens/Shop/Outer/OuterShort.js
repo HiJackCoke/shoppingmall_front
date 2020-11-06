@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {LayoutTwo} from "../../../components/Layout/Layout";
-import BreadCrumb from "../../../components/Breadcrumb/Breadcrumb";
+import Breadcrumb from "../../../components/Breadcrumb/Breadcrumb";
 import ShopHeader from "../../../components/Shop/ShopHeader";
 import {Link} from "react-router-dom";
 import {Col, Container, Row} from "react-bootstrap";
@@ -11,7 +11,7 @@ import img from "../../../assets/images/category/banner-bestseller-2.jpg";
 const OuterShort = ({product}) => {
     return (
         <LayoutTwo>
-            <BreadCrumb
+            <Breadcrumb
                 title="SHORT COAT"
                 backgroundImage={require("../../../assets/images/backgrounds/breadcrumb-bg-1.png")}
             />

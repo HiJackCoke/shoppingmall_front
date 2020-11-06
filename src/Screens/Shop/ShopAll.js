@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import { Container, Row, Col} from 'react-bootstrap';
 
-import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
 import ShopHeader from "../../components/Shop/ShopHeader";
 import ShopProducts from "../../components/Shop/ShopProducts";
@@ -33,7 +33,7 @@ const ShopAll = ({products}) => {
 
     return (
         <LayoutTwo>
-            <BreadCrumb
+            <Breadcrumb
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
                 title="ALL"
             >
@@ -48,7 +48,7 @@ const ShopAll = ({products}) => {
                 {/*        ALL Product*/}
                 {/*    </li>*/}
                 {/*</ul>*/}
-            </BreadCrumb>
+            </Breadcrumb>
 
             <div className="shop-page-content">
                 <ShopHeader/>

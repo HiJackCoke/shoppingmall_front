@@ -3,14 +3,14 @@ import { Container, Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
 import {LayoutTwo} from "../../components/Layout/Layout";
 
 const Register = () => {
     return (
         <LayoutTwo>
-            <BreadCrumb
+            <Breadcrumb
                 title="Customer Login"
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
             >
@@ -25,7 +25,7 @@ const Register = () => {
                 {/*        Customer Register*/}
                 {/*    </li>*/}
                 {/*</ul>*/}
-            </BreadCrumb>
+            </Breadcrumb>
             <div className="login-area space-mt--r130 space-mb--r130">
                 <Container>
                     <Col lg={6} className="space-mb-mobile-only--50">

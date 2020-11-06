@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 
 
 import {LayoutTwo} from '../../components/Layout/Layout'
-import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {ImageGalleryBottomThumb, ProductDescription} from "../../components/ProductDetail";
 import {addToWishlist, deleteFromWishlist} from '../../actions/wishlistActions';
 
@@ -50,7 +50,7 @@ const ProductPage = ({
     return (
         <LayoutTwo>
 
-            <BreadCrumb
+            <Breadcrumb
                 title={product.name}
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
 
