@@ -6,6 +6,7 @@ import ShopHeader from "../../../components/Shop/ShopHeader";
 import {Link} from "react-router-dom";
 import {Col, Container, Row} from "react-bootstrap";
 import ShopProducts from "../../../components/Shop/ShopProducts";
+import img from "../../../assets/images/category/banner-bestseller-2.jpg";
 
 const OuterShort = ({product}) => {
     return (
@@ -21,27 +22,39 @@ const OuterShort = ({product}) => {
 
                 <div
                     className="text-center mt-5"
-                    style={{fontSize: "x-large"}}
                 >
-                    <Link
-                        className='mr-5'
-                        to="/shop/outer/all"
-                    >
-                        All OUTER
-                    </Link>
+                    <ul className="sub-menu--mega__category">
+                        <li>
+                            <Link
+                                className='mr-5'
+                                to="/shop/outer/all"
+                            >
+                                ALL OUTER
+                            </Link>
+                            <img
+                                src={img}/>
+                        </li>
 
-                    <Link
-                        className='mr-5'
-                        to="/shop/outer/long"
-                    >
-                        LONG COAT
-                    </Link>
+                        <li>
+                            <Link
+                                className='mr-5'
+                                to="/shop/outer/long"
+                            >
+                                LONG COAT
+                            </Link>
+                            <img src={img}/>
+                        </li>
 
-                    <Link
-                        to="/shop/outer/jacket"
-                    >
-                        JACKET
-                    </Link>
+                        <li>
+
+                            <Link
+                                to="/shop/outer/jacket"
+                            >
+                                JACKET
+                            </Link>
+                            <img src={img}/>
+                        </li>
+                    </ul>
                 </div>
 
                 <div className="shop-page-content__body space-mt--r100 space-mb--r130">

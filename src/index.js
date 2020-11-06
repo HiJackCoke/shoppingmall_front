@@ -14,6 +14,17 @@ import OuterAll from "./Screens/Shop/Outer/OuterAll";
 import OuterLong from "./Screens/Shop/Outer/OuterLong";
 import OuterShort from "./Screens/Shop/Outer/OuterShort";
 import OuterJacket from "./Screens/Shop/Outer/OuterJacket";
+
+import TopAll from "./Screens/Shop/Top/TopAll";
+import TopT from "./Screens/Shop/Top/TopT";
+import TopShirt from "./Screens/Shop/Top/TopShirt";
+import TopKnit from "./Screens/Shop/Top/TopKnit";
+
+import BottomAll from "./Screens/Shop/Bottom/BottomAll";
+import BottomSlacks from "./Screens/Shop/Bottom/BottomSlacks";
+import BottomCotton from "./Screens/Shop/Bottom/BottomCotton";
+import BottomDenim from "./Screens/Shop/Bottom/BottomDenim";
+
 import ProductPage from "./Screens/Shop/ProductPage";
 
 import About from "./Screens/Info/About";
@@ -37,12 +48,28 @@ ReactDOM.render(
                     <Route path='/register' exact render={props => <Register{...props}/> } />
                     <Route path='/login' exact render={props => <Login {...props}/> } />
 
+
                     <Route path='/shop/all' render={props => <ShopAll{...props}/> } />
                     <Route path='/shop/outer/all' render={props => <OuterAll {...props}/> } />
                     <Route path='/shop/outer/long' render={props => <OuterLong {...props}/> } />
                     <Route path='/shop/outer/short' render={props => <OuterShort{...props}/> } />
                     <Route path='/shop/outer/jacket' render={props => <OuterJacket {...props}/> } />
+
+
+                    <Route path='/shop/top/all' render={props => <TopAll {...props}/> } />
+                    <Route path='/shop/top/t' render={props => <TopT {...props}/> } />
+                    <Route path='/shop/top/shirt' render={props => <TopShirt {...props}/> } />
+                    <Route path='/shop/top/knit' render={props => <TopKnit {...props}/> } />
+
+
+                    <Route path='/shop/bottom/all' render={props => <BottomAll {...props}/> } />
+                    <Route path='/shop/bottom/slacks' render={props => <BottomSlacks {...props}/> } />
+                    <Route path='/shop/bottom/cotton' render={props => <BottomCotton {...props}/> } />
+                    <Route path='/shop/bottom/denim' render={props => <BottomDenim {...props}/> } />
+
+
                     <Route path='/shop/:id' render={props => <ProductPage{...props}/> } />
+
 
                     <Route path='/info/about' render={props => <About {...props}/> }/>
 

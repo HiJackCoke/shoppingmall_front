@@ -1,21 +1,21 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 import {LayoutTwo} from "../../../components/Layout/Layout";
 import BreadCrumb from "../../../components/Breadcrumb/Breadcrumb";
 import ShopHeader from "../../../components/Shop/ShopHeader";
-import {Link} from "react-router-dom";
 import {Col, Container, Row} from "react-bootstrap";
 import ShopProducts from "../../../components/Shop/ShopProducts";
-import img from "../../../assets/images/category/banner-bestseller-2.jpg";
 
-const OuterLong = ({product}) => {
+import img from '../../../assets/images/category/banner-bestseller-2.jpg'
+
+const TopKnit = ({product}) => {
     return (
         <LayoutTwo>
             <BreadCrumb
-                title="LONG COAT"
                 backgroundImage={require("../../../assets/images/backgrounds/breadcrumb-bg-1.png")}
+                title="KNIT"
             />
-
             <div className="shop-page-content">
 
                 <ShopHeader/>
@@ -23,13 +23,14 @@ const OuterLong = ({product}) => {
                 <div
                     className="text-center mt-5"
                 >
+
                     <ul className="sub-menu--mega__category">
                         <li>
                             <Link
                                 className='mr-5'
-                                to="/shop/outer/all"
+                                to="/shop/top/all"
                             >
-                                ALL OUTER
+                                ALL
                             </Link>
                             <img
                                 src={img}/>
@@ -38,9 +39,9 @@ const OuterLong = ({product}) => {
                         <li>
                             <Link
                                 className='mr-5'
-                                to="/shop/outer/short"
+                                to="/shop/top/t"
                             >
-                                SHORT COAT
+                                TEE
                             </Link>
                             <img src={img}/>
                         </li>
@@ -48,13 +49,16 @@ const OuterLong = ({product}) => {
                         <li>
 
                             <Link
-                                to="/shop/outer/jacket"
+                                to="/shop/top/shirt"
                             >
-                                JACKET
+                                SHIRT
                             </Link>
                             <img src={img}/>
                         </li>
                     </ul>
+
+
+
                 </div>
 
                 <div className="shop-page-content__body space-mt--r100 space-mb--r130">
@@ -73,4 +77,4 @@ const OuterLong = ({product}) => {
     );
 };
 
-export default OuterLong;
+export default TopKnit;
