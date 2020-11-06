@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Link} from 'react-router-dom'
 import { Container, Row, Col } from "react-bootstrap";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 import { IoIosArrowRoundUp } from "react-icons/io";
@@ -36,7 +37,7 @@ const Footer = () => {
               <nav className="footer-nav-container footer-nav-container--horizontal space-mb--20">
                 <ul>
                   <li>
-                    <a href="#">ABOUT US</a>
+                    <Link to="/info/about">ABOUT US</Link>
                   </li>
                   <li>
                     <a href="#">STORE LOCATION</a>

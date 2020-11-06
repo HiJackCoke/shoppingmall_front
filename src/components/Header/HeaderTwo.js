@@ -88,7 +88,7 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
                                 </li>
                                 <li>
                                     <Link
-                                        to="/register"
+                                        to="/login"
                                     >
                                         <IoMdPerson />
                                     </Link>

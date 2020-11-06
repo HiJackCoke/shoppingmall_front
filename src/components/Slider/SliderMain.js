@@ -22,7 +22,7 @@ const SliderMain = ({ sliderData, spaceBottomClass }) => {
         renderPrevButton: () => (
             <button
                 className="swiper-button-prev ht-swiper-button-nav"
-                style={{color: "red", fontSize: "50px"}}
+                style={{color: "black", fontSize: "50px"}}
             >
                 <IoIosArrowBack/>
             </button>
@@ -30,7 +30,7 @@ const SliderMain = ({ sliderData, spaceBottomClass }) => {
         renderNextButton: () => (
             <button
                 className="swiper-button-next ht-swiper-button-nav"
-                style={{color: "red", fontSize:"50px"}}
+                style={{color: "black", fontSize:"50px"}}
             >
                 <IoIosArrowForward/>
             </button>

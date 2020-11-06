@@ -8,9 +8,18 @@ import axios from 'axios'
 import ProductGridWrapper from "../ProductThumb/ProductGridListWrapper";
 
 
-const ShopProducts = ({layout, products}) => {
+const ShopProducts = ({layout}) => {
 
+    const [products, setProducts] = useState([])
 
+    const getData = async () => {
+        const {data} = await axios.get('/products')
+        setProducts(data)
+    };
+
+    useEffect(() => {
+        getData()
+    },[])
 
     return (
         <div className="shop-products">

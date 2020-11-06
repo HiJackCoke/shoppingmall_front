@@ -1,21 +1,34 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import {Container, Row, Col} from 'react-bootstrap';
 import { IoIosClose, IoIosHeartEmpty } from "react-icons/io";
-import { useToasts } from "react-toast-notifications";
-import {connect} from 'react-redux'
+import { Modal } from 'react-bootstrap';
+import Swiper from 'react-id-swiper'
 
 
 import {LayoutTwo} from "../../components/Layout/Layout";
 import BreadCrumb from "../../components/Breadcrumb/Breadcrumb";
+import ImageGalleryBottomThumb from "../../components/ProductDetail/ImageGalleryBottomThumb";
+import ProductDescription from "../../components/ProductDetail/ProductDescription";
 
+import {connect} from 'react-redux'
 import {addToWishlist, deleteFromWishlist, deleteAllFromWishlist} from '../../actions/wishlistActions'
 
 const Wishlist = ({wishlistItems, deleteFromWishlist, deleteAllFromWishlist}) => {
 
+    const [modalShow, setModalShow] = useState(false)
+
+    const gallerySwiperParams = {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        }
+    }
+
     useEffect(() => {
         document.querySelector("body").classList.remove("overflow-hidden");
     });
+
 
     return (
         <LayoutTwo>
@@ -71,11 +84,37 @@ const Wishlist = ({wishlistItems, deleteFromWishlist, deleteAllFromWishlist}) =>
 
                                                 <td className="text-center">
                                                     <button
-                                                        disabled
+                                                        id={product.id}
+                                                        onClick={() => setModalShow(true)}
                                                         className="active lezada-button lezada-button--medium"
                                                     >
                                                         Select option
                                                     </button>
+
+                                                    <Modal
+                                                        show={modalShow}
+                                                        onHide={() => setModalShow(false)}
+                                                    >
+                                                        <Modal.Body>
+                                                            <Modal.Header closeButton></Modal.Header>
+                                                            <div className="product-quickview__image-wrapper">
+                                                                <Swiper{...gallerySwiperParams}>
+                                                                    <div className="single-imgae">
+                                                                        <img
+                                                                            src={product.images[0].url}
+                                                                        />
+                                                                    </div>
+                                                                </Swiper>
+                                                            </div>
+                                                            <Row>
+                                                                <Col md={7} sm={12}>
+                                                                    <div>
+                                                                        name
+                                                                    </div>
+                                                                </Col>
+                                                            </Row>
+                                                        </Modal.Body>
+                                                    </Modal>
                                                 </td>
 
                                                 <td className="product-remove">
@@ -108,6 +147,8 @@ const Wishlist = ({wishlistItems, deleteFromWishlist, deleteAllFromWishlist}) =>
                                 </div>
                             </Col>
                         </Row>
+
+
                     ) : (
                         <Row>
                             <Col>
@@ -130,7 +171,13 @@ const Wishlist = ({wishlistItems, deleteFromWishlist, deleteAllFromWishlist}) =>
                     )}
                 </Container>
             </div>
+
+
+
+
+
         </LayoutTwo>
+
     );
 };
 

@@ -13,6 +13,8 @@ const ProductModal = (props) => {
         deleteFromWishlist
     } = props;
 
+    console.log(props)
+
     const gallerySwiperParams = {
         pagination: {
             el: ".swiper-pagination",
@@ -39,6 +41,7 @@ const ProductModal = (props) => {
 
     return (
         <Modal
+            key={props.id}
             show={props.show}
             onHide={props.onHide}
             className="product-quickview"

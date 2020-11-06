@@ -8,7 +8,7 @@ const ProductDescription = ({
     product,
     productPrice,
     discountedPrice,
-    color,
+
     selectItem,
     wishlistItem,
     deleteFromWishlist,
@@ -18,6 +18,8 @@ const ProductDescription = ({
     const [selectedProductColor, setSelectedProductColor] = useState(
         product.attribute ? product.attribute[0].color : ""
     )
+
+    const [temperData, setTemperData] = useState([])
 
     const [selectedProductSize, setSelectedProductSize] = useState(
         product.attribute ? product.attribute[0].size[0].name : ""
@@ -32,6 +34,26 @@ const ProductDescription = ({
 
     const [quantityCount, setQuantityCount] = useState(1)
 
+    const [row, setRow] = useState([])
+
+        row.push(temperData)
+
+    console.log(row)
+
+    const handleChange = text => e => {
+        setTemperData({...temperData, [text]: e.target.value } )
+    }
+
+
+    // function temper() {
+    //     handleChange('setSelectedProductSize').push(temperData)
+    // }
+
+
+    // function addBox() {
+    //     const item = { item: ""}
+    //     setRow([...row, item])
+    // }
 
     const orderBox = (
 
@@ -56,22 +78,76 @@ const ProductDescription = ({
                         }}
                     >
                     <tr>
-                        <td>Product Info</td>
+                        <td>Product Color</td>
+                        <td>Product Size</td>
                         <td>Quantity</td>
                         <td>Price</td>
                     </tr>
                     </thead>
-
                     <tbody>
-                    <tr>
-                        <td>{selectedProductColor} / {selectedProductSize}</td>
-                        <td>
-                            {quantityCount}
-                        </td>
-                        <td>{product.price}</td>
-                    </tr>
+                        {row.map((item) => (
+                            <tr>
+                                <td>
+                                    {item.productSize ? item.productColor : ""}
+                                </td>
+                                <td>
+                                    {item.productSize}
+                                </td>
+                                <td>
+                                    {item.productSize ? product.price
+                                        // <div className="product-content__quantity space-mb--40">
+                                        //
+                                        //     <div className="cart-plus-minus">
+                                        //         <button
+                                        //             className="qtybutton"
+                                        //             onClick={() => {
+                                        //                 setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
+                                        //             }}
+                                        //         >
+                                        //             -
+                                        //         </button>
+                                        //         <input
+                                        //             className="cart-plus-minus-box"
+                                        //             type="text"
+                                        //             value={quantityCount}
+                                        //             readOnly
+                                        //         />
+                                        //         <button
+                                        //             className="qtybutton"
+                                        //             onClick={() => {
+                                        //                 setQuantityCount(
+                                        //                     quantityCount < productStock
+                                        //                         ? quantityCount + 1
+                                        //                         : quantityCount
+                                        //                 )
+                                        //             }}
+                                        //         >
+                                        //             +
+                                        //         </button>
+                                        //     </div>
+                                        // </div>
+                                        : ""}
+                                </td>
+                                <td>
+
+                                </td>
+                            </tr>
+                        ))}
                     </tbody>
+                    {/*<tbody>*/}
+                    {/*<tr>*/}
+                    {/*    <td>*/}
+                    {/*        {selectedProductColor} / {selectedProductSize}*/}
+                    {/*    </td>*/}
+                    {/*    <td>*/}
+                    {/*        {quantityCount}*/}
+                    {/*    </td>*/}
+                    {/*    <td>{product.price}</td>*/}
+                    {/*</tr>*/}
+                    {/*</tbody>*/}
                 </table>
+
+
             </div>
         </>
 
@@ -94,7 +170,6 @@ const ProductDescription = ({
                 <p>{product.shortDescription}</p>
             </div>
 
-
             <div className="product-content__size-color">
                 <div className="product-content__color space-mb--20">
                     <div className="product-content__color__title">Color</div>
@@ -113,7 +188,9 @@ const ProductDescription = ({
                                         onChange={() => {
                                             setSelectedProductColor(product.color);
                                             setQuantityCount(1)
+                                            setSelectedProductSize(false)
                                         }}
+                                        onClick={handleChange('productColor')}
                                     />
                                     <label
                                         htmlFor={product.color}
@@ -131,7 +208,8 @@ const ProductDescription = ({
 
                         {product.attribute && product.attribute.map((product) => {
                             return product.color === selectedProductColor
-                            ? product.size.map((productSize, i) => {
+                                ? product.size.map((productSize, i) => {
+
                                     return (
                                         <Fragment key={i}>
                                             <input
@@ -149,6 +227,8 @@ const ProductDescription = ({
                                                     setQuantityCount(1)
                                                     setOpenOrderBox(true)
                                                 }}
+                                                onClick={handleChange('productSize')}
+                                                // onClick={() => setOpenOrderBox.length > 1 ? addBox() : ""}
                                             />
                                             <label htmlFor={productSize.name}>
                                                 {productSize.name}
@@ -156,7 +236,7 @@ const ProductDescription = ({
                                         </Fragment>
                                     )
                                 })
-                            : ""
+                                : ""
                         })}
                     </div>
                 </div>
@@ -185,8 +265,8 @@ const ProductDescription = ({
                             onClick={() => {
                                 setQuantityCount(
                                     quantityCount < productStock
-                                    ? quantityCount + 1
-                                    : quantityCount
+                                        ? quantityCount + 1
+                                        : quantityCount
                                 )
                             }}
                         >
@@ -196,6 +276,8 @@ const ProductDescription = ({
                 </div>
 
                 {openOrderBox === true ? orderBox : null}
+
+
 
                 <div className="product-content__button-wrapper d-flex align-items-center">
                     <button
@@ -210,8 +292,8 @@ const ProductDescription = ({
                         }`}
                         onClick={
                             wishlistItem !== undefined
-                            ? () => deleteFromWishlist(product)
-                            : () => addToWishlist(product)
+                                ? () => deleteFromWishlist(product)
+                                : () => addToWishlist(product)
                         }
                     >
                         <IoIosHeartEmpty />
@@ -221,6 +303,7 @@ const ProductDescription = ({
                     </button>
                 </div>
             </Fragment>
+
         </div>
     );
 };

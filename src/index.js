@@ -8,9 +8,19 @@ import App from './App';
 
 import Register from "./Screens/Register/Register";
 import Login from "./Screens/Login/Login";
+
 import ShopAll from "./Screens/Shop/ShopAll";
+import OuterAll from "./Screens/Shop/Outer/OuterAll";
+import OuterLong from "./Screens/Shop/Outer/OuterLong";
+import OuterShort from "./Screens/Shop/Outer/OuterShort";
+import OuterJacket from "./Screens/Shop/Outer/OuterJacket";
 import ProductPage from "./Screens/Shop/ProductPage";
+
+import About from "./Screens/Info/About";
+
 import Wishlist from "./Screens/Wishlist/Wishlist";
+
+
 import {Provider} from 'react-redux';
 import { PersistGate } from "redux-persist/integration/react";
 import store from './store'
@@ -26,8 +36,16 @@ ReactDOM.render(
                     <Route path='/' exact render={props => <App {...props}/> } />
                     <Route path='/register' exact render={props => <Register{...props}/> } />
                     <Route path='/login' exact render={props => <Login {...props}/> } />
+
                     <Route path='/shop/all' render={props => <ShopAll{...props}/> } />
+                    <Route path='/shop/outer/all' render={props => <OuterAll {...props}/> } />
+                    <Route path='/shop/outer/long' render={props => <OuterLong {...props}/> } />
+                    <Route path='/shop/outer/short' render={props => <OuterShort{...props}/> } />
+                    <Route path='/shop/outer/jacket' render={props => <OuterJacket {...props}/> } />
                     <Route path='/shop/:id' render={props => <ProductPage{...props}/> } />
+
+                    <Route path='/info/about' render={props => <About {...props}/> }/>
+
                     <Route path='/order/wishlist' render={props => <Wishlist{...props} /> } />
                     <Redirect to="/" />
                 </Switch>

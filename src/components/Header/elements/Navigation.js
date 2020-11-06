@@ -129,29 +129,29 @@ const Navigation = () => {
                     <ul className="sub-menu sub-menu--mega sub-menu--mega--column-5">
 
                         <li className="sub-menu--mega__title">
-                            <Link to="/">
+                            <Link to="/shop/outer/all">
                                 OUTER
                             </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        LONG COAT
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        SHOT COAT
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        JACKET
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
+                            {/*<ul className="sub-menu--mega__list">*/}
+                            {/*    <li>*/}
+                            {/*        <Link to="/">*/}
+                            {/*            LONG COAT*/}
+                            {/*        </Link>*/}
+                            {/*        <img/>*/}
+                            {/*    </li>*/}
+                            {/*    <li>*/}
+                            {/*        <Link to='/'>*/}
+                            {/*            SHOT COAT*/}
+                            {/*        </Link>*/}
+                            {/*        <img/>*/}
+                            {/*    </li>*/}
+                            {/*    <li>*/}
+                            {/*        <Link to="/">*/}
+                            {/*            JACKET*/}
+                            {/*        </Link>*/}
+                            {/*        <img/>*/}
+                            {/*    </li>*/}
+                            {/*</ul>*/}
                         </li>
 
                         <li className="sub-menu--mega__title">
@@ -238,114 +238,114 @@ const Navigation = () => {
                     >
                         LOOK BOOK
                     </Link>
-                    <IoIosArrowDown />
-                    <ul className="sub-menu sub-menu--mega sub-menu--mega--column-5">
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        Decor
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        Creative
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        prefumes
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        trending
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to=''>
-                                        essentials
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        accessories
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        LookBook
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        Furniture
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        Smart Design
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        Collection
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        Collection2
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        Collection3
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div className="sub-menu--mega__image">
-                                <img/>
-                            </div>
-                        </li>
-                    </ul>
+                    {/*<IoIosArrowDown />*/}
+                    {/*<ul className="sub-menu sub-menu--mega sub-menu--mega--column-5">*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Decor*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    Creative*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    prefumes*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    trending*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to=''>*/}
+                    {/*                    essentials*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    accessories*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    LookBook*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    Furniture*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Smart Design*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Collection*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    Collection2*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Collection3*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li>*/}
+                    {/*        <div className="sub-menu--mega__image">*/}
+                    {/*            <img/>*/}
+                    {/*        </div>*/}
+                    {/*    </li>*/}
+                    {/*</ul>*/}
                 </li>
 
                 <li>
@@ -354,114 +354,114 @@ const Navigation = () => {
                     >
                         SALE
                     </Link>
-                    <IoIosArrowDown />
-                    <ul className="sub-menu sub-menu--mega sub-menu--mega--column-5">
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        Decor
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        Creative
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        prefumes
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        trending
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to=''>
-                                        essentials
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        accessories
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        LookBook
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        Furniture
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        Smart Design
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li className="sub-menu--mega__title">
-                            <Link to="/">
-                                Home Group
-                            </Link>
-                            <ul className="sub-menu--mega__list">
-                                <li>
-                                    <Link to="/">
-                                        Collection
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to='/'>
-                                        Collection2
-                                    </Link>
-                                    <img/>
-                                </li>
-                                <li>
-                                    <Link to="/">
-                                        Collection3
-                                    </Link>
-                                    <img/>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <div className="sub-menu--mega__image">
-                                <img/>
-                            </div>
-                        </li>
-                    </ul>
+                    {/*<IoIosArrowDown />*/}
+                    {/*<ul className="sub-menu sub-menu--mega sub-menu--mega--column-5">*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Decor*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    Creative*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    prefumes*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    trending*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to=''>*/}
+                    {/*                    essentials*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    accessories*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    LookBook*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    Furniture*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Smart Design*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li className="sub-menu--mega__title">*/}
+                    {/*        <Link to="/">*/}
+                    {/*            Home Group*/}
+                    {/*        </Link>*/}
+                    {/*        <ul className="sub-menu--mega__list">*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Collection*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to='/'>*/}
+                    {/*                    Collection2*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*            <li>*/}
+                    {/*                <Link to="/">*/}
+                    {/*                    Collection3*/}
+                    {/*                </Link>*/}
+                    {/*                <img/>*/}
+                    {/*            </li>*/}
+                    {/*        </ul>*/}
+                    {/*    </li>*/}
+                    {/*    <li>*/}
+                    {/*        <div className="sub-menu--mega__image">*/}
+                    {/*            <img/>*/}
+                    {/*        </div>*/}
+                    {/*    </li>*/}
+                    {/*</ul>*/}
                 </li>
             </ul>
         </nav>
