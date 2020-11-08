@@ -11,7 +11,7 @@ const Register = () => {
     return (
         <LayoutTwo>
             <Breadcrumb
-                title="Customer Login"
+                title="Customer Register"
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
             >
                 {/*<ul className="breadcrumb__list">*/}

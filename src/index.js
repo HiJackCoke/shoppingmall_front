@@ -29,6 +29,7 @@ import ProductPage from "./Screens/Shop/ProductPage";
 
 import About from "./Screens/Info/About";
 import Location from "./Screens/Info/Location";
+import Policy from "./Screens/Info/Policy";
 
 import Wishlist from "./Screens/Wishlist/Wishlist";
 
@@ -74,6 +75,7 @@ ReactDOM.render(
 
                     <Route path='/info/about' render={props => <About {...props}/> }/>
                     <Route path='/info/location' render={props => <Location{...props}/> } />
+                    <Route path='/info/policy' render={props => <Policy {...props}/> } />
 
                     <Route path='/order/wishlist' render={props => <Wishlist{...props} /> } />
                     <Redirect to="/" />
