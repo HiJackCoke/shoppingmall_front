@@ -7,8 +7,9 @@ import ModalVideo from 'react-modal-video'
 import {LayoutTwo} from "../../components/Layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 
-import img from '../../assets/images/category/banner-bestseller-1.jpg'
+import img from '../../assets/images/about.jpg'
 import img2 from "../../assets/images/icon/icon-play-100x100.png"
+
 
 const About = () => {
 
@@ -61,7 +62,7 @@ const About = () => {
                                     <Link
                                         href="/shop/all"
                                     >
-                                        <a>STORE</a>
+                                        <a>TONIST</a>
                                     </Link>
                                 </p>
 
@@ -87,10 +88,48 @@ const About = () => {
                                     <Link
                                         href="/info/about"
                                     >
-                                        OUR STORE
+                                        STORE
                                     </Link>
                                 </p>
                             </div>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col lg={10} className="ml-auto mr-auto">
+                            <Row>
+                                <Col md={6}>
+                                    <div className="about-widget space-mb--35">
+                                        <h2 className="widget-title space-mb--25">ADDRESS</h2>
+                                        <p className="widget-content">
+                                            South Korea Incheon
+                                        </p>
+                                    </div>
+                                    <div className="about-widget space-mb--35">
+                                        <h2 className="widget-title space-mb--25">PHONE</h2>
+                                        <p className="widget-content">Mobile: 010-6779-6574</p>
+                                    </div>
+                                    <div className="about-widget">
+                                        <h2 className="widget-title space-mb--25">EMAIL</h2>
+                                        <p className="widget-content">dsa1520@naver.com</p>
+                                    </div>
+                                </Col>
+                                <Col md={6}>
+                                    <div className="about-page-text">
+                                        <p className="space-mb--35">
+                                            TONIST is compound word Tone &amp; ist, like the menaing of the word
+                                            We Prioritize tone of Clothes and Make a look book sush as tone on tone
+                                            &amp; tone and tone
+                                        </p>
+                                        <Link
+                                            to="/shop/all"
+                                            className="lezada-button lezada-button--medium lezada-button--icon--left"
+                                        >
+                                            <IoMdAdd /> online store
+                                        </Link>
+                                    </div>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </Container>
