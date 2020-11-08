@@ -40,10 +40,7 @@ const Footer = () => {
                     <Link to="/info/about">ABOUT US</Link>
                   </li>
                   <li>
-                    <a href="#">STORE LOCATION</a>
-                  </li>
-                  <li>
-                    <a href="#">CONTACT</a>
+                    <Link to="/info/location">STORE LOCATION</Link>
                   </li>
                   <li>
                     <a href="#">SUPPORT</a>
@@ -61,30 +58,16 @@ const Footer = () => {
               <div className="footer-copyright-text">
                 &copy; {new Date().getFullYear() + " "}
                 <a href="https://www.hasthemes.com" target="_blank">
-                  lezada
+                  TONIST
                 </a>
-                . All Rights Reserved | <span>(+00) 123 567990</span> |
-                contact@lezada.com
+                . All Rights Reserved | <span>010 6779 6574</span> |
+                dsa1520@naver.com
               </div>
             </Col>
             <Col lg={3} md={12} className="text-left text-lg-right">
               {/*=======  social icons  =======*/}
               <div className="footer-social-icons space-mb--20">
                 <ul>
-                  <li>
-                    <Tooltip
-                        title="Twitter"
-                        position="top"
-                        trigger="mouseenter"
-                        animation="shift"
-                        arrow={true}
-                        duration={200}
-                    >
-                      <a href="https://www.twitter.com" target="_blank">
-                        <FaTwitter />
-                      </a>
-                    </Tooltip>
-                  </li>
                   <li>
                     <Tooltip
                         title="Facebook"

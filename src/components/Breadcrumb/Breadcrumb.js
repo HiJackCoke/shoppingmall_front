@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import PropTypes from 'prop-types'
 
-const BreadCrumb = ({ children, className, title, backgroundImage }) => {
+const Breadcrumb = ({ children, className, title, backgroundImage }) => {
     return (
         <div
             className={`breadcrumb-area space-pt--70 space-pb--70 ${
@@ -23,9 +23,9 @@ const BreadCrumb = ({ children, className, title, backgroundImage }) => {
 };
 
 
-BreadCrumb.propTypes = {
+Breadcrumb.propTypes = {
     title: PropTypes.string.isRequired,
     backgroundImage: PropTypes.string.isRequired
 }
 
-export default BreadCrumb ;
+export default Breadcrumb ;

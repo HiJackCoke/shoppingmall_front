@@ -28,6 +28,7 @@ import BottomDenim from "./Screens/Shop/Bottom/BottomDenim";
 import ProductPage from "./Screens/Shop/ProductPage";
 
 import About from "./Screens/Info/About";
+import Location from "./Screens/Info/Location";
 
 import Wishlist from "./Screens/Wishlist/Wishlist";
 
@@ -72,6 +73,7 @@ ReactDOM.render(
 
 
                     <Route path='/info/about' render={props => <About {...props}/> }/>
+                    <Route path='/info/location' render={props => <Location{...props}/> } />
 
                     <Route path='/order/wishlist' render={props => <Wishlist{...props} /> } />
                     <Redirect to="/" />

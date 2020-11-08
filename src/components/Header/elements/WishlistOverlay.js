@@ -51,23 +51,23 @@ const WishlistOverlay = ({ activeStatus, getActiveStatus, wishlistItems, deleteF
                                                         </button>
                                                     </span>
                                                     <div className="image">
-                                                        <Link
-                                                            to={`/shop/${product.id}`}
+                                                        <a
+                                                            href={`/shop/${product.id}`}
                                                         >
                                                             <img
                                                                 src={product.images[0].url}
                                                                 className="img-fluid"
                                                                 alt={product.name}
                                                             />
-                                                        </Link>
+                                                        </a>
                                                     </div>
                                                     <div className="content">
                                                         <h5>
-                                                            <Link
-                                                                to={`/shop/${product.id}`}
+                                                            <a
+                                                                href={`/shop/${product.id}`}
                                                             >
                                                                 {product.name}
-                                                            </Link>
+                                                            </a>
                                                         </h5>
                                                     </div>
                                                 </div>
