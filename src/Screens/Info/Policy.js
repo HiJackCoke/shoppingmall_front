@@ -2,7 +2,7 @@ import React from 'react';
 import {Col, Container} from "react-bootstrap";
 import {LayoutTwo} from "../../components/Layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
-import img from '../../assets/images/스크린샷 2020-11-08 오후 9.01.57.png'
+
 
 const Policy = () => {
     return (

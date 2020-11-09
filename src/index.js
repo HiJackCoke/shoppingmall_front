@@ -27,9 +27,12 @@ import BottomDenim from "./Screens/Shop/Bottom/BottomDenim";
 
 import ProductPage from "./Screens/Shop/ProductPage";
 
+import ComingSoon from "./Screens/LookBook/ComingSoon";
+
 import About from "./Screens/Info/About";
 import Location from "./Screens/Info/Location";
 import Policy from "./Screens/Info/Policy";
+import Agreement from "./Screens/Info/Agreement";
 
 import Wishlist from "./Screens/Wishlist/Wishlist";
 
@@ -70,12 +73,16 @@ ReactDOM.render(
                     <Route path='/shop/bottom/denim' render={props => <BottomDenim {...props}/> } />
 
 
+                    <Route path='/coming' render={props => <ComingSoon{...props}/> } />
+
+
                     <Route path='/shop/:id' render={props => <ProductPage{...props}/> } />
 
 
                     <Route path='/info/about' render={props => <About {...props}/> }/>
                     <Route path='/info/location' render={props => <Location{...props}/> } />
                     <Route path='/info/policy' render={props => <Policy {...props}/> } />
+                    <Route path='/info/agreement' render={props => <Agreement{...props}/> } />
 
                     <Route path='/order/wishlist' render={props => <Wishlist{...props} /> } />
                     <Redirect to="/" />

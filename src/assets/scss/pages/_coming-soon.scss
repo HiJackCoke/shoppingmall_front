@@ -142,7 +142,7 @@
   font-size: 24px;
   line-height: 36px;
 
-  color: $grey;
+  color: floralwhite;
 
 @include respond(extra-small-mobile) {
     font-size: 18px;
@@ -154,7 +154,7 @@
   font-size: 72px;
   line-height: 86px;
 
-  color: $black--two;
+  color: floralwhite;
 
 @include respond(large-desktop) {
     font-size: 62px;

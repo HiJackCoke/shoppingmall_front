@@ -256,7 +256,7 @@ const Navigation = () => {
 
                 <li>
                     <Link
-                        to="/"
+                        to="/coming"
                     >
                         LOOK BOOK
                     </Link>
