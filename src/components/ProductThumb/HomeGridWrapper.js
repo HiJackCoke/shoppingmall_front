@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import {connect} from 'react-redux'
 
 import {addToWishlist, deleteFromWishlist} from '../../actions/wishlistActions'
+import {addToCart} from "../../actions/cartActions";
+
 
 import HomeGrid from "./HomeGrid";
 
@@ -12,7 +14,6 @@ const HomeGridWrapper = ({
     deleteFromWishlist,
     wishlistItems,
     sliderClass,
-    cartItem,
     deleteFromCart,
     addToCart
 }) => {
@@ -24,17 +25,17 @@ const HomeGridWrapper = ({
                     (wishlistItem) => wishlistItem.id === product.id
                 )[0];
 
+
                 return (
                     <HomeGrid
                         key={product.id}
                         product={product}
                         // discountedPrice={discountedPrice}
                         // productPrice={productPrice}
-                        cartItem={cartItem}
                         wishlistItem={wishlistItem}
                         // compareItem={compareItem}
                         bottomSpace={bottomSpace}
-                        // addToCart={addToCart}
+                        addToCart={addToCart}
                         addToWishlist={addToWishlist}
                         deleteFromWishlist={deleteFromWishlist}
                         sliderClass={sliderClass}
@@ -46,7 +47,8 @@ const HomeGridWrapper = ({
 };
 
 const mapStateToProps = (state) => ({
-    wishlistItems: state.wishlistData
+    wishlistItems: state.wishlistData,
+    cartItems: state.cartData
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -55,6 +57,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     deleteFromWishlist: (item) => {
         dispatch(deleteFromWishlist(item))
+    },
+    addToCart: (item, quantityCount, selectedProductColor, selectedProductSize) => {
+        dispatch(addToCart(item, quantityCount, selectedProductColor, selectedProductSize))
     }
 })
 

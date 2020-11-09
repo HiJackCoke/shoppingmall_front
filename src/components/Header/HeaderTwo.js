@@ -94,8 +94,6 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
                                     </Link>
                                 </li>
                                 <li>
-
-                                    {/*버튼을 클릭하고 켄버스가 열렷을때 메인 페이지는 스크롤이 안되게 설정*/}
                                     <button
                                         onClick={() => {
                                             setOffCanvasWishlistActive(true);
@@ -124,6 +122,13 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
                                         }}
                                     >
                                         <IoIosCart />
+                                        {cartItems.length >=1 ? (
+                                            <span className="count">
+                                                {cartItems.length ? cartItems.length : ""}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
                                     </button>
                                 </li>
                             </ul>
@@ -186,7 +191,8 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
 };
 
 const mapStateToProps = (state) =>({
-    wishlistItems: state.wishlistData
+    wishlistItems: state.wishlistData,
+    cartItems: state.cartData
 })
 
 

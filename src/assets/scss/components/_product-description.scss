@@ -241,6 +241,29 @@
     }
   }
 
+  &__cart {
+    line-height: 40px;
+
+    display: inline-block;
+
+    width: 44px;
+    height: 44px;
+
+    text-align: center;
+
+    border: 1px solid $grey--sixteen;
+    background: none;
+
+    &:hover,
+    &.active {
+      border-color: $black--two;
+      background-color: $black--two;
+      svg {
+        color: $white;
+      }
+    }
+  }
+
   &__other-info {
     padding-top: 10px;
 

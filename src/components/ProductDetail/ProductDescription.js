@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {IoIosHeartEmpty} from 'react-icons/io'
 import {IoIosCart} from "react-icons/io/index";
+import {addToCart} from "../../actions/cartActions";
 
 
 const ProductDescription = ({
@@ -12,7 +13,9 @@ const ProductDescription = ({
     selectItem,
     wishlistItem,
     deleteFromWishlist,
-    addToWishlist
+    addToWishlist,
+    cartItems,
+    addToCart
 }) => {
 
     const [selectedProductColor, setSelectedProductColor] = useState(
@@ -280,8 +283,32 @@ const ProductDescription = ({
 
 
                 <div className="product-content__button-wrapper d-flex align-items-center">
+                    {/*{productStock && productStock > 0 ? (*/}
+                    {/*    <button*/}
+                    {/*        onClick={() =>*/}
+                    {/*            addToCart(*/}
+                    {/*                product,*/}
+                    {/*                quantityCount,*/}
+                    {/*                selectedProductColor,*/}
+                    {/*                selectedProductSize*/}
+                    {/*            )*/}
+                    {/*        }*/}
+                    {/*        // disabled={productCartQty >= productStock}*/}
+                    {/*        className="lezada-button lezada-button--medium product-content__cart space-mr--10"*/}
+                    {/*    >*/}
+                    {/*        <IoIosCart/>*/}
+                    {/*    </button>*/}
+                    {/*) : (*/}
+                    {/*    <button*/}
+                    {/*        className="lezada-button lezada-button--medium product-content__ofs space-mr--10"*/}
+                    {/*        disabled*/}
+                    {/*    >*/}
+                    {/*        Out of Stock*/}
+                    {/*    </button>*/}
+                    {/*)}*/}
+
                     <button
-                        className="lezada-button lezada-button--medium product-content__cart space-mr--10"
+                        className="lezada-button lezada-button--medium space-mr--10"
                     >
                         Buy Now
                     </button>
@@ -298,9 +325,28 @@ const ProductDescription = ({
                     >
                         <IoIosHeartEmpty />
                     </button>
-                    <button className="product-content__wishlist space-mr--10">
-                        <IoIosCart/>
-                    </button>
+
+                    {selectedProductSize ? (
+                        <button
+                            onClick={() =>
+                                addToCart(
+                                    product,
+                                    quantityCount,
+                                    selectedProductColor,
+                                    selectedProductSize
+                                )
+                            }
+                            // disabled={productCartQty >= productStock}
+                            className={`product-content__cart space-mr--10 ${
+                                cartItems !== undefined ? "active" : ""
+                            }`}
+                        >
+                            <IoIosCart/>
+                        </button>
+                    ) : (
+                        ""
+                    )}
+
                 </div>
             </Fragment>
 

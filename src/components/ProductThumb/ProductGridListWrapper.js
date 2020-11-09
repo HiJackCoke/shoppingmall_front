@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import ProductGridList from "./ProductGridList";
 import {addToWishlist, deleteFromWishlist} from '../../actions/wishlistActions'
-
+import {addToCart} from "../../actions/cartActions";
 
 
 const ProductGridWrapper = ({
@@ -68,6 +68,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     deleteFromWishlist: (item) => {
         dispatch(deleteFromWishlist(item))
+    },
+    addToCart: (item, quantityCount, selectedProductColor, selectedProductSize) => {
+        dispatch(addToCart(item, quantityCount, selectedProductColor, selectedProductSize))
     }
 })
 

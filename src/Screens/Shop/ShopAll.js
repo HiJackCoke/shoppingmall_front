@@ -61,7 +61,7 @@ const ShopAll = ({products}) => {
                         <li>
                             <Link
                                 className='mr-5'
-                                to="/shop/outer/"
+                                to="/shop/outer/all"
                             >
                                 OUTER
                             </Link>
@@ -71,7 +71,7 @@ const ShopAll = ({products}) => {
                         <li>
                             <Link
                                 className='mr-5'
-                                to="/shop/outer/short"
+                                to="/shop/top/all"
                             >
                                 TOP
                             </Link>
@@ -81,21 +81,21 @@ const ShopAll = ({products}) => {
                         <li>
                             <Link
                                 className='mr-5'
-                                to="/shop/outer/jacket"
+                                to="/shop/bottom/all"
                             >
                                 BOTTOM
                             </Link>
                             <img src={img}/>
                         </li>
 
-                        <li>
-                            <Link
-                                to="/shop/outer/jacket"
-                            >
-                                ACC
-                            </Link>
-                            <img src={img}/>
-                        </li>
+                        {/*<li>*/}
+                        {/*    <Link*/}
+                        {/*        to="/shop/outer/all"*/}
+                        {/*    >*/}
+                        {/*        ACC*/}
+                        {/*    </Link>*/}
+                        {/*    <img src={img}/>*/}
+                        {/*</li>*/}
                     </ul>
                 </div>
 

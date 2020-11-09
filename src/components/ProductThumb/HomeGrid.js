@@ -13,6 +13,7 @@ const HomeGrid = ({
     bottomSpace,
     addToWishlist,
     deleteFromWishlist,
+    addToCart,
     sliderClass
 }) => {
 
@@ -160,6 +161,7 @@ const HomeGrid = ({
                 wishlistItem={wishlistItem}
                 addToWishlist={addToWishlist}
                 deleteFromWishlist={deleteFromWishlist}
+                addToCart={addToCart}
             />
         </Fragment>
     );

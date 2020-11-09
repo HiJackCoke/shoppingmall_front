@@ -84,14 +84,14 @@ const ProductGridList = ({
                                 </button>
                             </Tooltip>
                             {/*Add to cart*/}
-                            <button
-                                onClick={cartItem !== undefined
-                                ? () => deleteFromCart(product)
-                                : () => addToCart(product)
-                                }
-                            >
-                                <IoIosCart />
-                            </button>
+                            {/*<button*/}
+                            {/*    onClick={cartItem !== undefined*/}
+                            {/*    ? () => deleteFromCart(product)*/}
+                            {/*    : () => addToCart(product)*/}
+                            {/*    }*/}
+                            {/*>*/}
+                            {/*    <IoIosCart />*/}
+                            {/*</button>*/}
                             {/*quick view*/}
                             <Tooltip
                                 title="Quick view"
@@ -130,6 +130,7 @@ const ProductGridList = ({
                 wishlistItem={wishlistItem}
                 addToWishlist={addToWishlist}
                 deleteFromWishlist={deleteFromWishlist}
+                addToCart={addToCart}
             />
         </Fragment>
     );

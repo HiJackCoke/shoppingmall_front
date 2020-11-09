@@ -10,10 +10,12 @@ const ProductModal = (props) => {
         product,
         wishlistItem,
         addToWishlist,
-        deleteFromWishlist
+        deleteFromWishlist,
+        cartItems,
+        addToCart,
     } = props;
 
-    console.log(props)
+
 
     const gallerySwiperParams = {
         pagination: {
@@ -22,13 +24,10 @@ const ProductModal = (props) => {
         }
     };
 
-    const [selectedProductColor, setSelectedProductColor] = useState(
-        product.attribute ? product.attribute[0].color : ""
-    )
+    const [selectedProductColor, setSelectedProductColor] = useState(false)
 
-    const [selectedProductSize, setSelectedProductSize] = useState(
-        product.attribute ? product.attribute[0].size[0].name : ""
-    )
+
+    const [selectedProductSize, setSelectedProductSize] = useState(false)
 
     const [productStock, setProductStock] = useState(
         product.attribute ? product.attribute[0].size[0].stock : product.stock
@@ -82,80 +81,76 @@ const ProductModal = (props) => {
                                     <p>{product.shortDescription}</p>
                                 </div>
 
-                                {product.attribute ? (
+                                <div className="product-quickview__size-color">
+                                    <div className="product-quickview__color space-mb--20">
+                                        <div className="product-quickview__color__title">
+                                            Color
+                                        </div>
+                                        <div className="product-quickview__color__content">
+                                            {product.attribute && product.attribute.map((product, i) => {
+                                                return (
+                                                    <Fragment key={i}>
+                                                        <input
+                                                            type="radio"
+                                                            value={product.color}
+                                                            name="product-color"
+                                                            id={product.color}
+                                                            checked={
+                                                                product.color === selectedProductColor ? "checked" : ""
+                                                            }
+                                                            onChange={() => {
+                                                                setSelectedProductColor(product.color);
+                                                            }}
+                                                        />
+                                                        <label
+                                                            htmlFor={product.color}
+                                                            style={{backgroundColor: product.colorCode}}
+                                                        />
+                                                    </Fragment>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+
                                     <div className="product-quickview__size-color">
-                                        <div className="product-quickview__color space-mb--20">
-                                            <div className="product-quickview__color__title">
-                                                Color
+                                        <div className="product-quickview__size space-mb--20">
+                                            <div className="product-quickview__size__title">
+                                                Size
                                             </div>
-                                            <div className="product-quickview__color__content">
-                                                {product.attribute.map((product, i) => {
-                                                    return (
-                                                        <Fragment key={i}>
-                                                            <input
-                                                                type="radio"
-                                                                value={product.color}
-                                                                name="product-color"
-                                                                id={product.color}
-                                                                checked={
-                                                                    product.color === selectedProductColor ? "checked" : ""
-                                                                }
-                                                                onChange={() => {
-                                                                    setSelectedProductColor(product.color);
-                                                                }}
-                                                            />
-                                                            <label
-                                                                htmlFor={product.color}
-                                                                style={{backgroundColor: product.colorCode}}
-                                                            />
-                                                        </Fragment>
-                                                    )
+                                            <div className="product-quickview__size__content">
+                                                {product.attribute && product.attribute.map((product) => {
+                                                    return product.color === selectedProductColor
+                                                    ? product.size.map((productSize, i) => {
+                                                        return (
+                                                            <Fragment key={i}>
+                                                                <input
+                                                                    type="radio"
+                                                                    value={productSize.name}
+                                                                    checked={
+                                                                        productSize.name === selectedProductSize
+                                                                            ? "checked"
+                                                                            : ""
+                                                                    }
+                                                                    id={productSize.name}
+                                                                    onChange={() => {
+                                                                        setSelectedProductSize(productSize.name)
+                                                                        setProductStock(productSize.stock)
+                                                                        setQuantityCount(1)
+                                                                        setOpenOrderBox(true)
+                                                                    }}
+                                                                />
+                                                                <label htmlFor={productSize.name}>
+                                                                    {productSize.name}
+                                                                </label>
+                                                            </Fragment>
+                                                        )
+                                                    })
+                                                    : ""
                                                 })}
                                             </div>
                                         </div>
-
-                                        <div className="product-quickview__size-color">
-                                            <div className="product-quickview__size space-mb--20">
-                                                <div className="product-quickview__size__title">
-                                                    Size
-                                                </div>
-                                                <div className="product-quickview__size__content">
-                                                    {product.attribute.map((product) => {
-                                                        return product.color === selectedProductColor
-                                                        ? product.size.map((productSize, i) => {
-                                                            return (
-                                                                <Fragment key={i}>
-                                                                    <input
-                                                                        type="radio"
-                                                                        value={productSize.name}
-                                                                        checked={
-                                                                            productSize.name === selectedProductSize
-                                                                                ? "checked"
-                                                                                : ""
-                                                                        }
-                                                                        id={productSize.name}
-                                                                        onChange={() => {
-                                                                            setSelectedProductSize(productSize.name)
-                                                                            setProductStock(productSize.stock)
-                                                                            setQuantityCount(1)
-                                                                            setOpenOrderBox(true)
-                                                                        }}
-                                                                    />
-                                                                    <label htmlFor={productSize.name}>
-                                                                        {productSize.name}
-                                                                    </label>
-                                                                </Fragment>
-                                                            )
-                                                        })
-                                                        : ""
-                                                    })}
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                ) : (
-                                    ""
-                                )}
+                                </div>
                                 <Fragment>
                                     <div className="product-quickview__quantity space-mb--20">
                                         <div className="product-quickview__quantity__title">
@@ -249,7 +244,19 @@ const ProductModal = (props) => {
                                         >
                                             <IoIosHeartEmpty />
                                         </button>
-                                        <button className="product-content__wishlist space-mr--10">
+                                        <button
+                                            onClick={() =>
+                                                addToCart(
+                                                    product,
+                                                    quantityCount,
+                                                    selectedProductColor,
+                                                    selectedProductSize
+                                                )
+                                            }
+                                            className={`product-content__cart space-mr--10 ${
+                                                cartItems !== undefined ? "active" : ""
+                                            }`}
+                                        >
                                             <IoIosCart/>
                                         </button>
                                     </div>

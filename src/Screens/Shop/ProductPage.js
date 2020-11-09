@@ -9,13 +9,14 @@ import {LayoutTwo} from '../../components/Layout/Layout'
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {ImageGalleryBottomThumb, ProductDescription} from "../../components/ProductDetail";
 import {addToWishlist, deleteFromWishlist} from '../../actions/wishlistActions';
+import {addToCart, deleteFromCart} from '../../actions/cartActions';
 
 
 const ProductPage = ({
                          wishlistItems,
                          addToWishlist,
                          deleteFromWishlist,
-                         addToast
+                         addToCart
 }) => {
     useEffect(() => {
         document.querySelector('body').classList.remove("overflow-hidden")
@@ -32,10 +33,7 @@ const ProductPage = ({
 
     const getData = async () => {
         const {data} = await axios.get(`/products/${id}`)
-        console.log("---------------------", `http://localhost:1337${data.images.url}`)
         setProduct(data)
-    //
-    //     console.log(data)
     }
 
     useEffect(() => {
@@ -72,6 +70,7 @@ const ProductPage = ({
                                 wishlistItem={wishlistItem}
                                 addToWishlist={addToWishlist}
                                 deleteFromWishlist={deleteFromWishlist}
+                                addToCart={addToCart}
                             />
                         </Col>
 
@@ -84,7 +83,8 @@ const ProductPage = ({
 };
 
 const mapStateToProps = (state) => ({
-    wishlistItems: state.wishlistData
+    wishlistItems: state.wishlistData,
+    cartItems: state.cartData
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -93,6 +93,12 @@ const mapDispatchToProps = (dispatch) => ({
     },
     deleteFromWishlist: (item) => {
         dispatch(deleteFromWishlist(item))
+    },
+    addToCart: (item, quantityCount, selectedProductColor, selectedProductSize) => {
+        dispatch(addToCart(item, quantityCount, selectedProductColor, selectedProductSize))
+    },
+    deleteFromCart: (item) => {
+        dispatch(deleteFromCart(item))
     }
 })
 
