@@ -39,24 +39,27 @@ const ProductDescription = ({
 
     const [row, setRow] = useState([])
 
-        row.push(temperData)
 
-    console.log(row)
+    if(temperData.productSize) {
+        row.push(temperData)
+    }
+
+
+
+    console.log("row----------------", row)
+
+    useEffect(() => {
+        console.log("----------------------------3",temperData)
+
+        if(temperData.productSize) {
+            setTemperData(false)
+        }
+
+    })
 
     const handleChange = text => e => {
         setTemperData({...temperData, [text]: e.target.value } )
     }
-
-
-    // function temper() {
-    //     handleChange('setSelectedProductSize').push(temperData)
-    // }
-
-
-    // function addBox() {
-    //     const item = { item: ""}
-    //     setRow([...row, item])
-    // }
 
     const orderBox = (
 
@@ -88,8 +91,8 @@ const ProductDescription = ({
                     </tr>
                     </thead>
                     <tbody>
-                        {row.map((item) => (
-                            <tr>
+                        {row.map((item, i) => (
+                            <tr key={i}>
                                 <td>
                                     {item.productSize ? item.productColor : ""}
                                 </td>
@@ -224,14 +227,15 @@ const ProductDescription = ({
                                                         : ""
                                                 }
                                                 id={productSize.name}
+
                                                 onChange={() => {
                                                     setSelectedProductSize(productSize.name)
                                                     setProductStock(productSize.stock)
                                                     setQuantityCount(1)
                                                     setOpenOrderBox(true)
+                                                    setSelectedProductColor(false)
                                                 }}
                                                 onClick={handleChange('productSize')}
-                                                // onClick={() => setOpenOrderBox.length > 1 ? addBox() : ""}
                                             />
                                             <label htmlFor={productSize.name}>
                                                 {productSize.name}
