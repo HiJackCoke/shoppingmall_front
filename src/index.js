@@ -28,6 +28,7 @@ import BottomDenim from "./Screens/Shop/Bottom/BottomDenim";
 import ProductPage from "./Screens/Shop/ProductPage";
 
 import ComingSoon from "./Screens/LookBook/ComingSoon";
+import Sale from "./Screens/Shop/Sale/Sale"
 
 import About from "./Screens/Info/About";
 import Location from "./Screens/Info/Location";
@@ -74,6 +75,7 @@ ReactDOM.render(
 
 
                     <Route path='/coming' render={props => <ComingSoon{...props}/> } />
+                    <Route path='/sale' render={props => <Sale {...props}/> } />
 
 
                     <Route path='/shop/:id' render={props => <ProductPage{...props}/> } />

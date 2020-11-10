@@ -114,7 +114,7 @@ const ProductModal = (props) => {
 
                                     <div className="product-quickview__size-color">
                                         <div className="product-quickview__size space-mb--20">
-                                            <div className="product-quickview__size__title">
+                                            <div className="product-quickview__size__title mt-1 mb-1">
                                                 Size
                                             </div>
                                             <div className="product-quickview__size__content">

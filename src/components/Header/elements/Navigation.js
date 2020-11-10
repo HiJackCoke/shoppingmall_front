@@ -372,7 +372,7 @@ const Navigation = () => {
 
                 <li>
                     <Link
-                        to="/"
+                        to="/sale"
                     >
                         SALE
                     </Link>
