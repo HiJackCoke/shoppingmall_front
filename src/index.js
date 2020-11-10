@@ -36,6 +36,7 @@ import Policy from "./Screens/Info/Policy";
 import Agreement from "./Screens/Info/Agreement";
 
 import Wishlist from "./Screens/Wishlist/Wishlist";
+import Cart from "./Screens/Cart/Cart";
 
 
 import {Provider} from 'react-redux';
@@ -87,6 +88,7 @@ ReactDOM.render(
                     <Route path='/info/agreement' render={props => <Agreement{...props}/> } />
 
                     <Route path='/order/wishlist' render={props => <Wishlist{...props} /> } />
+                    <Route path='/order/cart' render={props => <Cart {...props}/> } />
                     <Redirect to="/" />
                 </Switch>
             </BrowserRouter>

@@ -87,9 +87,28 @@ const CartOverlay = ({
                                     })}
                                 </CustomScroll>
                             </div>
+                            <p className="cart-subtotal">
+                                <span className="subtotal-title">
+                                    Subtotal
+                                </span>
+                                <span className='subtotal-amount'>
+                                    subtotal amount
+                                </span>
+                            </p>
+
+                            <div className="cart-buttons">
+                                <Link
+                                    to="/order/cart"
+                                >
+                                    View Cart
+                                </Link>
+                                <Link>
+                                    Check Out
+                                </Link>
+                            </div>
                         </div>
                     ) : (
-                        ""
+                        "No Items"
                     )}
                 </div>
             </div>
