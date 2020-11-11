@@ -14,6 +14,7 @@ import {addToCart, deleteFromCart} from '../../actions/cartActions';
 
 const ProductPage = ({
                          wishlistItems,
+                            cartItems,
                          addToWishlist,
                          deleteFromWishlist,
                          addToCart
@@ -28,7 +29,11 @@ const ProductPage = ({
 
 
     const wishlistItem = wishlistItems.filter(
-        (wishlistItems) => wishlistItems.id === product.id)[0]
+        (wishlistItem) => wishlistItem.id === product.id)[0]
+
+    const cartItem = cartItems.filter(
+        (cartItem) => cartItem.id === product.id
+    )[0]
 
 
     const getData = async () => {
@@ -70,6 +75,7 @@ const ProductPage = ({
                                 wishlistItem={wishlistItem}
                                 addToWishlist={addToWishlist}
                                 deleteFromWishlist={deleteFromWishlist}
+                                cartItem={cartItem}
                                 addToCart={addToCart}
                             />
                         </Col>

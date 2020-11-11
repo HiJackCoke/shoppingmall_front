@@ -14,7 +14,7 @@ const ProductDescription = ({
     wishlistItem,
     deleteFromWishlist,
     addToWishlist,
-    cartItems,
+    cartItem,
     addToCart
 }) => {
 
@@ -55,7 +55,7 @@ const ProductDescription = ({
             setTemperData(false)
         }
 
-    })
+    }, [selectedProductSize])
 
     const handleChange = text => e => {
         setTemperData({...temperData, [text]: e.target.value } )
@@ -330,7 +330,7 @@ const ProductDescription = ({
                         <IoIosHeartEmpty />
                     </button>
 
-                    {selectedProductSize ? (
+                    {openOrderBox === true ? (
                         <button
                             onClick={() =>
                                 addToCart(
@@ -342,7 +342,7 @@ const ProductDescription = ({
                             }
                             // disabled={productCartQty >= productStock}
                             className={`product-content__cart space-mr--10 ${
-                                cartItems !== undefined ? "active" : ""
+                                cartItem !== undefined ? "active" : ""
                             }`}
                         >
                             <IoIosCart/>
