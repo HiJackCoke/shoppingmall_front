@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
@@ -8,30 +9,56 @@ import {LayoutTwo} from "../../components/Layout/Layout";
 import img from '../../assets/images/IMG_9849.jpg'
 
 const Register = () => {
+
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        textChange: "Register"
+    });
+
+    const {username, email, password, confirmPassword, textChange} = formData
+
+    const handleChange = text => e => {
+        setFormData({...formData, [text]: e.target.value})
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+
+        if(password !== confirmPassword) {
+            alert("password dose not matching")
+            return
+        }
+
+        axios
+            .post('/auth/local/register', formData)
+            .then(response => {
+                console.log("user profile", response.data.user)
+                // console.log("token", response.data.jwt)
+            })
+            .catch(err => {
+                console.log(err.response)
+            })
+    }
+
+
+
     return (
         <LayoutTwo>
             <Breadcrumb
                 title="Customer Register"
                 backgroundImage={require("../../assets/images/backgrounds/breadcrumb-bg-1.png")}
             >
-                {/*<ul className="breadcrumb__list">*/}
-                {/*    <li>*/}
-                {/*        <Link to="/">*/}
-                {/*            Home*/}
-                {/*        </Link>*/}
-                {/*    </li>*/}
-
-                {/*    <li>*/}
-                {/*        Customer Register*/}
-                {/*    </li>*/}
-                {/*</ul>*/}
             </Breadcrumb>
             <div className="login-area space-mt--r130 space-mb--r130">
                 <Container>
                     <Row>
                         <Col lg={6} className="space-mb-mobile-only--50">
                             <div className="lezada-form login-form--register ">
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <Row>
                                         <Col lg={12}>
                                             <div className="section-title--login text-center space-mb--50">
@@ -43,29 +70,60 @@ const Register = () => {
                                             <label htmlFor="regEmail">
                                                 Name <span className="required">*</span>{" "}
                                             </label>
-                                            <input type='text' id="regEmail" required className="pt-0"/>
+                                            <input
+                                                type='text'
+                                                id="regEmail"
+                                                required
+                                                className="pt-0"
+                                                onChange={handleChange('username')}
+                                                value={username}
+                                            />
                                         </Col>
                                         <Col lg={12} className="space-mb--20">
                                             <label htmlFor="regEmail">
                                                 Email Address <span className="required">*</span>{" "}
                                             </label>
-                                            <input type="email" id="regEmail" required className="pt-0"/>
+                                            <input
+                                                type="email"
+                                                id="regEmail"
+                                                required
+                                                className="pt-0"
+                                                onChange={handleChange("email")}
+                                                value={email}
+                                            />
                                         </Col>
                                         <Col lg={12} className="space-mb--20">
                                             <label htmlFor="regEmail">
                                                 Password <span className="required">*</span>{" "}
                                             </label>
-                                            <input type="password" id="regEmail" required className="pt-0" />
+                                            <input
+                                                type="password"
+                                                id="regEmail"
+                                                required
+                                                className="pt-0"
+                                                onChange={handleChange('password')}
+                                                value={password}
+                                            />
                                         </Col>
                                         <Col lg={12} className="space-mb--50">
                                             <label htmlFor="regEmail">
                                                 Confirm Password <span className="required">*</span>{" "}
                                             </label>
-                                            <input type="password" id="regEmail" required className="pt-0" />
+                                            <input
+                                                type="password"
+                                                id="regEmail"
+                                                required
+                                                className="pt-0"
+                                                onChange={handleChange("confirmPassword")}
+                                                value={confirmPassword}
+                                            />
                                         </Col>
                                         <Col lg={12} className="space-mb--30">
-                                            <button className="lezada-button lezada-button--medium">
-                                                Register
+                                            <button
+                                                type="submit"
+                                                className="lezada-button lezada-button--medium"
+                                            >
+                                                {textChange}
                                             </button>
                                         </Col>
                                         <Col>

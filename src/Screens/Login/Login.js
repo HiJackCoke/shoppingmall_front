@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
@@ -9,6 +10,36 @@ import {LayoutTwo} from "../../components/Layout/Layout";
 import img from "../../assets/images/IMG_9849.jpg"
 
 const Login = () => {
+
+    const [formData, setFormData] = useState({
+        identifier: "",
+        password: "",
+        textChange: "Log In"
+    })
+
+    const {identifier, password, textChange} = formData
+
+    const handleChange = text => e => {
+        setFormData({...formData, [text]: e.target.value})
+    };
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        axios
+            .post('/auth/local', formData)
+            .then(response => {
+                console.log("user Profile", response.data.user)
+                console.log('token', response.data.jwt)
+            })
+            .catch(err => {
+                console.log(err.response.data)
+            })
+    }
+
+
+    console.log(formData)
+
     return (
         <LayoutTwo>
             <Breadcrumb
@@ -32,7 +63,9 @@ const Login = () => {
                     <Row>
                         <Col lg={6} className="space-mb-mobile-only--50">
                             <div className="lezada-form login-form">
-                                <form>
+                                <form
+                                    onSubmit={handleSubmit}
+                                >
                                     <Row>
                                         <Col lg={12}>
                                             <div className="section-title--login text-center space-mb--50">
@@ -44,17 +77,33 @@ const Login = () => {
                                             <label htmlFor="logID">
                                                 User ID <span className="required">*</span>{" "}
                                             </label>
-                                            <input type='text' id="logID" required className="pt-0"/>
+                                            <input
+                                                type='email'
+                                                id="logID"
+                                                required
+                                                className="pt-0"
+                                                value={identifier}
+                                                onChange={handleChange('identifier')}
+                                            />
                                         </Col>
                                         <Col lg={12} className="space-mb--40">
                                             <label htmlFor="logPassword">
                                                 Password <span className="required">*</span>{" "}
                                             </label>
-                                            <input type="password" id="logPassword" required className="pt-0" />
+                                            <input
+                                                type="password"
+                                                id="logPassword"
+                                                required className="pt-0"
+                                                value={password}
+                                                onChange={handleChange("password")}
+                                            />
                                         </Col>
                                         <Col lg={12} className="space-mb--30">
-                                            <button className="lezada-button lezada-button--medium">
-                                                Log In
+                                            <button
+                                                type="submit"
+                                                className="lezada-button lezada-button--medium"
+                                            >
+                                                {textChange}
                                             </button>
                                         </Col>
                                         <Col>
