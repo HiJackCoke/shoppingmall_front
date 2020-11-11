@@ -8,8 +8,8 @@ import Swiper from 'react-id-swiper'
 
 import {LayoutTwo} from "../../components/Layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
-import ImageGalleryBottomThumb from "../../components/ProductDetail/ImageGalleryBottomThumb";
-import ProductDescription from "../../components/ProductDetail/ProductDescription";
+// import ImageGalleryBottomThumb from "../../components/ProductDetail/ImageGalleryBottomThumb";
+// import ProductDescription from "../../components/ProductDetail/ProductDescription";
 
 import {connect} from 'react-redux'
 import {addToWishlist, deleteFromWishlist, deleteAllFromWishlist} from '../../actions/wishlistActions'

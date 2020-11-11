@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-import { Col } from "react-bootstrap";
 import {Link} from 'react-router-dom'
 import { IoIosHeartEmpty, IoIosHeart, IoIosSearch } from "react-icons/io";
 import { Tooltip } from "react-tippy";

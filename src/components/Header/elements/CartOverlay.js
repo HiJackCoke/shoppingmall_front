@@ -13,7 +13,7 @@ const CartOverlay = ({
     deleteFromCart
 }) => {
 
-    let cartTotalPrice = 0;
+    // let cartTotalPrice = 0;
 
     return (
         <div className={`cart-overlay ${activeStatus ? "active" : ""}`}>

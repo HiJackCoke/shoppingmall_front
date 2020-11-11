@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { Container, Row, Col} from 'react-bootstrap';
 
@@ -12,7 +12,7 @@ import img from '../../assets/images/category/banner-bestseller-2.jpg'
 
 const ShopAll = ({products}) => {
 
-    const [layout, setLayout] = useState("grid four-column");
+    const [layout] = useState("grid four-column");
     // const [products, setProducts] = useState([])
     //
     // const getData = async () => {

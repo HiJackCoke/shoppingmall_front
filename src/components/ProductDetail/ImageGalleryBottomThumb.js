@@ -1,8 +1,8 @@
-import React, {Fragment, useState, useEffect, useRef} from 'react';
+import React, {Fragment, useState} from 'react';
 import { LightgalleryItem, LightgalleryProvider } from 'react-lightgallery';
 import IdSwiper from "react-id-swiper/lib/ReactIdSwiper.custom";
 import { Swiper, Navigation, Pagination, Controller } from 'swiper'
-import {IoIosHeartEmpty, IoMdExpand} from 'react-icons/io'
+import {IoMdExpand} from 'react-icons/io'
 import {Tooltip} from 'react-tippy';
 
 

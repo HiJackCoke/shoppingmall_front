@@ -1,4 +1,4 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React from 'react';
 import IdSwiper from "react-id-swiper/lib/ReactIdSwiper.custom";
 import { Swiper, Navigation, Pagination} from 'swiper'
 
