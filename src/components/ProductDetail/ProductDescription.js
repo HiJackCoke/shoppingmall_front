@@ -1,8 +1,7 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
 import {IoIosHeartEmpty} from 'react-icons/io'
 import {IoIosCart} from "react-icons/io/index";
-import {addToCart} from "../../actions/cartActions";
+
 
 
 const ProductDescription = ({
@@ -37,7 +36,7 @@ const ProductDescription = ({
 
     const [quantityCount, setQuantityCount] = useState(1)
 
-    const [row, setRow] = useState([])
+    const [row] = useState([])
 
 
     if(temperData.productSize) {

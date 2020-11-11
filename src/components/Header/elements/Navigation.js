@@ -134,8 +134,10 @@ const Navigation = () => {
                                 OUTER
                             </Link>
                             <Link to="/shop/outer/all">
-                                <img src={img}
-                                     className="img-fluid"
+                                <img
+                                    src={img}
+                                    alt=""
+                                    className="img-fluid"
                                 />
                             </Link>
 
@@ -168,8 +170,10 @@ const Navigation = () => {
                                 TOP
                             </Link>
                             <Link to="/shop/top/all">
-                                <img src={img}
-                                     className="img-fluid"
+                                <img
+                                    src={img}
+                                    alt=""
+                                    className="img-fluid"
                                 />
                             </Link>
                             {/*<ul className="sub-menu--mega__list">*/}
@@ -199,8 +203,10 @@ const Navigation = () => {
                                 BOTTOM
                             </Link>
                             <Link to="/shop/bottom/all">
-                                <img src={img}
-                                     className="img-fluid"
+                                <img
+                                    src={img}
+                                    alt=""
+                                    className="img-fluid"
                                 />
                             </Link>
                             {/*<ul className="sub-menu--mega__list">*/}
