@@ -5,10 +5,12 @@ import axios from 'axios';
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
+import {connect} from 'react-redux';
+import {registerUser} from "../../actions/authActions";
 
 import img from '../../assets/images/IMG_9849.jpg'
 
-const Register = () => {
+const Register = ({history, registerUser}) => {
 
     const [formData, setFormData] = useState({
         username: "",
@@ -27,6 +29,7 @@ const Register = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
+        registerUser(username, email, password)
 
         if(password !== confirmPassword) {
             alert("password dose not matching")
@@ -35,12 +38,20 @@ const Register = () => {
 
         axios
             .post('/auth/local/register', formData)
-            .then(response => {
-                console.log("user profile", response.data.user)
+            .then(res => {
+                setFormData({
+                    ...formData,
+                    username: "",
+                    email: "",
+                    password: "",
+                    confirmPassword: ""
+                })
+                console.log("user profile", res.data.user)
                 // console.log("token", response.data.jwt)
+
             })
-            .catch(err => {
-                console.log(err.response)
+            .catch(error => {
+                console.log(error.response)
             })
     }
 
@@ -145,4 +156,16 @@ const Register = () => {
     );
 };
 
-export default Register;
+
+const mapStateToProps = (state) => ({
+    auth: state.authData,
+    error: state.errorData
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    registerUser: (userData) => {
+        dispatch(registerUser(userData))
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

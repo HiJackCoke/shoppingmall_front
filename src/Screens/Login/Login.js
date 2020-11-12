@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import {connect} from 'react-redux';
+import {loginUser} from "../../actions/authActions";
+
+import { isAuth, authenticate, setCookie } from '../../helpers/auth'
 
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
@@ -9,7 +13,7 @@ import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
 import img from "../../assets/images/IMG_9849.jpg"
 
-const Login = () => {
+const Login = ({loginUser}) => {
 
     const [formData, setFormData] = useState({
         identifier: "",
@@ -26,19 +30,27 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault()
 
+        loginUser(identifier, password)
+
+        // loginUser({identifier, password})
+
         axios
             .post('/auth/local', formData)
-            .then(response => {
-                console.log("user Profile", response.data.user)
-                console.log('token', response.data.jwt)
+            .then(res => {
+
+                authenticate(res, () => {
+                    setFormData({
+                        ...formData,
+                        identifier: "",
+                        password: '',
+                        textChange: "submitted"
+                    })
+                })
             })
             .catch(err => {
                 console.log(err.response.data)
             })
     }
-
-
-    console.log(formData)
 
     return (
         <LayoutTwo>
@@ -131,4 +143,15 @@ const Login = () => {
     );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+    auth: state.authData,
+    errors: state.errorData
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    loginUser: (userData) => {
+        dispatch(loginUser(userData))
+    }
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
