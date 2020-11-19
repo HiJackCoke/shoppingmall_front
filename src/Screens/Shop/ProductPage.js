@@ -14,7 +14,7 @@ import {addToCart, deleteFromCart} from '../../actions/cartActions';
 
 const ProductPage = ({
                          wishlistItems,
-                            cartItems,
+                         cartItems,
                          addToWishlist,
                          deleteFromWishlist,
                          addToCart
@@ -75,7 +75,6 @@ const ProductPage = ({
                                 wishlistItem={wishlistItem}
                                 addToWishlist={addToWishlist}
                                 deleteFromWishlist={deleteFromWishlist}
-                                cartItem={cartItem}
                                 addToCart={addToCart}
                             />
                         </Col>

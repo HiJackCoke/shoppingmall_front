@@ -5,6 +5,7 @@ import { persistStore } from 'redux-persist'
 
 import App from './App';
 
+// "proxy": "https://protected-waters-43617.herokuapp.com"
 
 import Register from "./Screens/Register/Register";
 import Login from "./Screens/Login/Login";

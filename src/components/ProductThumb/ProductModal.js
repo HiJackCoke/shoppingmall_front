@@ -38,6 +38,7 @@ const ProductModal = (props) => {
 
     const [quantityCount, setQuantityCount] = useState(1)
 
+
     return (
         <Modal
             key={props.id}
@@ -100,6 +101,8 @@ const ProductModal = (props) => {
                                                             }
                                                             onChange={() => {
                                                                 setSelectedProductColor(product.color);
+                                                                setSelectedProductSize(false)
+                                                                setQuantityCount(1)
                                                             }}
                                                         />
                                                         <label
@@ -227,10 +230,11 @@ const ProductModal = (props) => {
                                     }
                                     <div className="product-content__button-wrapper d-flex align-items-center">
                                         <button
-                                            className="lezada-button lezada-button--medium product-content__cart space-mr--10"
+                                            className="lezada-button lezada-button--medium space-mr--10"
                                         >
                                             Buy Now
                                         </button>
+
 
                                         <button
                                             className={`product-content__wishlist space-mr--10 ${
@@ -244,21 +248,27 @@ const ProductModal = (props) => {
                                         >
                                             <IoIosHeartEmpty />
                                         </button>
-                                        <button
-                                            onClick={() =>
-                                                addToCart(
-                                                    product,
-                                                    quantityCount,
-                                                    selectedProductColor,
-                                                    selectedProductSize
-                                                )
-                                            }
-                                            className={`product-content__cart space-mr--10 ${
-                                                cartItems !== undefined ? "active" : ""
-                                            }`}
-                                        >
-                                            <IoIosCart/>
-                                        </button>
+
+                                        {openOrderBox === true ? (
+                                            <button
+                                                onClick={() =>
+                                                    selectedProductSize ?
+                                                    addToCart(
+                                                        product,
+                                                        quantityCount,
+                                                        selectedProductColor,
+                                                        selectedProductSize
+                                                    ) : alert("Should select size")
+                                                }
+                                                className={`product-content__cart space-mr--10 ${
+                                                    cartItems !== undefined ? "active" : ""
+                                                }`}
+                                            >
+                                                <IoIosCart/>
+                                            </button>
+                                        ) : (
+                                            ""
+                                        )}
                                     </div>
                                 </Fragment>
                             </div>

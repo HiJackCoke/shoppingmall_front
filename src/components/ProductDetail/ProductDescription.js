@@ -1,6 +1,6 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {IoIosHeartEmpty} from 'react-icons/io'
-import {IoIosCart} from "react-icons/io/index";
+import {IoIosCart, IoIosClose} from "react-icons/io/index";
 
 
 
@@ -8,20 +8,16 @@ const ProductDescription = ({
     product,
     productPrice,
     discountedPrice,
-
     selectItem,
     wishlistItem,
     deleteFromWishlist,
     addToWishlist,
-    cartItem,
     addToCart
 }) => {
 
     const [selectedProductColor, setSelectedProductColor] = useState(
         product.attribute ? product.attribute[0].color : ""
     )
-
-    const [temperData, setTemperData] = useState([])
 
     const [selectedProductSize, setSelectedProductSize] = useState(
         product.attribute ? product.attribute[0].size[0].name : ""
@@ -36,32 +32,33 @@ const ProductDescription = ({
 
     const [quantityCount, setQuantityCount] = useState(1)
 
-    const [row] = useState([])
+    const [rows, setRows] = useState([])
 
+    const [temperData, setTemperData] = useState([])
 
-    if(temperData.productSize) {
-        row.push(temperData)
+    if(temperData.selectedProductSize && temperData.selectedProductColor) {
+        rows.push(temperData)
     }
 
-
-
-    console.log("row----------------", row)
-
     useEffect(() => {
-        console.log("----------------------------3",temperData)
-
-        if(temperData.productSize) {
+        if(temperData.selectedProductSize) {
             setTemperData(false)
+            setSelectedProductColor(false)
         }
-
     }, [selectedProductSize])
 
     const handleChange = text => e => {
         setTemperData({...temperData, [text]: e.target.value } )
     }
 
-    const orderBox = (
+    const deleteOrder = item => () => {
+        const items = rows.filter(row =>
+            row.id !== item.id
+        )
+        setRows(items)
+    }
 
+    const orderBox = (
         <>
             <div>
                 <table
@@ -83,79 +80,86 @@ const ProductDescription = ({
                         }}
                     >
                     <tr>
-                        <td>Product Color</td>
-                        <td>Product Size</td>
+                        <td>Product Info</td>
+
                         <td>Quantity</td>
                         <td>Price</td>
+                        <td>&nbsp;</td>
                     </tr>
                     </thead>
                     <tbody>
-                        {row.map((item, i) => (
+                        {rows.map((item, i) => (
                             <tr key={i}>
-                                <td>
-                                    {item.productSize ? item.productColor : ""}
+                                <td>{item.selectedProductColor} / {item.selectedProductSize}
                                 </td>
-                                <td>
-                                    {item.productSize}
-                                </td>
-                                <td>
-                                    {item.productSize ? product.price
-                                        // <div className="product-content__quantity space-mb--40">
-                                        //
-                                        //     <div className="cart-plus-minus">
-                                        //         <button
-                                        //             className="qtybutton"
-                                        //             onClick={() => {
-                                        //                 setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
-                                        //             }}
-                                        //         >
-                                        //             -
-                                        //         </button>
-                                        //         <input
-                                        //             className="cart-plus-minus-box"
-                                        //             type="text"
-                                        //             value={quantityCount}
-                                        //             readOnly
-                                        //         />
-                                        //         <button
-                                        //             className="qtybutton"
-                                        //             onClick={() => {
-                                        //                 setQuantityCount(
-                                        //                     quantityCount < productStock
-                                        //                         ? quantityCount + 1
-                                        //                         : quantityCount
-                                        //                 )
-                                        //             }}
-                                        //         >
-                                        //             +
-                                        //         </button>
-                                        //     </div>
-                                        // </div>
-                                        : ""}
-                                </td>
-                                <td>
 
+                                <td>
+                                    <div className="product-content__quantity"
+                                        style={{
+                                            display: "contents",
+                                        }}
+                                    >
+                                        <div className="cart-plus-minus"
+                                            style={{
+                                                border: "none",
+                                                padding: "0px"
+                                            }}
+                                        >
+                                            <button
+                                                className="qtybutton"
+                                                onClick={() => {
+                                                    setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
+                                                }}
+                                            >
+                                                -
+                                            </button>
+                                            <input
+                                                className="cart-plus-minus-box"
+                                                type="text"
+                                                style={{
+                                                    backgroundColor: "whitesmoke",
+                                                    width: "60px"
+                                                }}
+                                                value={quantityCount}
+                                                readOnly
+                                            />
+                                            <button
+                                                className="qtybutton"
+                                                onClick={() => {
+                                                    setQuantityCount(
+                                                        quantityCount < productStock
+                                                            ? quantityCount + 1
+                                                            : quantityCount
+                                                    )
+                                                }}
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    {item.selectedProductSize ? product.price : ""}
+                                </td>
+                                <td>
+                                    <button
+                                        className="order-button"
+                                        type="button"
+                                        style={{
+                                            border: "none",
+                                            backgroundColor: "whitesmoke"
+                                        }}
+                                        onClick={deleteOrder(i)}
+                                    >
+                                        <IoIosClose/>
+                                    </button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-                    {/*<tbody>*/}
-                    {/*<tr>*/}
-                    {/*    <td>*/}
-                    {/*        {selectedProductColor} / {selectedProductSize}*/}
-                    {/*    </td>*/}
-                    {/*    <td>*/}
-                    {/*        {quantityCount}*/}
-                    {/*    </td>*/}
-                    {/*    <td>{product.price}</td>*/}
-                    {/*</tr>*/}
-                    {/*</tbody>*/}
                 </table>
-
-
             </div>
         </>
-
     )
 
     return (
@@ -195,7 +199,7 @@ const ProductDescription = ({
                                             setQuantityCount(1)
                                             setSelectedProductSize(false)
                                         }}
-                                        onClick={handleChange('productColor')}
+                                        onClick={handleChange('selectedProductColor')}
                                     />
                                     <label
                                         htmlFor={product.color}
@@ -232,9 +236,8 @@ const ProductDescription = ({
                                                     setProductStock(productSize.stock)
                                                     setQuantityCount(1)
                                                     setOpenOrderBox(true)
-                                                    setSelectedProductColor(false)
                                                 }}
-                                                onClick={handleChange('productSize')}
+                                                onClick={handleChange('selectedProductSize')}
                                             />
                                             <label htmlFor={productSize.name}>
                                                 {productSize.name}
@@ -249,37 +252,37 @@ const ProductDescription = ({
             </div>
 
             <Fragment>
-                <div className="product-content__quantity space-mb--40">
-                    <div className="product-content__quantity__title">Quantity</div>
-                    <div className="cart-plus-minus">
-                        <button
-                            className="qtybutton"
-                            onClick={() => {
-                                setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)
-                            }}
-                        >
-                            -
-                        </button>
-                        <input
-                            className="cart-plus-minus-box"
-                            type="text"
-                            value={quantityCount}
-                            readOnly
-                        />
-                        <button
-                            className="qtybutton"
-                            onClick={() => {
-                                setQuantityCount(
-                                    quantityCount < productStock
-                                        ? quantityCount + 1
-                                        : quantityCount
-                                )
-                            }}
-                        >
-                            +
-                        </button>
-                    </div>
-                </div>
+                {/*<div className="product-content__quantity space-mb--40">*/}
+                {/*    <div className="product-content__quantity__title">Quantity</div>*/}
+                {/*    <div className="cart-plus-minus">*/}
+                {/*        <button*/}
+                {/*            className="qtybutton"*/}
+                {/*            onClick={() => {*/}
+                {/*                setQuantityCount(quantityCount > 1 ? quantityCount - 1 : 1)*/}
+                {/*            }}*/}
+                {/*        >*/}
+                {/*            -*/}
+                {/*        </button>*/}
+                {/*        <input*/}
+                {/*            className="cart-plus-minus-box"*/}
+                {/*            type="text"*/}
+                {/*            value={quantityCount}*/}
+                {/*            readOnly*/}
+                {/*        />*/}
+                {/*        <button*/}
+                {/*            className="qtybutton"*/}
+                {/*            onClick={() => {*/}
+                {/*                setQuantityCount(*/}
+                {/*                    quantityCount < productStock*/}
+                {/*                        ? quantityCount + 1*/}
+                {/*                        : quantityCount*/}
+                {/*                )*/}
+                {/*            }}*/}
+                {/*        >*/}
+                {/*            +*/}
+                {/*        </button>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
 
                 {openOrderBox === true ? orderBox : null}
 
@@ -330,19 +333,29 @@ const ProductDescription = ({
                     </button>
 
                     {openOrderBox === true ? (
+
+
                         <button
+
                             onClick={() =>
-                                addToCart(
-                                    product,
-                                    quantityCount,
-                                    selectedProductColor,
-                                    selectedProductSize
-                                )
+                                selectedProductSize ?
+                                    rows.map((item) => (
+                                        addToCart(
+                                            product,
+                                            quantityCount,
+                                            item.selectedProductColor,
+                                            item.selectedProductSize
+                                        )
+                                    )) : ""
+                                // addToCart(
+                                //     product,
+                                //     quantityCount,
+                                //     selectedProductColor,
+                                //     selectedProductSize
+                                // ) : alert("Should select size")
                             }
                             // disabled={productCartQty >= productStock}
-                            className={`product-content__cart space-mr--10 ${
-                                cartItem !== undefined ? "active" : ""
-                            }`}
+                            className="product-content__cart space-mr--10"
                         >
                             <IoIosCart/>
                         </button>

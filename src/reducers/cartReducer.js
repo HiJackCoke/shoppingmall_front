@@ -1,6 +1,6 @@
 import { v4 as uuid4 } from 'uuid';
 import { ADD_TO_CART, DELETE_FROM_CART, DELETE_ALL_FROM_CART, DECREASE_QUANTITY } from '../actions/types'
-import {deleteFromCart} from "../actions/cartActions";
+
 
 const initialState = [];
 

@@ -61,11 +61,13 @@ const CartOverlay = ({
                                                     </Link>
                                                 </div>
                                                 <div className="content">
+
                                                     <h5>
                                                         <Link to={`/shop/${product.id}`}>
                                                             {product.name}
                                                         </Link>
                                                     </h5>
+
                                                     {product.selectedProductColor &&
                                                     product.selectedProductSize ? (
                                                         <div className="cart-item-variation">
@@ -74,6 +76,9 @@ const CartOverlay = ({
                                                             </span>
                                                             <span>
                                                                 Size : {product.selectedProductSize}
+                                                            </span>
+                                                            <span>
+                                                                Quantity : {product.quantity}
                                                             </span>
                                                         </div>
                                                     ) : (
