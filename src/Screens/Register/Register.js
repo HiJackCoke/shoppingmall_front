@@ -147,7 +147,10 @@ const Register = ({history, registerUser}) => {
                             </div>
                         </Col>
                         <Col lg={6}>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </Col>
                     </Row>
                 </Container>

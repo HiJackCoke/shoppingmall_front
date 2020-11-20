@@ -32,6 +32,8 @@ const ProductDescription = ({
 
     const [quantityCount, setQuantityCount] = useState(1)
 
+    const [quantity] = useState(1)
+
     const [rows, setRows] = useState([])
 
     const [temperData, setTemperData] = useState([])
@@ -39,6 +41,8 @@ const ProductDescription = ({
     if(temperData.selectedProductSize && temperData.selectedProductColor) {
         rows.push(temperData)
     }
+    console.log(rows)
+    console.log(quantityCount)
 
     useEffect(() => {
         if(temperData.selectedProductSize) {
@@ -47,8 +51,9 @@ const ProductDescription = ({
         }
     }, [selectedProductSize])
 
+
     const handleChange = text => e => {
-        setTemperData({...temperData, [text]: e.target.value } )
+        setTemperData({...temperData, quantity, [text]: e.target.value} )
     }
 
     const deleteOrder = item => () => {

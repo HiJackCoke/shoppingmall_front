@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import {LayoutTwo} from "../../components/Layout/Layout";
 import SliderMain from "../../components/Slider/SliderMain";
-import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import ProductTab from "../../components/ProductTab/ProductTab";
 import HomeNewSlider from "../../components/HomeNewSlider/HomeNewSlider";
 
@@ -12,7 +11,7 @@ import HomeNewSlider from "../../components/HomeNewSlider/HomeNewSlider";
 
 
 
-const Home = ({product}) => {
+const Home = () => {
 
     const [products, setProducts] = useState([])
 

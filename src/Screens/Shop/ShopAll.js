@@ -13,23 +13,6 @@ import img from '../../assets/images/category/banner-bestseller-2.jpg'
 const ShopAll = ({products}) => {
 
     const [layout] = useState("grid four-column");
-    // const [products, setProducts] = useState([])
-    //
-    // const getData = async () => {
-    //     const {data} = await axios.get('/products')
-    //     setProducts(data)
-    //
-    //     console.log(data)
-    // }
-    //
-    //
-    // useEffect(() => {
-    //
-    //     getData()
-    //
-    //
-    // }, [])
-
 
     return (
         <LayoutTwo>

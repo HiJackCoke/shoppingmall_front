@@ -22,23 +22,23 @@ const ShopHeader = ({getLayout}) => {
                                 </select>
                             </div>
 
-                            <div className="single-icon grid-icons d-none d-lg-block">
-                                <button
-                                    onClick={(e) => {
-                                        getLayout("grid three-column")
-                                    }}
-                                >
-                                    <MdApps/>
-                                </button>
+                            {/*<div className="single-icon grid-icons d-none d-lg-block">*/}
+                            {/*    <button*/}
+                            {/*        onClick={(e) => {*/}
+                            {/*            getLayout("grid three-column")*/}
+                            {/*        }}*/}
+                            {/*    >*/}
+                            {/*        <MdApps/>*/}
+                            {/*    </button>*/}
 
-                                <button
-                                    onClick={(e) => {
-                                        getLayout("grid four-column")
-                                    }}
-                                >
-                                    <MdViewComfy/>
-                                </button>
-                            </div>
+                            {/*    <button*/}
+                            {/*        onClick={(e) => {*/}
+                            {/*            getLayout("grid four-column")*/}
+                            {/*        }}*/}
+                            {/*    >*/}
+                            {/*        <MdViewComfy/>*/}
+                            {/*    </button>*/}
+                            {/*</div>*/}
                         </div>
                     </Col>
                 </Row>

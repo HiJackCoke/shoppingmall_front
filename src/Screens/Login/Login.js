@@ -5,7 +5,7 @@ import axios from 'axios';
 import {connect} from 'react-redux';
 import {loginUser} from "../../actions/authActions";
 
-import { isAuth, authenticate, setCookie } from '../../helpers/auth'
+import { authenticate } from '../../helpers/auth'
 
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
@@ -133,7 +133,10 @@ const Login = ({loginUser}) => {
                             </div>
                         </Col>
                         <Col lg={6}>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </Col>
                     </Row>
                 </Container>
