@@ -56,6 +56,7 @@ const CartOverlay = ({
                                                     <Link to={`/shop/${product.id}`}>
                                                         <img
                                                             src={product.images[0].url}
+                                                            alt=""
                                                             className="img-fluid"
                                                         />
                                                     </Link>

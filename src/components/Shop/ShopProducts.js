@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {Row} from 'react-bootstrap';
 // import products from "../../products";
 
@@ -11,14 +11,14 @@ const ShopProducts = ({layout}) => {
 
     const [products, setProducts] = useState([])
 
-    const getData = async () => {
+    const getData = useCallback(async () => {
         const {data} = await axios.get('/products')
         setProducts(data)
-    };
+    });
 
     useEffect(() => {
         getData()
-    },[])
+    },[getData])
 
     return (
         <div className="shop-products">

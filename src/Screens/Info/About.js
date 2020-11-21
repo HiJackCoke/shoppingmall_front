@@ -60,9 +60,9 @@ const About = () => {
 
                                 <p className="video-text video-text-left">
                                     <Link
-                                        href="/shop/all"
+                                        to="/shop/all"
                                     >
-                                        <a>TONIST</a>
+                                        TONIST
                                     </Link>
                                 </p>
 
@@ -79,6 +79,7 @@ const About = () => {
                                             <img
                                                 className="img-fluid"
                                                 src={img2}
+                                                alt=""
                                             />
                                         </button>
                                     </div>
@@ -86,7 +87,7 @@ const About = () => {
                                 </div>
                                 <p className="video-text video-text-right">
                                     <Link
-                                        href="/info/about"
+                                        to="/info/about"
                                     >
                                         STORE
                                     </Link>

@@ -48,7 +48,10 @@ const ShopAll = ({products}) => {
                             >
                                 OUTER
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -58,7 +61,10 @@ const ShopAll = ({products}) => {
                             >
                                 TOP
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -68,7 +74,10 @@ const ShopAll = ({products}) => {
                             >
                                 BOTTOM
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         {/*<li>*/}

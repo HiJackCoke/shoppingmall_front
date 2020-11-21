@@ -65,6 +65,7 @@ const Wishlist = ({wishlistItems, deleteFromWishlist, deleteAllFromWishlist}) =>
                                                     >
                                                         <img
                                                             src={product.images[0].url}
+                                                            alt=""
                                                             className="img-fluid"
                                                         />
                                                     </Link>
@@ -102,6 +103,7 @@ const Wishlist = ({wishlistItems, deleteFromWishlist, deleteAllFromWishlist}) =>
                                                                     <div className="single-imgae">
                                                                         <img
                                                                             src={product.images[0].url}
+                                                                            alt=""
                                                                         />
                                                                     </div>
                                                                 </Swiper>

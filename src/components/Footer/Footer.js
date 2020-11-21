@@ -54,7 +54,7 @@ const Footer = () => {
               {/*=======  copyright text  =======*/}
               <div className="footer-copyright-text">
                 &copy; {new Date().getFullYear() + " "}
-                <a href="https://www.hasthemes.com" target="_blank">
+                <a href="https://www.hasthemes.com">
                   TONIST
                 </a>
                 . All Rights Reserved | <span>010 6779 6574</span> |
@@ -74,7 +74,7 @@ const Footer = () => {
                         arrow={true}
                         duration={200}
                     >
-                      <a href="https://www.facebook.com" target="_blank">
+                      <a href="https://www.facebook.com">
                         <FaFacebookF />
                       </a>
                     </Tooltip>
@@ -88,7 +88,7 @@ const Footer = () => {
                         arrow={true}
                         duration={200}
                     >
-                      <a href="https://www.instagram.com" target="_blank">
+                      <a href="https://www.instagram.com" >
                         <FaInstagram />
                       </a>
                     </Tooltip>
@@ -102,7 +102,7 @@ const Footer = () => {
                         arrow={true}
                         duration={200}
                     >
-                      <a href="https://www.youtube.com" target="_blank">
+                      <a href="https://www.youtube.com">
                         <FaYoutube />
                       </a>
                     </Tooltip>

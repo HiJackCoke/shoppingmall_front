@@ -2,13 +2,13 @@ import React from 'react';
 import IdSwiper from "react-id-swiper/lib/ReactIdSwiper.custom";
 import { Swiper, Navigation, Pagination} from 'swiper'
 
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 import HomeGridWrapper from "../ProductThumb/HomeGridWrapper";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
 
-const HomeNewSlider = ({spaceBottomClass, products}) => {
+const HomeNewSlider = ({ products}) => {
 
     const params = {
         Swiper,

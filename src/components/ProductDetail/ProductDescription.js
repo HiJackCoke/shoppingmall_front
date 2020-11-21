@@ -49,7 +49,7 @@ const ProductDescription = ({
             setTemperData(false)
             setSelectedProductColor(false)
         }
-    }, [selectedProductSize])
+    }, [temperData.selectedProductSize])
 
 
     const handleChange = text => e => {

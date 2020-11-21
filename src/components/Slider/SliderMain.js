@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from "react-router-dom";
 import Swiper from "react-id-swiper";
 import { Container, Row, Col } from "react-bootstrap";
-import {IoIosArrowForward, IoIosArrowBack} from 'react-icons/io'
 
 import PropTypes from 'prop-types';
 

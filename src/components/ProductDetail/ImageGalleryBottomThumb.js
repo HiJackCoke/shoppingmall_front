@@ -1,5 +1,5 @@
 
-import React, {Fragment, useState, useEffect, useRef} from 'react';
+import React, {Fragment, useState} from 'react';
 import { LightgalleryItem, LightgalleryProvider } from 'react-lightgallery';
 import SwiperCore, {Controller, EffectFade, Navigation, Pagination, Thumbs} from 'swiper'
 import {Swiper, SwiperSlide} from 'swiper/react'
@@ -18,8 +18,7 @@ const ImageGalleryBottomThumb = ({
                                  }) => {
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const [firstSwiper, setFirstSwiper] = useState(null);
-    const [secondSwiper, setSecondSwiper] = useState(null);
+
 
     return (
         <Fragment>

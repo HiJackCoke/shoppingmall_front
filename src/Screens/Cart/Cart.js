@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom'
 import { Container, Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-import { IoIosClose, IoMdCart } from "react-icons/io";
+import { IoIosClose } from "react-icons/io";
 
 import {LayoutTwo} from "../../components/Layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
@@ -11,7 +11,7 @@ import {addToCart, deleteFromCart, deleteAllFromCart, decreaseQuantity } from '.
 
 const Cart = ({ cartItems, addToCart, deleteFromCart, deleteAllFromCart, decreaseQuantity }) => {
 
-    const [quantityCount] = useState(1);
+    // const [quantityCount] = useState(1);
     let cartTotalPrice = 0;
 
     useEffect(() => {
@@ -63,6 +63,7 @@ const Cart = ({ cartItems, addToCart, deleteFromCart, deleteAllFromCart, decreas
                                                             <img
                                                                 className="img-fluid"
                                                                 src={product.images[0].url}
+                                                                alt=""
                                                             />
                                                         </Link>
                                                     </td>

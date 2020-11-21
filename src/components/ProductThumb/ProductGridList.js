@@ -1,7 +1,7 @@
 import React, {Fragment, useState} from 'react';
 import { Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import { IoIosHeartEmpty, IoIosHeart, IoIosCart, IoIosSearch } from 'react-icons/io';
+import { IoIosHeartEmpty, IoIosHeart, IoIosSearch } from 'react-icons/io';
 
 import ProductModal from "./ProductModal";
 import {Tooltip} from "react-tippy";
