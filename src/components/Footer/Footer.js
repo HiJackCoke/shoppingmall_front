@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {Link} from 'react-router-dom'
 import { Container, Row, Col } from "react-bootstrap";
-import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import { IoIosArrowRoundUp } from "react-icons/io";
 import { animateScroll } from "react-scroll";
 import {Tooltip} from 'react-tippy'

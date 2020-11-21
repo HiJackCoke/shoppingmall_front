@@ -39,7 +39,7 @@ const ProductPage = ({
 
     useEffect(() => {
         getData()
-    }, [])
+    }, [getData])
 
 
 

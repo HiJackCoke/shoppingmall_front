@@ -33,7 +33,9 @@ const BottomSlacks = ({product}) => {
                                 ALL
                             </Link>
                             <img
-                                src={img}/>
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -43,7 +45,10 @@ const BottomSlacks = ({product}) => {
                             >
                                 COTTON
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -53,7 +58,10 @@ const BottomSlacks = ({product}) => {
                             >
                                 DENIM
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
                     </ul>
 

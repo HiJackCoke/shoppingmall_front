@@ -34,7 +34,9 @@ const BottomDenim = ({product}) => {
                                 ALL
                             </Link>
                             <img
-                                src={img}/>
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -44,7 +46,10 @@ const BottomDenim = ({product}) => {
                             >
                                 SLACKS
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -54,7 +59,10 @@ const BottomDenim = ({product}) => {
                             >
                                 COTTON
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
                     </ul>
 

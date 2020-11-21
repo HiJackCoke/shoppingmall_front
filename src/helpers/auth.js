@@ -17,13 +17,13 @@ export const authenticate = (response, next) => {
     next();
 };
 
-const removeCookie = key => {
-    if(window !== 'undefined') {
-        cookie.remove(key, {
-            expires: 7
-        })
-    }
-}
+// const removeCookie = key => {
+//     if(window !== 'undefined') {
+//         cookie.remove(key, {
+//             expires: 7
+//         })
+//     }
+// }
 
 
 export const setLocalStorage =  (key, value) => {

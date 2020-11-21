@@ -33,7 +33,9 @@ const TopT = ({product}) => {
                                 ALL
                             </Link>
                             <img
-                                src={img}/>
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -43,7 +45,10 @@ const TopT = ({product}) => {
                             >
                                 SHIRT
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -53,7 +58,10 @@ const TopT = ({product}) => {
                             >
                                 KNIT
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
                     </ul>
 

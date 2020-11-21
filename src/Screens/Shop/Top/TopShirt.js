@@ -33,7 +33,9 @@ const TopShirt = ({product}) => {
                                 ALL
                             </Link>
                             <img
-                                src={img}/>
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -43,7 +45,10 @@ const TopShirt = ({product}) => {
                             >
                                 TEE
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -53,7 +58,10 @@ const TopShirt = ({product}) => {
                             >
                                 KNIT
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
                     </ul>
 

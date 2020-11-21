@@ -32,7 +32,9 @@ const OuterJacket = ({product}) => {
                                 ALL OUTER
                             </Link>
                             <img
-                                src={img}/>
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -42,7 +44,10 @@ const OuterJacket = ({product}) => {
                             >
                                 LONG COAT
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -52,7 +57,10 @@ const OuterJacket = ({product}) => {
                             >
                                 SHORT COAT
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
                     </ul>
                 </div>

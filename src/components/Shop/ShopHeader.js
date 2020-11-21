@@ -1,8 +1,7 @@
 import React from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
-import { MdViewComfy, MdApps } from 'react-icons/md'
 
-const ShopHeader = ({getLayout}) => {
+const ShopHeader = () => {
 
     return (
         <div className="shop-header">

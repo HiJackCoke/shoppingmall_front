@@ -33,7 +33,9 @@ const OuterAll = ({product}) => {
                                 LONG COAT
                             </Link>
                             <img
-                                src={img}/>
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -43,7 +45,10 @@ const OuterAll = ({product}) => {
                             >
                                 SHORT COAT
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
 
                         <li>
@@ -53,7 +58,10 @@ const OuterAll = ({product}) => {
                             >
                                 JACKET
                             </Link>
-                            <img src={img}/>
+                            <img
+                                src={img}
+                                alt=""
+                            />
                         </li>
                     </ul>
 

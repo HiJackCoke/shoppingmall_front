@@ -39,7 +39,7 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+    }, [headerTop ,headerHeight, scroll]);
 
     const handleScroll = () => {
         setScroll(window.scrollY);
