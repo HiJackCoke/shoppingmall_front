@@ -1,5 +1,5 @@
 
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios'
 import {LayoutTwo} from "../../components/Layout/Layout";
 import SliderMain from "../../components/Slider/SliderMain";
@@ -15,15 +15,15 @@ const Home = () => {
 
     const [products, setProducts] = useState([])
 
-    const getData = useCallback(async () => {
+    const getData = async () => {
         const {data} = await axios.get('/products')
         setProducts(data)
         console.log("+++++++++++++", data)
-    })
+    }
 
     useEffect(() => {
         getData()
-    },[getData])
+    },[getData()])
 
     return (
         <LayoutTwo >

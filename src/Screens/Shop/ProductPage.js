@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 import {Container, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
@@ -32,14 +32,14 @@ const ProductPage = ({
         (wishlistItem) => wishlistItem.id === product.id)[0]
 
 
-    const getData = useCallback(async () => {
-            const {data} = await axios.get(`/products/${id}`)
-            setProduct(data)
-        }
-    )
+    const getData = async () => {
+        const {data} = await axios.get(`/products/${id}`)
+        setProduct(data)
+    }
+
     useEffect(() => {
         getData()
-    }, [getData])
+    }, [getData()])
 
 
 
