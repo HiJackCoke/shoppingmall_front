@@ -13,6 +13,7 @@ const SliderMain = ({ sliderData, spaceBottomClass }) => {
     const params = {
         loop: true,
         speed: 1000,
+        effect: "fade",
         watchSlidesVisibility: true,
         navigation: {
             nextEl: ".swiper-button-next",
@@ -23,17 +24,15 @@ const SliderMain = ({ sliderData, spaceBottomClass }) => {
             <button
                 className="swiper-button-prev ht-swiper-button-nav"
                 style={{color: "black", fontSize: "50px"}}
-            >
-                <IoIosArrowBack/>
-            </button>
+            />
+
         ),
         renderNextButton: () => (
             <button
                 className="swiper-button-next ht-swiper-button-nav"
                 style={{color: "black", fontSize:"50px"}}
-            >
-                <IoIosArrowForward/>
-            </button>
+            />
+
         )
     };
     return (

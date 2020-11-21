@@ -21,6 +21,7 @@ const HomeNewSlider = ({spaceBottomClass, products}) => {
         },
         pagination: {
             el: ".swiper-pagination",
+            clickable: true
         },
         breakpoints: {
             1024: {
