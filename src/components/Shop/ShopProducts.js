@@ -18,7 +18,7 @@ const ShopProducts = ({layout}) => {
 
     useEffect(() => {
         getData()
-    },[getData])
+    })
 
     return (
         <div className="shop-products">
