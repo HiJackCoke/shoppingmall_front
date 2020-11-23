@@ -18,7 +18,7 @@ const Home = () => {
     const getData = async () => {
         const {data} = await axios.get('/products')
         setProducts(data)
-        console.log("+++++++++++++", data)
+
     }
 
     useEffect(() => {

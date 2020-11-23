@@ -50,7 +50,7 @@ const ImageGalleryBottomThumb = ({
 
                         {product.images && product.images.map((image, i) => {
                             return (
-                                <SwiperSlide>
+                                <SwiperSlide key={i}>
                                     <div key={i}>
                                         <LightgalleryItem
                                             group="any"
@@ -108,7 +108,7 @@ const ImageGalleryBottomThumb = ({
                 >
                     {product.images && product.images.map((image, i) => {
                         return (
-                            <SwiperSlide>
+                            <SwiperSlide key={i}>
                                 <div key={i}>
                                     <div className="single-image">
                                         <img

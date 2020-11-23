@@ -32,29 +32,34 @@ const ProductDescription = ({
 
     const [quantityCount, setQuantityCount] = useState(1)
 
-    const [quantity] = useState(1)
 
     const [rows, setRows] = useState([])
 
     const [temperData, setTemperData] = useState([])
+    //
+    // if(temperData.selectedProductSize && temperData.selectedProductColor) {
+    //     rows.push(temperData)
+    // }
 
-    if(temperData.selectedProductSize && temperData.selectedProductColor) {
-        rows.push(temperData)
-    }
-    console.log(rows)
-    console.log(quantityCount)
+
 
     useEffect(() => {
+        if(temperData.selectedProductSize && temperData.selectedProductColor) {
+            rows.push(temperData)
+        }
+
         if(temperData.selectedProductSize) {
             setTemperData(false)
             setSelectedProductColor(false)
         }
+        console.log(temperData)
     }, [temperData.selectedProductSize])
 
 
     const handleChange = text => e => {
-        setTemperData({...temperData, quantity, [text]: e.target.value} )
+        setTemperData({...temperData, [text]: e.target.value} )
     }
+
 
     const deleteOrder = item => () => {
         const items = rows.filter(row =>
@@ -62,6 +67,7 @@ const ProductDescription = ({
         )
         setRows(items)
     }
+
 
     const orderBox = (
         <>
@@ -92,6 +98,7 @@ const ProductDescription = ({
                         <td>&nbsp;</td>
                     </tr>
                     </thead>
+
                     <tbody>
                         {rows.map((item, i) => (
                             <tr key={i}>
@@ -125,7 +132,7 @@ const ProductDescription = ({
                                                     backgroundColor: "whitesmoke",
                                                     width: "60px"
                                                 }}
-                                                value={quantityCount}
+                                                value={item.quantity}
                                                 readOnly
                                             />
                                             <button

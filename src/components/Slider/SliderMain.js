@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 
 const SliderMain = ({ sliderData, spaceBottomClass }) => {
 
-    console.log("222223232323232",sliderData)
     const params = {
         loop: true,
         speed: 1000,

@@ -4,10 +4,9 @@ import cartReducer from "./cartReducer";
 import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 
-
 export default combineReducers({
     wishlistData: wishlistReducer,
     cartData: cartReducer,
     authData: authReducer,
-    errorData: errorReducer,
+    errors: errorReducer,
 })

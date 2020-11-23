@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
@@ -29,33 +29,15 @@ const Register = ({history, registerUser}) => {
     const handleSubmit = e => {
         e.preventDefault()
 
-        registerUser(username, email, password)
-
         if(password !== confirmPassword) {
             alert("password dose not matching")
-            return
         }
 
-        axios
-            .post('/auth/local/register', formData)
-            .then(res => {
-                setFormData({
-                    ...formData,
-                    username: "",
-                    email: "",
-                    password: "",
-                    confirmPassword: ""
-                })
-                console.log("user profile", res.data.user)
-                // console.log("token", response.data.jwt)
 
-            })
-            .catch(error => {
-                console.log(error.response)
-            })
+        console.log("--------", formData)
+        registerUser(formData, history)
+
     }
-
-
 
     return (
         <LayoutTwo>
@@ -160,15 +142,17 @@ const Register = ({history, registerUser}) => {
 };
 
 
+Register.propTypes = {
+    registerUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    errors: PropTypes.object.isRequired,
+}
+
+
 const mapStateToProps = (state) => ({
     auth: state.authData,
-    error: state.errorData
+    error: state.errors
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    registerUser: (userData) => {
-        dispatch(registerUser(userData))
-    }
-})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, {registerUser})(withRouter(Register));

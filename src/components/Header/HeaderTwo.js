@@ -1,7 +1,8 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import {Container} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Modal, Container, Button} from 'react-bootstrap'
+import {Link, withRouter} from 'react-router-dom'
 import {connect} from'react-redux'
+import {logoutUser} from '../../actions/authActions'
 import {
     IoIosSearch,
     IoMdPerson,
@@ -9,15 +10,18 @@ import {
     IoIosCart,
     IoIosMenu
 } from 'react-icons/io';
+
+
 import Navigation from "./elements/Navigation";
 import SearchOverlay from "./elements/SearchOverlay";
 import WishlistOverlay from "./elements/WishlistOverlay";
 import CartOverlay from "./elements/CartOverlay";
 import MobileMenu from "./elements/MobileMenu";
+import ModalHeader from "reactstrap/es/ModalHeader";
 
 
 
-const HeaderTwo = ({ cartItems, wishlistItems }) => {
+const HeaderTwo = ({ cartItems, wishlistItems, logoutUser }) => {
 
 
     const [scroll, setScroll] = useState();
@@ -27,6 +31,9 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
     const [offCanvasWishlistActive, setOffCanvasWishlistActive] = useState(false);
     const [offCanvasCartActive, setOffCanvasCartActive] = useState(false);
     const [offCanvasMobileMenuActive, setOffCanvasMobileMenuActive] = useState(false);
+
+    const [modal, setModal] = useState(false)
+    const [logout, setLogout] = useState(false)
 
     useEffect(() => {
         const header = document.querySelector("header");
@@ -44,6 +51,15 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
     const handleScroll = () => {
         setScroll(window.scrollY);
     };
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        if(logout === true) {
+            logoutUser()
+        }
+
+    }
 
     return (
         <Fragment>
@@ -87,11 +103,90 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
                                     </button>
                                 </li>
                                 <li>
-                                    <Link
-                                        to="/login"
-                                    >
-                                        <IoMdPerson />
-                                    </Link>
+                                    {localStorage.jwtToken ? (
+                                        <nav
+                                            className="header-content__navigation d-none d-lg-block"
+                                            style={{
+                                                width:"20px"
+                                            }}
+                                        >
+                                            <ul>
+                                                <li>
+                                                    <Link to="/mypage">
+                                                        <IoMdPerson/>
+                                                    </Link>
+                                                    <ul
+                                                        className="sub-menu"
+                                                        style={{
+                                                            display:"flex",
+                                                            flexDirection: "Column"
+                                                        }}
+                                                    >
+                                                        <li className="sub-menu--mega__title">
+                                                            <form onSubmit={handleSubmit}>
+                                                                <Link
+                                                                    to='/mypage'
+                                                                >
+                                                                    Profile
+                                                                </Link>
+
+                                                            </form>
+                                                        </li>
+
+                                                        <li className="sub-menu--mega__title">
+                                                            <button
+                                                                onClick={() => setModal(true)}
+                                                            >
+                                                                Log Out
+                                                            </button>
+                                                            <Modal
+                                                                show={modal}
+                                                            >
+                                                                <Modal.Header
+                                                                    closeButton
+                                                                    onHide={() => setModal(false)}
+                                                                >
+
+                                                                </Modal.Header>
+                                                                <Modal.Body>
+                                                                    <label>
+                                                                        Do u wanna
+                                                                    </label>
+                                                                </Modal.Body>
+                                                                <Modal.Footer>
+                                                                    <form onSubmit={handleSubmit}>
+                                                                        <Button
+                                                                            color="primary"
+                                                                            onClick={() => setLogout(true)}
+                                                                        >
+                                                                            Do Something
+                                                                        </Button>{' '}
+                                                                        <Button
+                                                                            color="warning"
+                                                                            onClick={() => setModal(false)}
+                                                                        >
+                                                                            Cancel
+                                                                        </Button>
+                                                                    </form>
+
+                                                                </Modal.Footer>
+                                                            </Modal>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                        </nav>
+
+
+                                    ) : (
+                                        <Link
+                                            to="/login"
+                                        >
+                                            <IoMdPerson />
+                                        </Link>
+                                    )}
+
                                 </li>
                                 <li>
                                     <button
@@ -192,8 +287,10 @@ const HeaderTwo = ({ cartItems, wishlistItems }) => {
 
 const mapStateToProps = (state) =>({
     wishlistItems: state.wishlistData,
-    cartItems: state.cartData
+    cartItems: state.cartData,
+    auth: state.authData,
+    errors: state.errors
 })
 
 
-export default connect(mapStateToProps)(HeaderTwo);
+export default connect(mapStateToProps, {logoutUser})(withRouter(HeaderTwo));

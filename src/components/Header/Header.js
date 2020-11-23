@@ -91,12 +91,23 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
                                     </button>
                                 </li>
                                 <li>
-                                    <Link
-                                        to="/register"
-                                    >
-                                      <IoMdPerson />
-                                    </Link>
+                                    {localStorage.jwtToken ? (
+                                       <Link
+                                        to="/"
+                                       >
+                                           <h1>My</h1>
+                                       </Link>
+                                    ) : (
+                                        <Link
+                                            to="/register"
+                                        >
+                                            <IoMdPerson />
+                                        </Link>
+                                    )}
+
                                 </li>
+
+
                                 <li>
                                     <button
                                         onClick={() => {

@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import { persistStore } from 'redux-persist'
+// import jwt_decoded from 'jwt-decode';
+// import setAuthToken from "./utills/setAuthToken";
+// import {setCurrentUser, loginUser} from "./actions/authActions";
 
 import App from './App';
 
@@ -39,12 +42,23 @@ import Agreement from "./Screens/Info/Agreement";
 import Wishlist from "./Screens/Wishlist/Wishlist";
 import Cart from "./Screens/Cart/Cart";
 
+import MyPage from "./Screens/My/MyPage";
+
 
 import {Provider} from 'react-redux';
 import { PersistGate } from "redux-persist/integration/react";
 import store from './store'
 
 const persist = persistStore(store)
+
+if(localStorage.jwtToken) {
+
+    console.log("jwt",localStorage.jwtToken)
+    // setAuthToken(localStorage.jwtToken)
+    // const decoded = jwt_decoded(localStorage.jwtToken)
+    // store.dispatch(setCurrentUser(decoded))
+
+}
 
 
 ReactDOM.render(
@@ -90,6 +104,8 @@ ReactDOM.render(
 
                     <Route path='/order/wishlist' render={props => <Wishlist{...props} /> } />
                     <Route path='/order/cart' render={props => <Cart {...props}/> } />
+
+                    <Route path='/mypage' render={props => <MyPage {...props}/> } />
                     <Redirect to="/" />
                 </Switch>
             </BrowserRouter>

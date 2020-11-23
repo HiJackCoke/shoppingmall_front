@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_ERRORS, SET_CURRENT_USER} from './types'
+import {SET_CURRENT_USER} from './types'
 import jwt_decoded from 'jwt-decode';
 import setAuthToken from "../utills/setAuthToken";
 
@@ -17,12 +17,9 @@ export const registerUser = (userData, history) => dispatch => {
         .then(res => {
             history.push('/login')
         })
-        .catch(err => (
-            dispatch({
-                type: GET_ERRORS,
-                payload: err.response
-            })
-        ))
+        .catch(err => {
+            console.log(err)
+        })
 }
 
 export const setCurrentUser = decoded => {
@@ -42,14 +39,15 @@ export const loginUser = userData => dispatch => {
         .post('/auth/local', userData)
         .then(res => {
 
-            const {token} = res.data;
+            console.log('sdsdsd', res)
 
+            const {jwt} = res.data;
 
-            localStorage.setItem('jwtToken', token)
+            localStorage.setItem('jwtToken', jwt)
 
-            setAuthToken(token)
+            setAuthToken(jwt)
 
-            const decoded = jwt_decoded(token)
+            const decoded = jwt_decoded(jwt)
 
             dispatch(setCurrentUser(decoded))
 
@@ -57,10 +55,14 @@ export const loginUser = userData => dispatch => {
 
         })
         .catch(err => {
-            dispatch({
-                type:GET_ERRORS,
-                payload:err.response.data
-            })
+           console.log(err)
         })
 }
+
+export const logoutUser = () => dispatch => {
+    localStorage.removeItem('jwtToken');
+    setAuthToken(false)
+    dispatch(setCurrentUser({}))
+}
+
 

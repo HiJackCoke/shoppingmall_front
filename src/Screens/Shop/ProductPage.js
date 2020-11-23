@@ -31,6 +31,8 @@ const ProductPage = ({
     const wishlistItem = wishlistItems.filter(
         (wishlistItem) => wishlistItem.id === product.id)[0]
 
+    const cartItem = cartItems.filter(
+        (cartItem) => cartItem.id === product.id)[0]
 
     const getData = async () => {
         const {data} = await axios.get(`/products/${id}`)
@@ -69,6 +71,7 @@ const ProductPage = ({
                             <ProductDescription
                                 product={product}
                                 wishlistItem={wishlistItem}
+                                cartItem={cartItem}
                                 addToWishlist={addToWishlist}
                                 deleteFromWishlist={deleteFromWishlist}
                                 addToCart={addToCart}
