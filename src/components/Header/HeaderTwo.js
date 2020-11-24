@@ -21,7 +21,7 @@ import ModalHeader from "reactstrap/es/ModalHeader";
 
 
 
-const HeaderTwo = ({ cartItems, wishlistItems, logoutUser }) => {
+const HeaderTwo = ({ cartItems, wishlistItems, logoutUser, history }) => {
 
 
     const [scroll, setScroll] = useState();
@@ -57,6 +57,8 @@ const HeaderTwo = ({ cartItems, wishlistItems, logoutUser }) => {
 
         if(logout === true) {
             logoutUser()
+
+            history.push('/')
         }
 
     }
@@ -104,7 +106,7 @@ const HeaderTwo = ({ cartItems, wishlistItems, logoutUser }) => {
                                 </li>
                                 <li>
                                     {localStorage.jwtToken ? (
-                                        <nav
+                                        <div
                                             className="header-content__navigation d-none d-lg-block"
                                             style={{
                                                 width:"20px"
@@ -150,22 +152,24 @@ const HeaderTwo = ({ cartItems, wishlistItems, logoutUser }) => {
                                                                 </Modal.Header>
                                                                 <Modal.Body>
                                                                     <label>
-                                                                        Do u wanna
+                                                                        Do u wanna Log Out?
                                                                     </label>
                                                                 </Modal.Body>
                                                                 <Modal.Footer>
                                                                     <form onSubmit={handleSubmit}>
                                                                         <Button
-                                                                            color="primary"
-                                                                            onClick={() => setLogout(true)}
+                                                                            type="submit"
+                                                                            className="lezada-button lezada-button--small"
+                                                                            onClick={() =>
+                                                                                setLogout(true)}
                                                                         >
-                                                                            Do Something
+                                                                            YES
                                                                         </Button>{' '}
                                                                         <Button
-                                                                            color="warning"
+                                                                            className="lezada-button lezada-button--small"
                                                                             onClick={() => setModal(false)}
                                                                         >
-                                                                            Cancel
+                                                                            NO
                                                                         </Button>
                                                                     </form>
 
@@ -176,9 +180,7 @@ const HeaderTwo = ({ cartItems, wishlistItems, logoutUser }) => {
                                                 </li>
                                             </ul>
 
-                                        </nav>
-
-
+                                        </div>
                                     ) : (
                                         <Link
                                             to="/login"

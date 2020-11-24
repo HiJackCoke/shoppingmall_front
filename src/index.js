@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 import { persistStore } from 'redux-persist'
-// import jwt_decoded from 'jwt-decode';
-// import setAuthToken from "./utills/setAuthToken";
-// import {setCurrentUser, loginUser} from "./actions/authActions";
+import jwt_decoded from 'jwt-decode';
+import setAuthToken from "./utills/setAuthToken";
+import {setCurrentUser, loginUser} from "./actions/authActions";
 
 import App from './App';
 
@@ -53,11 +53,15 @@ const persist = persistStore(store)
 
 if(localStorage.jwtToken) {
 
-    console.log("jwt",localStorage.jwtToken)
-    // setAuthToken(localStorage.jwtToken)
-    // const decoded = jwt_decoded(localStorage.jwtToken)
-    // store.dispatch(setCurrentUser(decoded))
 
+    const decoded = jwt_decoded(localStorage.jwtToken)
+    store.dispatch(setCurrentUser(decoded))
+
+    const currentTime = Date.now() / 1000;
+    if(decoded.exp < currentTime) {
+        store.dispatch(loginUser());
+        window.location.href= '/login'
+    }
 }
 
 
@@ -105,7 +109,24 @@ ReactDOM.render(
                     <Route path='/order/wishlist' render={props => <Wishlist{...props} /> } />
                     <Route path='/order/cart' render={props => <Cart {...props}/> } />
 
-                    <Route path='/mypage' render={props => <MyPage {...props}/> } />
+                    {/*<Route path='/mypage' render={props => <MyPage {...props}/> } />*/}
+
+                    <Route
+                        path='/mypage'
+                        render={props => {
+                            if(localStorage.jwtToken) {
+                                return (
+                                    <MyPage {...props} />
+                                )
+                            }
+                            else {
+                                return (
+                                    <Redirect to="/login"/>
+                                )
+                            }
+                    }}
+
+                    />
                     <Redirect to="/" />
                 </Switch>
             </BrowserRouter>
