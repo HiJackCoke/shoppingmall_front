@@ -1,10 +1,13 @@
-import React from 'react';
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { FaCloudDownloadAlt, FaRegEdit } from "react-icons/fa";
+import React, {useState} from 'react';
+import { Container, Row, Col, Tab, Nav, Modal, Button } from "react-bootstrap";
+
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
 
 const MyPage = () => {
+
+    const [modal, setModal] = useState(false)
+
     return (
         <LayoutTwo>
             <Breadcrumb
@@ -117,13 +120,12 @@ const MyPage = () => {
                                                 className="thead-dark"
                                                 style={{
                                                     borderBottom: "1px solid #ededed",
-
                                                 }}
                                             >
                                                 <th
                                                     className="w-25 p-3"
                                                 >
-                                                    받는분
+                                                    배송지
                                                 </th>
                                                 <th>
                                                     배송지 정보
@@ -149,15 +151,153 @@ const MyPage = () => {
                                                     010 - xxxx - xxxx
                                                 </td>
                                                 <td>
-                                                    <form
-                                                        style={{
-                                                            margin: "-10px 0px"
-                                                        }}
+
+                                                    <button
+                                                        className="lezada-button lezada-button--small"
+                                                        onClick={() => setModal(true)}
                                                     >
-                                                        <button className="lezada-button lezada-button--small">
-                                                            배송지 변경
-                                                        </button>
-                                                    </form>
+                                                        배송지 변경
+                                                    </button>
+                                                    <Modal show={modal}>
+                                                        <Modal.Header
+                                                            closeButton
+                                                            onHide={() => setModal(false)}
+                                                            style={{
+                                                                alignItems: "center"
+                                                            }}
+                                                        >
+                                                            배송지 관리
+                                                        </Modal.Header>
+                                                        <Modal.Body>
+                                                            <div
+                                                                className="table-responsive"
+                                                                style={{
+                                                                    lineHeight: "70px",
+                                                                    marginTop: "-16px"
+                                                                }}
+                                                            >
+                                                               <form>
+                                                                   <div>
+                                                                       <Row>
+                                                                           <Col lg={12}
+
+                                                                                style={{
+                                                                                    borderBottom: "1px solid #ededed"
+                                                                                }}
+                                                                           >
+                                                                               <label
+                                                                                   style={{
+                                                                                       width: "20%",
+                                                                                       margin: "0px 20px"
+                                                                                   }}
+                                                                               >
+                                                                                   수령인 <span className="required">*</span>{" "}
+                                                                               </label>
+                                                                               <input
+                                                                                   style={{
+                                                                                       width: "30%",
+                                                                                       height: "34px",
+                                                                                   }}
+                                                                               />
+                                                                           </Col>
+                                                                           <Col lg={12}
+                                                                                className="space-mb--20"
+                                                                                style={{
+                                                                                    borderBottom: "1px solid #ededed"
+                                                                                }}
+                                                                           >
+                                                                               <label
+                                                                                   style={{
+                                                                                       width: "20%",
+                                                                                       margin: "0px 20px"
+                                                                                   }}
+                                                                               >
+                                                                                    휴대전화 <span className="required">*</span>{" "}
+                                                                               </label>
+                                                                               <span>
+                                                                                   <input
+                                                                                       style={{
+                                                                                           width: "15%",
+                                                                                           height: "34px"
+                                                                                       }}
+                                                                                   /> -
+                                                                                   <input
+                                                                                       style={{
+                                                                                           width: "15%",
+                                                                                           height: "34px"
+                                                                                       }}
+                                                                                   /> -
+                                                                                   <input
+                                                                                       style={{
+                                                                                           width: "15%",
+                                                                                           height: "34px"
+                                                                                       }}
+                                                                                   />
+                                                                               </span>
+                                                                           </Col>
+                                                                           <Col lg={12}
+                                                                                className="space-mb--20 d-flex"
+                                                                                style={{
+                                                                                    lineHeight: "31px"
+                                                                                }}
+                                                                           >
+                                                                               <label
+                                                                                   style={{
+                                                                                       width: "20%",
+                                                                                       margin: "0px 20px"
+                                                                                   }}
+                                                                               >
+                                                                                   배송지 주소 <span className="required">*</span>{" "}
+                                                                               </label>
+
+                                                                               <div>
+                                                                                   <input
+                                                                                       readOnly
+                                                                                       style={{
+                                                                                           width: "40%",
+                                                                                           height: "35px"
+                                                                                       }}
+                                                                                   /> {" "}
+                                                                                   <button className="lezada-button">
+                                                                                       주소 찾기
+                                                                                   </button>
+
+
+
+                                                                                   <div className="mt-1">
+                                                                                       <input style={{width: "100%"}}/>
+                                                                                       <input
+                                                                                           style={{width: "100%", margin: "4px 0px"}}
+                                                                                       />
+                                                                                   </div>
+                                                                               </div>
+                                                                           </Col>
+                                                                           <Col
+                                                                               lg={12}
+                                                                               style={{textAlign: "center"}}
+                                                                           >
+                                                                               <form>
+                                                                                   <Button
+                                                                                       type="submit"
+                                                                                       className="lezada-button lezada-button--small"
+                                                                                   >
+                                                                                       YES
+                                                                                   </Button>{' '}
+                                                                                   <Button
+                                                                                       className="lezada-button lezada-button--small"
+                                                                                       onClick={() => setModal(false)}
+                                                                                   >
+                                                                                       NO
+                                                                                   </Button>
+                                                                               </form>
+                                                                           </Col>
+                                                                       </Row>
+                                                                   </div>
+                                                               </form>
+                                                            </div>
+                                                        </Modal.Body>
+                                                    </Modal>
+
                                                 </td>
                                             </tr>
                                             </tbody>
@@ -197,15 +337,9 @@ const MyPage = () => {
                                                 <td
                                                     className="text-center"
                                                 >
-                                                    <form
-                                                        style={{
-                                                            margin: "-10px 0px"
-                                                        }}
-                                                    >
-                                                        <button className="lezada-button lezada-button--small">
-                                                            Change Password
-                                                        </button>
-                                                    </form>
+                                                    <button className="lezada-button lezada-button--small">
+                                                        Change Password
+                                                    </button>
                                                 </td>
                                             </tr>
                                             <tr>
