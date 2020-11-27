@@ -2,6 +2,7 @@ import axios from 'axios';
 import {SET_CURRENT_USER} from './types'
 import jwt_decoded from 'jwt-decode';
 import setAuthToken from "../utills/setAuthToken";
+import {authenticate} from "../helpers/auth";
 
 
 
@@ -38,22 +39,36 @@ export const loginUser = userData => dispatch => {
     axios
         .post('/auth/local', userData)
         .then(res => {
+            authenticate(res, () => {
 
-            console.log('sdsdsd', res)
+                const {jwt} = res.data;
 
-            const {jwt} = res.data;
+                localStorage.setItem('jwtToken', jwt)
 
-            localStorage.setItem('jwtToken', jwt)
+                setAuthToken(jwt)
 
-            setAuthToken(jwt)
+                const decoded = jwt_decoded(jwt)
 
-            const decoded = jwt_decoded(jwt)
-
-            dispatch(setCurrentUser(decoded))
-
-
-
+                dispatch(setCurrentUser(decoded))
+            })
         })
+        // .then(res => {
+        //
+        //     console.log('sdsdsd', res)
+        //
+        //     const {jwt} = res.data;
+        //
+        //     localStorage.setItem('jwtToken', jwt)
+        //
+        //     setAuthToken(jwt)
+        //
+        //     const decoded = jwt_decoded(jwt)
+        //
+        //     dispatch(setCurrentUser(decoded))
+        //
+        //
+        //
+        // })
         .catch(err => {
            console.log(err)
         })
