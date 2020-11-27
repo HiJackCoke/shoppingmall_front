@@ -1,10 +1,23 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Container, Row, Col, Tab, Nav, Modal, Button } from "react-bootstrap";
+import axios from 'axios'
 
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import {LayoutTwo} from "../../components/Layout/Layout";
 
 const MyPage = () => {
+
+    const [user, setUser] = useState([])
+
+    const getData = async () => {
+        const {data} = axios.get('/user')
+
+        setUser(data)
+    }
+
+    useEffect(() => {
+        getData()
+    })
 
     const [modal, setModal] = useState(false)
 

@@ -121,7 +121,9 @@ const HeaderTwo = ({ cartItems, wishlistItems, logoutUser, history }) => {
                                                         className="sub-menu"
                                                         style={{
                                                             display:"flex",
-                                                            flexDirection: "Column"
+                                                            flexDirection: "Column",
+                                                            borderRadius: "3px",
+                                                            backgroundColor: "transparent"
                                                         }}
                                                     >
                                                         <li className="sub-menu--mega__title">
@@ -129,7 +131,11 @@ const HeaderTwo = ({ cartItems, wishlistItems, logoutUser, history }) => {
                                                                 <Link
                                                                     to='/mypage'
                                                                 >
-                                                                    Profile
+                                                                    <button
+                                                                        style={{fontSize: "x-large"}}
+                                                                    >
+                                                                        Profile
+                                                                    </button>
                                                                 </Link>
 
                                                             </form>
@@ -137,6 +143,7 @@ const HeaderTwo = ({ cartItems, wishlistItems, logoutUser, history }) => {
 
                                                         <li className="sub-menu--mega__title">
                                                             <button
+                                                                style={{fontSize: "x-large"}}
                                                                 onClick={() => setModal(true)}
                                                             >
                                                                 Log Out

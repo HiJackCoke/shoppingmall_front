@@ -1,6 +1,8 @@
 import React, {useState, useEffect, Fragment} from 'react';
-import {Container} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+import {Button, Container, Modal} from 'react-bootstrap'
+import {Link, withRouter} from 'react-router-dom'
+import {connect} from'react-redux'
+import {logoutUser} from '../../actions/authActions'
 import {
     IoIosSearch,
     IoMdPerson,
@@ -16,7 +18,7 @@ import MobileMenu from "./elements/MobileMenu";
 
 
 
-const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
+const Header = ({ history, cartItems, wishlistItems}) => {
 
 
     const [scroll, setScroll] = useState();
@@ -26,6 +28,9 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
     const [offCanvasWishlistActive, setOffCanvasWishlistActive] = useState(false);
     const [offCanvasCartActive, setOffCanvasCartActive] = useState(false);
     const [offCanvasMobileMenuActive, setOffCanvasMobileMenuActive] = useState(false);
+
+    const [modal, setModal] = useState(false)
+    const [logout, setLogout] = useState(false)
 
     useEffect( () => {
         const header = document.querySelector("header");
@@ -44,6 +49,19 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
     const handleScroll = () => {
         setScroll(window.scrollY)
     }
+
+
+    const handleSubmit = e => {
+        e.preventDefault()
+
+        if(logout === true) {
+            logoutUser()
+
+            history.push('/')
+        }
+
+    }
+
 
     return (
         <Fragment>
@@ -92,22 +110,97 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
                                 </li>
                                 <li>
                                     {localStorage.jwtToken ? (
-                                       <Link
-                                        to="/"
-                                       >
-                                           <h1>My</h1>
-                                       </Link>
+                                        <div
+                                            className="header-content__navigation d-none d-lg-block"
+                                            style={{
+                                                width:"20px"
+                                            }}
+                                        >
+                                            <ul>
+                                                <li>
+                                                    <Link to="/mypage">
+                                                        <IoMdPerson/>
+                                                    </Link>
+                                                    <ul
+                                                        className="sub-menu"
+                                                        style={{
+                                                            display:"flex",
+                                                            flexDirection: "Column",
+                                                            borderRadius: "3px",
+                                                            backgroundColor: "transparent"
+                                                        }}
+                                                    >
+                                                        <li className="sub-menu--mega__title">
+                                                            <form onSubmit={handleSubmit}>
+                                                                <Link
+                                                                    to='/mypage'
+                                                                >
+                                                                    <button
+                                                                        style={{fontSize: "x-large"}}
+                                                                    >
+                                                                        Profile
+                                                                    </button>
+                                                                </Link>
+
+                                                            </form>
+                                                        </li>
+
+                                                        <li className="sub-menu--mega__title">
+                                                            <button
+                                                                style={{fontSize: "x-large"}}
+                                                                onClick={() => setModal(true)}
+                                                            >
+                                                                Log Out
+                                                            </button>
+                                                            <Modal
+                                                                show={modal}
+                                                            >
+                                                                <Modal.Header
+                                                                    closeButton
+                                                                    onHide={() => setModal(false)}
+                                                                >
+
+                                                                </Modal.Header>
+                                                                <Modal.Body>
+                                                                    <label>
+                                                                        Do u wanna Log Out?
+                                                                    </label>
+                                                                </Modal.Body>
+                                                                <Modal.Footer>
+                                                                    <form onSubmit={handleSubmit}>
+                                                                        <Button
+                                                                            type="submit"
+                                                                            className="lezada-button lezada-button--small"
+                                                                            onClick={() =>
+                                                                                setLogout(true)}
+                                                                        >
+                                                                            YES
+                                                                        </Button>{' '}
+                                                                        <Button
+                                                                            className="lezada-button lezada-button--small"
+                                                                            onClick={() => setModal(false)}
+                                                                        >
+                                                                            NO
+                                                                        </Button>
+                                                                    </form>
+
+                                                                </Modal.Footer>
+                                                            </Modal>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+
+                                        </div>
                                     ) : (
                                         <Link
-                                            to="/register"
+                                            to="/login"
                                         >
                                             <IoMdPerson />
                                         </Link>
                                     )}
 
                                 </li>
-
-
                                 <li>
                                     <button
                                         onClick={() => {
@@ -118,6 +211,13 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
                                         }}
                                     >
                                         <IoIosHeartEmpty />
+                                        {wishlistItems.length >= 1 ? (
+                                            <span className="count">
+                                                {wishlistItems.length ? wishlistItems.length : ""}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
                                     </button>
                                 </li>
                                 <li>
@@ -130,6 +230,13 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
                                         }}
                                     >
                                         <IoIosCart />
+                                        {cartItems.length >=1 ? (
+                                            <span className="count">
+                                                {cartItems.length ? cartItems.length : ""}
+                                            </span>
+                                        ) : (
+                                            ""
+                                        )}
                                     </button>
                                 </li>
                             </ul>
@@ -190,4 +297,12 @@ const Header = ({ aboutOverlay, cartItems, wishlistItems}) => {
     );
 };
 
-export default Header;
+
+const mapStateToProps = (state) =>({
+    wishlistItems: state.wishlistData,
+    cartItems: state.cartData,
+    auth: state.authData,
+    errors: state.errors
+})
+
+export default connect(mapStateToProps,{logoutUser})(withRouter(Header));
