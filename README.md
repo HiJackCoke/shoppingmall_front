@@ -26,13 +26,12 @@
 
 
  - To Do List
--[ ] 
 
  - Check Out
--[x] Hook (useState, useEffect, useParams)
--[x] redux
--[x] Axios CRUD
--[x] Upgrade Back-End (with GraphQL)
--[x] Deploy website
--[x] Add Docker 
+- [x] Hook (useState, useEffect, useParams)
+- [x] redux
+- [x] Axios CRUD
+- [x] Upgrade Back-End (with GraphQL)
+- [x] Deploy website
+- [x] Add Docker 
 
