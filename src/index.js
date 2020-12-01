@@ -54,7 +54,7 @@ const persist = persistStore(store)
 if(localStorage.jwtToken) {
 
 
-    setAuthToken(localStorage.jwtToken)
+    // setAuthToken(localStorage.jwtToken)
     const decoded = jwt_decoded(localStorage.jwtToken)
     store.dispatch(setCurrentUser(decoded))
 

@@ -132,7 +132,7 @@ const ProductDescription = ({
                                                     backgroundColor: "whitesmoke",
                                                     width: "60px"
                                                 }}
-                                                value={item.quantity}
+                                                value={quantityCount}
                                                 readOnly
                                             />
                                             <button

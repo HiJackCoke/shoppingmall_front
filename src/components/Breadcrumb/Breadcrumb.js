@@ -2,13 +2,15 @@ import React from 'react';
 import { Container, Row, Col} from 'react-bootstrap';
 import PropTypes from 'prop-types'
 
+import img from '../../assets/images/banners/banner.png'
+
 const Breadcrumb = ({ children, className, title, backgroundImage }) => {
     return (
         <div
             className={`breadcrumb-area space-pt--70 space-pb--70 ${
                 className ? className : ""
             }`}
-            style={{backgroundImage: `url(${backgroundImage})`}}
+            style={{backgroundImage: `url(${img})`}}
         >
             <Container>
                 <Row>
