@@ -1,10 +1,21 @@
 # Tonist ShoppingMall Project
 
 ## Introduction
-
+ 
+ - 최근 플랫폼을 이용한 온라인 의류 쇼핑몰들이 많이보입니다. 많은 쇼핑몰을 직접사용해보고 불편던점, 개선했던점을 토대로 웹 쇼핑몰을 제작해 봤습니다.
+ 
 ## DEMO Screen & Video
+https://youtu.be/lT5k67FDGEA
 
 ## Features / Implemented
+
+ - Swiper : Image Wrapping And Slide, Thumbnail 
+ - redux : auth, wishlist, cart 등
+ - Modal : Product Quick View, Log Out 재확인 메세지
+ - Hook : useState, useEffect, useParams, useNavigation
+ - react- : tippy, customScroll, lightgallery, modal-video, scroll(animaieScroll) 
+ - axios, jwt-decode
+ - scss
 
 ### Register
 
