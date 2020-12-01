@@ -23,3 +23,16 @@
 
 ### Cart
 <img src="https://user-images.githubusercontent.com/54699548/100688066-d2e8a280-33c4-11eb-84e6-271472d242f4.gif" />
+
+
+ - To Do List
+-[ ] 
+
+ - Check Out
+-[x] Hook (useState, useEffect, useParams)
+-[x] redux
+-[x] Axios CRUD
+-[x] Upgrade Back-End (with GraphQL)
+-[x] Deploy website
+-[x] Add Docker 
+
